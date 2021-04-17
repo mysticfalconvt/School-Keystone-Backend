@@ -8,8 +8,8 @@
     "dev": "keystone-next",
     "seed-data": "keystone-next --seed-data",
 
-    "build": "keystone-next build",
-    "start": "keystone-next build && keystone-next start"
+    "start": "keystone-next",
+    "build": "keystone-next build"
   },
   "eslintConfig": {
     "extends": "wesbos/typescript.js",
