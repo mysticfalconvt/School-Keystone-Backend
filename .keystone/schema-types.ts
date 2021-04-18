@@ -56,6 +56,13 @@ export type PbisCardRelateToManyInput = {
   readonly disconnectAll?: Scalars['Boolean'] | null;
 };
 
+export type DisciplineRelateToManyInput = {
+  readonly create?: ReadonlyArray<DisciplineCreateInput | null> | null;
+  readonly connect?: ReadonlyArray<DisciplineWhereUniqueInput | null> | null;
+  readonly disconnect?: ReadonlyArray<DisciplineWhereUniqueInput | null> | null;
+  readonly disconnectAll?: Scalars['Boolean'] | null;
+};
+
 export type CallbackRelateToManyInput = {
   readonly create?: ReadonlyArray<CallbackCreateInput | null> | null;
   readonly connect?: ReadonlyArray<CallbackWhereUniqueInput | null> | null;
@@ -166,6 +173,12 @@ export type UserWhereInput = {
   readonly studentPbisCards_every?: PbisCardWhereInput | null;
   readonly studentPbisCards_some?: PbisCardWhereInput | null;
   readonly studentPbisCards_none?: PbisCardWhereInput | null;
+  readonly teacherDiscipline_every?: DisciplineWhereInput | null;
+  readonly teacherDiscipline_some?: DisciplineWhereInput | null;
+  readonly teacherDiscipline_none?: DisciplineWhereInput | null;
+  readonly studentDiscipline_every?: DisciplineWhereInput | null;
+  readonly studentDiscipline_some?: DisciplineWhereInput | null;
+  readonly studentDiscipline_none?: DisciplineWhereInput | null;
   readonly callbackItems_every?: CallbackWhereInput | null;
   readonly callbackItems_some?: CallbackWhereInput | null;
   readonly callbackItems_none?: CallbackWhereInput | null;
@@ -455,6 +468,10 @@ export type SortUsersBy =
   | 'teacherPbisCards_DESC'
   | 'studentPbisCards_ASC'
   | 'studentPbisCards_DESC'
+  | 'teacherDiscipline_ASC'
+  | 'teacherDiscipline_DESC'
+  | 'studentDiscipline_ASC'
+  | 'studentDiscipline_DESC'
   | 'callbackItems_ASC'
   | 'callbackItems_DESC'
   | 'callbackAssigned_ASC'
@@ -518,6 +535,8 @@ export type UserUpdateInput = {
   readonly teacherCellPhoneViolation?: CellPhoneViolationRelateToManyInput | null;
   readonly teacherPbisCards?: PbisCardRelateToManyInput | null;
   readonly studentPbisCards?: PbisCardRelateToManyInput | null;
+  readonly teacherDiscipline?: DisciplineRelateToManyInput | null;
+  readonly studentDiscipline?: DisciplineRelateToManyInput | null;
   readonly callbackItems?: CallbackRelateToManyInput | null;
   readonly callbackAssigned?: CallbackRelateToManyInput | null;
   readonly callbackCount?: Scalars['Int'] | null;
@@ -571,6 +590,8 @@ export type UserCreateInput = {
   readonly teacherCellPhoneViolation?: CellPhoneViolationRelateToManyInput | null;
   readonly teacherPbisCards?: PbisCardRelateToManyInput | null;
   readonly studentPbisCards?: PbisCardRelateToManyInput | null;
+  readonly teacherDiscipline?: DisciplineRelateToManyInput | null;
+  readonly studentDiscipline?: DisciplineRelateToManyInput | null;
   readonly callbackItems?: CallbackRelateToManyInput | null;
   readonly callbackAssigned?: CallbackRelateToManyInput | null;
   readonly callbackCount?: Scalars['Int'] | null;
@@ -1665,6 +1686,332 @@ export type CallbacksCreateInput = {
   readonly data?: CallbackCreateInput | null;
 };
 
+export type DisciplineWhereInput = {
+  readonly AND?: ReadonlyArray<DisciplineWhereInput | null> | null;
+  readonly OR?: ReadonlyArray<DisciplineWhereInput | null> | null;
+  readonly id?: Scalars['ID'] | null;
+  readonly id_not?: Scalars['ID'] | null;
+  readonly id_in?: ReadonlyArray<Scalars['ID'] | null> | null;
+  readonly id_not_in?: ReadonlyArray<Scalars['ID'] | null> | null;
+  readonly teacherComments?: Scalars['String'] | null;
+  readonly teacherComments_not?: Scalars['String'] | null;
+  readonly teacherComments_contains?: Scalars['String'] | null;
+  readonly teacherComments_not_contains?: Scalars['String'] | null;
+  readonly teacherComments_starts_with?: Scalars['String'] | null;
+  readonly teacherComments_not_starts_with?: Scalars['String'] | null;
+  readonly teacherComments_ends_with?: Scalars['String'] | null;
+  readonly teacherComments_not_ends_with?: Scalars['String'] | null;
+  readonly teacherComments_i?: Scalars['String'] | null;
+  readonly teacherComments_not_i?: Scalars['String'] | null;
+  readonly teacherComments_contains_i?: Scalars['String'] | null;
+  readonly teacherComments_not_contains_i?: Scalars['String'] | null;
+  readonly teacherComments_starts_with_i?: Scalars['String'] | null;
+  readonly teacherComments_not_starts_with_i?: Scalars['String'] | null;
+  readonly teacherComments_ends_with_i?: Scalars['String'] | null;
+  readonly teacherComments_not_ends_with_i?: Scalars['String'] | null;
+  readonly teacherComments_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly teacherComments_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly adminComments?: Scalars['String'] | null;
+  readonly adminComments_not?: Scalars['String'] | null;
+  readonly adminComments_contains?: Scalars['String'] | null;
+  readonly adminComments_not_contains?: Scalars['String'] | null;
+  readonly adminComments_starts_with?: Scalars['String'] | null;
+  readonly adminComments_not_starts_with?: Scalars['String'] | null;
+  readonly adminComments_ends_with?: Scalars['String'] | null;
+  readonly adminComments_not_ends_with?: Scalars['String'] | null;
+  readonly adminComments_i?: Scalars['String'] | null;
+  readonly adminComments_not_i?: Scalars['String'] | null;
+  readonly adminComments_contains_i?: Scalars['String'] | null;
+  readonly adminComments_not_contains_i?: Scalars['String'] | null;
+  readonly adminComments_starts_with_i?: Scalars['String'] | null;
+  readonly adminComments_not_starts_with_i?: Scalars['String'] | null;
+  readonly adminComments_ends_with_i?: Scalars['String'] | null;
+  readonly adminComments_not_ends_with_i?: Scalars['String'] | null;
+  readonly adminComments_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly adminComments_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly classType?: Scalars['String'] | null;
+  readonly classType_not?: Scalars['String'] | null;
+  readonly classType_contains?: Scalars['String'] | null;
+  readonly classType_not_contains?: Scalars['String'] | null;
+  readonly classType_starts_with?: Scalars['String'] | null;
+  readonly classType_not_starts_with?: Scalars['String'] | null;
+  readonly classType_ends_with?: Scalars['String'] | null;
+  readonly classType_not_ends_with?: Scalars['String'] | null;
+  readonly classType_i?: Scalars['String'] | null;
+  readonly classType_not_i?: Scalars['String'] | null;
+  readonly classType_contains_i?: Scalars['String'] | null;
+  readonly classType_not_contains_i?: Scalars['String'] | null;
+  readonly classType_starts_with_i?: Scalars['String'] | null;
+  readonly classType_not_starts_with_i?: Scalars['String'] | null;
+  readonly classType_ends_with_i?: Scalars['String'] | null;
+  readonly classType_not_ends_with_i?: Scalars['String'] | null;
+  readonly classType_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly classType_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly location?: Scalars['String'] | null;
+  readonly location_not?: Scalars['String'] | null;
+  readonly location_contains?: Scalars['String'] | null;
+  readonly location_not_contains?: Scalars['String'] | null;
+  readonly location_starts_with?: Scalars['String'] | null;
+  readonly location_not_starts_with?: Scalars['String'] | null;
+  readonly location_ends_with?: Scalars['String'] | null;
+  readonly location_not_ends_with?: Scalars['String'] | null;
+  readonly location_i?: Scalars['String'] | null;
+  readonly location_not_i?: Scalars['String'] | null;
+  readonly location_contains_i?: Scalars['String'] | null;
+  readonly location_not_contains_i?: Scalars['String'] | null;
+  readonly location_starts_with_i?: Scalars['String'] | null;
+  readonly location_not_starts_with_i?: Scalars['String'] | null;
+  readonly location_ends_with_i?: Scalars['String'] | null;
+  readonly location_not_ends_with_i?: Scalars['String'] | null;
+  readonly location_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly location_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly timeOfDay?: Scalars['String'] | null;
+  readonly timeOfDay_not?: Scalars['String'] | null;
+  readonly timeOfDay_contains?: Scalars['String'] | null;
+  readonly timeOfDay_not_contains?: Scalars['String'] | null;
+  readonly timeOfDay_starts_with?: Scalars['String'] | null;
+  readonly timeOfDay_not_starts_with?: Scalars['String'] | null;
+  readonly timeOfDay_ends_with?: Scalars['String'] | null;
+  readonly timeOfDay_not_ends_with?: Scalars['String'] | null;
+  readonly timeOfDay_i?: Scalars['String'] | null;
+  readonly timeOfDay_not_i?: Scalars['String'] | null;
+  readonly timeOfDay_contains_i?: Scalars['String'] | null;
+  readonly timeOfDay_not_contains_i?: Scalars['String'] | null;
+  readonly timeOfDay_starts_with_i?: Scalars['String'] | null;
+  readonly timeOfDay_not_starts_with_i?: Scalars['String'] | null;
+  readonly timeOfDay_ends_with_i?: Scalars['String'] | null;
+  readonly timeOfDay_not_ends_with_i?: Scalars['String'] | null;
+  readonly timeOfDay_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly timeOfDay_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly student?: UserWhereInput | null;
+  readonly student_is_null?: Scalars['Boolean'] | null;
+  readonly teacher?: UserWhereInput | null;
+  readonly teacher_is_null?: Scalars['Boolean'] | null;
+  readonly date?: Scalars['String'] | null;
+  readonly date_not?: Scalars['String'] | null;
+  readonly date_lt?: Scalars['String'] | null;
+  readonly date_lte?: Scalars['String'] | null;
+  readonly date_gt?: Scalars['String'] | null;
+  readonly date_gte?: Scalars['String'] | null;
+  readonly date_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly date_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly addressed?: Scalars['String'] | null;
+  readonly addressed_not?: Scalars['String'] | null;
+  readonly addressed_lt?: Scalars['String'] | null;
+  readonly addressed_lte?: Scalars['String'] | null;
+  readonly addressed_gt?: Scalars['String'] | null;
+  readonly addressed_gte?: Scalars['String'] | null;
+  readonly addressed_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly addressed_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly inappropriateLanguage?: Scalars['Boolean'] | null;
+  readonly inappropriateLanguage_not?: Scalars['Boolean'] | null;
+  readonly physicalConduct?: Scalars['Boolean'] | null;
+  readonly physicalConduct_not?: Scalars['Boolean'] | null;
+  readonly nonCompliance?: Scalars['Boolean'] | null;
+  readonly nonCompliance_not?: Scalars['Boolean'] | null;
+  readonly disruption?: Scalars['Boolean'] | null;
+  readonly disruption_not?: Scalars['Boolean'] | null;
+  readonly propertyMisuse?: Scalars['Boolean'] | null;
+  readonly propertyMisuse_not?: Scalars['Boolean'] | null;
+  readonly otherConduct?: Scalars['Boolean'] | null;
+  readonly otherConduct_not?: Scalars['Boolean'] | null;
+  readonly VerbalWarning?: Scalars['Boolean'] | null;
+  readonly VerbalWarning_not?: Scalars['Boolean'] | null;
+  readonly buddyRoom?: Scalars['Boolean'] | null;
+  readonly buddyRoom_not?: Scalars['Boolean'] | null;
+  readonly conferenceWithStudent?: Scalars['Boolean'] | null;
+  readonly conferenceWithStudent_not?: Scalars['Boolean'] | null;
+  readonly ParentContact?: Scalars['Boolean'] | null;
+  readonly ParentContact_not?: Scalars['Boolean'] | null;
+  readonly PlanningRoomReferral?: Scalars['Boolean'] | null;
+  readonly PlanningRoomReferral_not?: Scalars['Boolean'] | null;
+  readonly FollowupPlan?: Scalars['Boolean'] | null;
+  readonly FollowupPlan_not?: Scalars['Boolean'] | null;
+  readonly LossOfPrivilege?: Scalars['Boolean'] | null;
+  readonly LossOfPrivilege_not?: Scalars['Boolean'] | null;
+  readonly DetentionWithTeacher?: Scalars['Boolean'] | null;
+  readonly DetentionWithTeacher_not?: Scalars['Boolean'] | null;
+  readonly IndividualizedInstruction?: Scalars['Boolean'] | null;
+  readonly IndividualizedInstruction_not?: Scalars['Boolean'] | null;
+  readonly GuidanceReferral?: Scalars['Boolean'] | null;
+  readonly GuidanceReferral_not?: Scalars['Boolean'] | null;
+  readonly ReferToAdministrator?: Scalars['Boolean'] | null;
+  readonly ReferToAdministrator_not?: Scalars['Boolean'] | null;
+  readonly OtherAction?: Scalars['Boolean'] | null;
+  readonly OtherAction_not?: Scalars['Boolean'] | null;
+  readonly none?: Scalars['Boolean'] | null;
+  readonly none_not?: Scalars['Boolean'] | null;
+  readonly peers?: Scalars['Boolean'] | null;
+  readonly peers_not?: Scalars['Boolean'] | null;
+  readonly teacherInvolved?: Scalars['Boolean'] | null;
+  readonly teacherInvolved_not?: Scalars['Boolean'] | null;
+  readonly substitute?: Scalars['Boolean'] | null;
+  readonly substitute_not?: Scalars['Boolean'] | null;
+  readonly unknown?: Scalars['Boolean'] | null;
+  readonly unknown_not?: Scalars['Boolean'] | null;
+  readonly othersInvolved?: Scalars['Boolean'] | null;
+  readonly othersInvolved_not?: Scalars['Boolean'] | null;
+};
+
+export type DisciplineWhereUniqueInput = {
+  readonly id: Scalars['ID'];
+};
+
+export type SortDisciplinesBy =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'teacherComments_ASC'
+  | 'teacherComments_DESC'
+  | 'adminComments_ASC'
+  | 'adminComments_DESC'
+  | 'classType_ASC'
+  | 'classType_DESC'
+  | 'location_ASC'
+  | 'location_DESC'
+  | 'timeOfDay_ASC'
+  | 'timeOfDay_DESC'
+  | 'student_ASC'
+  | 'student_DESC'
+  | 'teacher_ASC'
+  | 'teacher_DESC'
+  | 'date_ASC'
+  | 'date_DESC'
+  | 'addressed_ASC'
+  | 'addressed_DESC'
+  | 'inappropriateLanguage_ASC'
+  | 'inappropriateLanguage_DESC'
+  | 'physicalConduct_ASC'
+  | 'physicalConduct_DESC'
+  | 'nonCompliance_ASC'
+  | 'nonCompliance_DESC'
+  | 'disruption_ASC'
+  | 'disruption_DESC'
+  | 'propertyMisuse_ASC'
+  | 'propertyMisuse_DESC'
+  | 'otherConduct_ASC'
+  | 'otherConduct_DESC'
+  | 'VerbalWarning_ASC'
+  | 'VerbalWarning_DESC'
+  | 'buddyRoom_ASC'
+  | 'buddyRoom_DESC'
+  | 'conferenceWithStudent_ASC'
+  | 'conferenceWithStudent_DESC'
+  | 'ParentContact_ASC'
+  | 'ParentContact_DESC'
+  | 'PlanningRoomReferral_ASC'
+  | 'PlanningRoomReferral_DESC'
+  | 'FollowupPlan_ASC'
+  | 'FollowupPlan_DESC'
+  | 'LossOfPrivilege_ASC'
+  | 'LossOfPrivilege_DESC'
+  | 'DetentionWithTeacher_ASC'
+  | 'DetentionWithTeacher_DESC'
+  | 'IndividualizedInstruction_ASC'
+  | 'IndividualizedInstruction_DESC'
+  | 'GuidanceReferral_ASC'
+  | 'GuidanceReferral_DESC'
+  | 'ReferToAdministrator_ASC'
+  | 'ReferToAdministrator_DESC'
+  | 'OtherAction_ASC'
+  | 'OtherAction_DESC'
+  | 'none_ASC'
+  | 'none_DESC'
+  | 'peers_ASC'
+  | 'peers_DESC'
+  | 'teacherInvolved_ASC'
+  | 'teacherInvolved_DESC'
+  | 'substitute_ASC'
+  | 'substitute_DESC'
+  | 'unknown_ASC'
+  | 'unknown_DESC'
+  | 'othersInvolved_ASC'
+  | 'othersInvolved_DESC';
+
+export type DisciplineUpdateInput = {
+  readonly teacherComments?: Scalars['String'] | null;
+  readonly adminComments?: Scalars['String'] | null;
+  readonly classType?: Scalars['String'] | null;
+  readonly location?: Scalars['String'] | null;
+  readonly timeOfDay?: Scalars['String'] | null;
+  readonly student?: UserRelateToOneInput | null;
+  readonly teacher?: UserRelateToOneInput | null;
+  readonly date?: Scalars['String'] | null;
+  readonly addressed?: Scalars['String'] | null;
+  readonly inappropriateLanguage?: Scalars['Boolean'] | null;
+  readonly physicalConduct?: Scalars['Boolean'] | null;
+  readonly nonCompliance?: Scalars['Boolean'] | null;
+  readonly disruption?: Scalars['Boolean'] | null;
+  readonly propertyMisuse?: Scalars['Boolean'] | null;
+  readonly otherConduct?: Scalars['Boolean'] | null;
+  readonly VerbalWarning?: Scalars['Boolean'] | null;
+  readonly buddyRoom?: Scalars['Boolean'] | null;
+  readonly conferenceWithStudent?: Scalars['Boolean'] | null;
+  readonly ParentContact?: Scalars['Boolean'] | null;
+  readonly PlanningRoomReferral?: Scalars['Boolean'] | null;
+  readonly FollowupPlan?: Scalars['Boolean'] | null;
+  readonly LossOfPrivilege?: Scalars['Boolean'] | null;
+  readonly DetentionWithTeacher?: Scalars['Boolean'] | null;
+  readonly IndividualizedInstruction?: Scalars['Boolean'] | null;
+  readonly GuidanceReferral?: Scalars['Boolean'] | null;
+  readonly ReferToAdministrator?: Scalars['Boolean'] | null;
+  readonly OtherAction?: Scalars['Boolean'] | null;
+  readonly none?: Scalars['Boolean'] | null;
+  readonly peers?: Scalars['Boolean'] | null;
+  readonly teacherInvolved?: Scalars['Boolean'] | null;
+  readonly substitute?: Scalars['Boolean'] | null;
+  readonly unknown?: Scalars['Boolean'] | null;
+  readonly othersInvolved?: Scalars['Boolean'] | null;
+};
+
+export type DisciplinesUpdateInput = {
+  readonly id: Scalars['ID'];
+  readonly data?: DisciplineUpdateInput | null;
+};
+
+export type DisciplineCreateInput = {
+  readonly teacherComments?: Scalars['String'] | null;
+  readonly adminComments?: Scalars['String'] | null;
+  readonly classType?: Scalars['String'] | null;
+  readonly location?: Scalars['String'] | null;
+  readonly timeOfDay?: Scalars['String'] | null;
+  readonly student?: UserRelateToOneInput | null;
+  readonly teacher?: UserRelateToOneInput | null;
+  readonly date?: Scalars['String'] | null;
+  readonly addressed?: Scalars['String'] | null;
+  readonly inappropriateLanguage?: Scalars['Boolean'] | null;
+  readonly physicalConduct?: Scalars['Boolean'] | null;
+  readonly nonCompliance?: Scalars['Boolean'] | null;
+  readonly disruption?: Scalars['Boolean'] | null;
+  readonly propertyMisuse?: Scalars['Boolean'] | null;
+  readonly otherConduct?: Scalars['Boolean'] | null;
+  readonly VerbalWarning?: Scalars['Boolean'] | null;
+  readonly buddyRoom?: Scalars['Boolean'] | null;
+  readonly conferenceWithStudent?: Scalars['Boolean'] | null;
+  readonly ParentContact?: Scalars['Boolean'] | null;
+  readonly PlanningRoomReferral?: Scalars['Boolean'] | null;
+  readonly FollowupPlan?: Scalars['Boolean'] | null;
+  readonly LossOfPrivilege?: Scalars['Boolean'] | null;
+  readonly DetentionWithTeacher?: Scalars['Boolean'] | null;
+  readonly IndividualizedInstruction?: Scalars['Boolean'] | null;
+  readonly GuidanceReferral?: Scalars['Boolean'] | null;
+  readonly ReferToAdministrator?: Scalars['Boolean'] | null;
+  readonly OtherAction?: Scalars['Boolean'] | null;
+  readonly none?: Scalars['Boolean'] | null;
+  readonly peers?: Scalars['Boolean'] | null;
+  readonly teacherInvolved?: Scalars['Boolean'] | null;
+  readonly substitute?: Scalars['Boolean'] | null;
+  readonly unknown?: Scalars['Boolean'] | null;
+  readonly othersInvolved?: Scalars['Boolean'] | null;
+};
+
+export type DisciplinesCreateInput = {
+  readonly data?: DisciplineCreateInput | null;
+};
+
 export type _ksListsMetaInput = {
   readonly key?: Scalars['String'] | null;
   readonly auxiliary?: Scalars['Boolean'] | null;
@@ -1727,6 +2074,8 @@ export type UserListTypeInfo = {
     | 'teacherCellPhoneViolation'
     | 'teacherPbisCards'
     | 'studentPbisCards'
+    | 'teacherDiscipline'
+    | 'studentDiscipline'
     | 'callbackItems'
     | 'callbackAssigned'
     | 'callbackCount'
@@ -1774,6 +2123,8 @@ export type UserListTypeInfo = {
     readonly teacherCellPhoneViolation?: string | null;
     readonly teacherPbisCards?: string | null;
     readonly studentPbisCards?: string | null;
+    readonly teacherDiscipline?: string | null;
+    readonly studentDiscipline?: string | null;
     readonly callbackItems?: string | null;
     readonly callbackAssigned?: string | null;
     readonly callbackCount?: number | null;
@@ -2201,6 +2552,104 @@ export type CallbackListFn = (
   CallbackListTypeInfo['fields']
 >;
 
+export type DisciplineListTypeInfo = {
+  key: 'Discipline';
+  fields:
+    | 'id'
+    | 'teacherComments'
+    | 'adminComments'
+    | 'classType'
+    | 'location'
+    | 'timeOfDay'
+    | 'student'
+    | 'teacher'
+    | 'date'
+    | 'addressed'
+    | 'inappropriateLanguage'
+    | 'physicalConduct'
+    | 'nonCompliance'
+    | 'disruption'
+    | 'propertyMisuse'
+    | 'otherConduct'
+    | 'VerbalWarning'
+    | 'buddyRoom'
+    | 'conferenceWithStudent'
+    | 'ParentContact'
+    | 'PlanningRoomReferral'
+    | 'FollowupPlan'
+    | 'LossOfPrivilege'
+    | 'DetentionWithTeacher'
+    | 'IndividualizedInstruction'
+    | 'GuidanceReferral'
+    | 'ReferToAdministrator'
+    | 'OtherAction'
+    | 'none'
+    | 'peers'
+    | 'teacherInvolved'
+    | 'substitute'
+    | 'unknown'
+    | 'othersInvolved';
+  backing: {
+    readonly id: string;
+    readonly teacherComments?: string | null;
+    readonly adminComments?: string | null;
+    readonly classType?: string | null;
+    readonly location?: string | null;
+    readonly timeOfDay?: string | null;
+    readonly student?: string | null;
+    readonly teacher?: string | null;
+    readonly date?: Date | null;
+    readonly addressed?: Date | null;
+    readonly inappropriateLanguage?: boolean | null;
+    readonly physicalConduct?: boolean | null;
+    readonly nonCompliance?: boolean | null;
+    readonly disruption?: boolean | null;
+    readonly propertyMisuse?: boolean | null;
+    readonly otherConduct?: boolean | null;
+    readonly VerbalWarning?: boolean | null;
+    readonly buddyRoom?: boolean | null;
+    readonly conferenceWithStudent?: boolean | null;
+    readonly ParentContact?: boolean | null;
+    readonly PlanningRoomReferral?: boolean | null;
+    readonly FollowupPlan?: boolean | null;
+    readonly LossOfPrivilege?: boolean | null;
+    readonly DetentionWithTeacher?: boolean | null;
+    readonly IndividualizedInstruction?: boolean | null;
+    readonly GuidanceReferral?: boolean | null;
+    readonly ReferToAdministrator?: boolean | null;
+    readonly OtherAction?: boolean | null;
+    readonly none?: boolean | null;
+    readonly peers?: boolean | null;
+    readonly teacherInvolved?: boolean | null;
+    readonly substitute?: boolean | null;
+    readonly unknown?: boolean | null;
+    readonly othersInvolved?: boolean | null;
+  };
+  inputs: {
+    where: DisciplineWhereInput;
+    create: DisciplineCreateInput;
+    update: DisciplineUpdateInput;
+  };
+  args: {
+    listQuery: {
+      readonly where?: DisciplineWhereInput | null;
+      readonly sortBy?: ReadonlyArray<SortDisciplinesBy> | null;
+      readonly first?: Scalars['Int'] | null;
+      readonly skip?: Scalars['Int'] | null;
+    };
+  };
+};
+
+export type DisciplineListFn = (
+  listConfig: import('@keystone-next/keystone/schema').ListConfig<
+    DisciplineListTypeInfo,
+    DisciplineListTypeInfo['fields']
+  >
+) => import('@keystone-next/keystone/schema').ListConfig<
+  DisciplineListTypeInfo,
+  DisciplineListTypeInfo['fields']
+>;
+
 export type KeystoneListsTypeInfo = {
   readonly User: UserListTypeInfo;
   readonly Calendar: CalendarListTypeInfo;
@@ -2211,4 +2660,5 @@ export type KeystoneListsTypeInfo = {
   readonly StudentFocus: StudentFocusListTypeInfo;
   readonly CellPhoneViolation: CellPhoneViolationListTypeInfo;
   readonly Callback: CallbackListTypeInfo;
+  readonly Discipline: DisciplineListTypeInfo;
 };

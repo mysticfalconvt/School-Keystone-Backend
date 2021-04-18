@@ -1,7 +1,6 @@
 import { integer, select, text, relationship, timestamp, checkbox, } from '@keystone-next/fields';
 import { list } from '@keystone-next/keystone/schema';
 import { rules, isSignedIn } from '../access';
-import { CalendarDay } from '@keystonejs/fields'
 
 export const CellPhoneViolation = list({
     access: {

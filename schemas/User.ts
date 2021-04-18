@@ -53,6 +53,8 @@ export const User = list({
     teacherCellPhoneViolation: relationship({ ref: 'CellPhoneViolation.teacher', many: true }),
     teacherPbisCards: relationship({ ref: 'PbisCard.teacher', many: true }),
     studentPbisCards: relationship({ ref: 'PbisCard.student', many: true }),
+    teacherDiscipline: relationship({ ref: 'Discipline.teacher', many: true }),
+    studentDiscipline: relationship({ ref: 'Discipline.student', many: true }),
     callbackItems: relationship({ ref: 'Callback.student', many: true }),
     callbackAssigned: relationship({ ref: 'Callback.teacher', many: true }),
 

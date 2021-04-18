@@ -9,6 +9,7 @@ import { PbisTeam } from './schemas/PbisTeam'
 import { StudentFocus } from './schemas/StudentFocus'
 import { CellPhoneViolation } from './schemas/CellPhoneViolation'
 import { Callback } from './schemas/Callback'
+import { Discipline } from './schemas/Discipline'
 import { extendGraphqlSchema } from './mutations';
 import 'dotenv/config';
 import {
@@ -58,7 +59,8 @@ export default withAuth(
       PbisTeam,
       StudentFocus,
       CellPhoneViolation,
-      Callback
+      Callback,
+      Discipline
     }),
     extendGraphqlSchema,
     ui: {

@@ -47,6 +47,13 @@ input PbisCardRelateToManyInput {
   disconnectAll: Boolean
 }
 
+input DisciplineRelateToManyInput {
+  create: [DisciplineCreateInput]
+  connect: [DisciplineWhereUniqueInput]
+  disconnect: [DisciplineWhereUniqueInput]
+  disconnectAll: Boolean
+}
+
 input CallbackRelateToManyInput {
   create: [CallbackCreateInput]
   connect: [CallbackWhereUniqueInput]
@@ -97,6 +104,10 @@ type User {
   _teacherPbisCardsMeta(where: PbisCardWhereInput, search: String, sortBy: [SortPbisCardsBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
   studentPbisCards(where: PbisCardWhereInput, search: String, sortBy: [SortPbisCardsBy!], orderBy: String, first: Int, skip: Int): [PbisCard!]!
   _studentPbisCardsMeta(where: PbisCardWhereInput, search: String, sortBy: [SortPbisCardsBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+  teacherDiscipline(where: DisciplineWhereInput, search: String, sortBy: [SortDisciplinesBy!], orderBy: String, first: Int, skip: Int): [Discipline!]!
+  _teacherDisciplineMeta(where: DisciplineWhereInput, search: String, sortBy: [SortDisciplinesBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+  studentDiscipline(where: DisciplineWhereInput, search: String, sortBy: [SortDisciplinesBy!], orderBy: String, first: Int, skip: Int): [Discipline!]!
+  _studentDisciplineMeta(where: DisciplineWhereInput, search: String, sortBy: [SortDisciplinesBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
   callbackItems(where: CallbackWhereInput, search: String, sortBy: [SortCallbacksBy!], orderBy: String, first: Int, skip: Int): [Callback!]!
   _callbackItemsMeta(where: CallbackWhereInput, search: String, sortBy: [SortCallbacksBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
   callbackAssigned(where: CallbackWhereInput, search: String, sortBy: [SortCallbacksBy!], orderBy: String, first: Int, skip: Int): [Callback!]!
@@ -314,6 +325,24 @@ input UserWhereInput {
 
   """ condition must be false for all nodes """
   studentPbisCards_none: PbisCardWhereInput
+
+  """ condition must be true for all nodes """
+  teacherDiscipline_every: DisciplineWhereInput
+
+  """ condition must be true for at least 1 node """
+  teacherDiscipline_some: DisciplineWhereInput
+
+  """ condition must be false for all nodes """
+  teacherDiscipline_none: DisciplineWhereInput
+
+  """ condition must be true for all nodes """
+  studentDiscipline_every: DisciplineWhereInput
+
+  """ condition must be true for at least 1 node """
+  studentDiscipline_some: DisciplineWhereInput
+
+  """ condition must be false for all nodes """
+  studentDiscipline_none: DisciplineWhereInput
 
   """ condition must be true for all nodes """
   callbackItems_every: CallbackWhereInput
@@ -579,6 +608,10 @@ enum SortUsersBy {
   teacherPbisCards_DESC
   studentPbisCards_ASC
   studentPbisCards_DESC
+  teacherDiscipline_ASC
+  teacherDiscipline_DESC
+  studentDiscipline_ASC
+  studentDiscipline_DESC
   callbackItems_ASC
   callbackItems_DESC
   callbackAssigned_ASC
@@ -643,6 +676,8 @@ input UserUpdateInput {
   teacherCellPhoneViolation: CellPhoneViolationRelateToManyInput
   teacherPbisCards: PbisCardRelateToManyInput
   studentPbisCards: PbisCardRelateToManyInput
+  teacherDiscipline: DisciplineRelateToManyInput
+  studentDiscipline: DisciplineRelateToManyInput
   callbackItems: CallbackRelateToManyInput
   callbackAssigned: CallbackRelateToManyInput
   callbackCount: Int
@@ -696,6 +731,8 @@ input UserCreateInput {
   teacherCellPhoneViolation: CellPhoneViolationRelateToManyInput
   teacherPbisCards: PbisCardRelateToManyInput
   studentPbisCards: PbisCardRelateToManyInput
+  teacherDiscipline: DisciplineRelateToManyInput
+  studentDiscipline: DisciplineRelateToManyInput
   callbackItems: CallbackRelateToManyInput
   callbackAssigned: CallbackRelateToManyInput
   callbackCount: Int
@@ -1901,6 +1938,367 @@ input CallbacksCreateInput {
   data: CallbackCreateInput
 }
 
+""" A keystone list """
+type Discipline {
+  id: ID!
+  teacherComments: String
+  adminComments: String
+  classType: String
+  location: String
+  timeOfDay: String
+  student: User
+  teacher: User
+  date: String
+  addressed: String
+  inappropriateLanguage: Boolean
+  physicalConduct: Boolean
+  nonCompliance: Boolean
+  disruption: Boolean
+  propertyMisuse: Boolean
+  otherConduct: Boolean
+  VerbalWarning: Boolean
+  buddyRoom: Boolean
+  conferenceWithStudent: Boolean
+  ParentContact: Boolean
+  PlanningRoomReferral: Boolean
+  FollowupPlan: Boolean
+  LossOfPrivilege: Boolean
+  DetentionWithTeacher: Boolean
+  IndividualizedInstruction: Boolean
+  GuidanceReferral: Boolean
+  ReferToAdministrator: Boolean
+  OtherAction: Boolean
+  none: Boolean
+  peers: Boolean
+  teacherInvolved: Boolean
+  substitute: Boolean
+  unknown: Boolean
+  othersInvolved: Boolean
+}
+
+input DisciplineWhereInput {
+  AND: [DisciplineWhereInput]
+  OR: [DisciplineWhereInput]
+  id: ID
+  id_not: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  teacherComments: String
+  teacherComments_not: String
+  teacherComments_contains: String
+  teacherComments_not_contains: String
+  teacherComments_starts_with: String
+  teacherComments_not_starts_with: String
+  teacherComments_ends_with: String
+  teacherComments_not_ends_with: String
+  teacherComments_i: String
+  teacherComments_not_i: String
+  teacherComments_contains_i: String
+  teacherComments_not_contains_i: String
+  teacherComments_starts_with_i: String
+  teacherComments_not_starts_with_i: String
+  teacherComments_ends_with_i: String
+  teacherComments_not_ends_with_i: String
+  teacherComments_in: [String]
+  teacherComments_not_in: [String]
+  adminComments: String
+  adminComments_not: String
+  adminComments_contains: String
+  adminComments_not_contains: String
+  adminComments_starts_with: String
+  adminComments_not_starts_with: String
+  adminComments_ends_with: String
+  adminComments_not_ends_with: String
+  adminComments_i: String
+  adminComments_not_i: String
+  adminComments_contains_i: String
+  adminComments_not_contains_i: String
+  adminComments_starts_with_i: String
+  adminComments_not_starts_with_i: String
+  adminComments_ends_with_i: String
+  adminComments_not_ends_with_i: String
+  adminComments_in: [String]
+  adminComments_not_in: [String]
+  classType: String
+  classType_not: String
+  classType_contains: String
+  classType_not_contains: String
+  classType_starts_with: String
+  classType_not_starts_with: String
+  classType_ends_with: String
+  classType_not_ends_with: String
+  classType_i: String
+  classType_not_i: String
+  classType_contains_i: String
+  classType_not_contains_i: String
+  classType_starts_with_i: String
+  classType_not_starts_with_i: String
+  classType_ends_with_i: String
+  classType_not_ends_with_i: String
+  classType_in: [String]
+  classType_not_in: [String]
+  location: String
+  location_not: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  location_i: String
+  location_not_i: String
+  location_contains_i: String
+  location_not_contains_i: String
+  location_starts_with_i: String
+  location_not_starts_with_i: String
+  location_ends_with_i: String
+  location_not_ends_with_i: String
+  location_in: [String]
+  location_not_in: [String]
+  timeOfDay: String
+  timeOfDay_not: String
+  timeOfDay_contains: String
+  timeOfDay_not_contains: String
+  timeOfDay_starts_with: String
+  timeOfDay_not_starts_with: String
+  timeOfDay_ends_with: String
+  timeOfDay_not_ends_with: String
+  timeOfDay_i: String
+  timeOfDay_not_i: String
+  timeOfDay_contains_i: String
+  timeOfDay_not_contains_i: String
+  timeOfDay_starts_with_i: String
+  timeOfDay_not_starts_with_i: String
+  timeOfDay_ends_with_i: String
+  timeOfDay_not_ends_with_i: String
+  timeOfDay_in: [String]
+  timeOfDay_not_in: [String]
+  student: UserWhereInput
+  student_is_null: Boolean
+  teacher: UserWhereInput
+  teacher_is_null: Boolean
+  date: String
+  date_not: String
+  date_lt: String
+  date_lte: String
+  date_gt: String
+  date_gte: String
+  date_in: [String]
+  date_not_in: [String]
+  addressed: String
+  addressed_not: String
+  addressed_lt: String
+  addressed_lte: String
+  addressed_gt: String
+  addressed_gte: String
+  addressed_in: [String]
+  addressed_not_in: [String]
+  inappropriateLanguage: Boolean
+  inappropriateLanguage_not: Boolean
+  physicalConduct: Boolean
+  physicalConduct_not: Boolean
+  nonCompliance: Boolean
+  nonCompliance_not: Boolean
+  disruption: Boolean
+  disruption_not: Boolean
+  propertyMisuse: Boolean
+  propertyMisuse_not: Boolean
+  otherConduct: Boolean
+  otherConduct_not: Boolean
+  VerbalWarning: Boolean
+  VerbalWarning_not: Boolean
+  buddyRoom: Boolean
+  buddyRoom_not: Boolean
+  conferenceWithStudent: Boolean
+  conferenceWithStudent_not: Boolean
+  ParentContact: Boolean
+  ParentContact_not: Boolean
+  PlanningRoomReferral: Boolean
+  PlanningRoomReferral_not: Boolean
+  FollowupPlan: Boolean
+  FollowupPlan_not: Boolean
+  LossOfPrivilege: Boolean
+  LossOfPrivilege_not: Boolean
+  DetentionWithTeacher: Boolean
+  DetentionWithTeacher_not: Boolean
+  IndividualizedInstruction: Boolean
+  IndividualizedInstruction_not: Boolean
+  GuidanceReferral: Boolean
+  GuidanceReferral_not: Boolean
+  ReferToAdministrator: Boolean
+  ReferToAdministrator_not: Boolean
+  OtherAction: Boolean
+  OtherAction_not: Boolean
+  none: Boolean
+  none_not: Boolean
+  peers: Boolean
+  peers_not: Boolean
+  teacherInvolved: Boolean
+  teacherInvolved_not: Boolean
+  substitute: Boolean
+  substitute_not: Boolean
+  unknown: Boolean
+  unknown_not: Boolean
+  othersInvolved: Boolean
+  othersInvolved_not: Boolean
+}
+
+input DisciplineWhereUniqueInput {
+  id: ID!
+}
+
+enum SortDisciplinesBy {
+  id_ASC
+  id_DESC
+  teacherComments_ASC
+  teacherComments_DESC
+  adminComments_ASC
+  adminComments_DESC
+  classType_ASC
+  classType_DESC
+  location_ASC
+  location_DESC
+  timeOfDay_ASC
+  timeOfDay_DESC
+  student_ASC
+  student_DESC
+  teacher_ASC
+  teacher_DESC
+  date_ASC
+  date_DESC
+  addressed_ASC
+  addressed_DESC
+  inappropriateLanguage_ASC
+  inappropriateLanguage_DESC
+  physicalConduct_ASC
+  physicalConduct_DESC
+  nonCompliance_ASC
+  nonCompliance_DESC
+  disruption_ASC
+  disruption_DESC
+  propertyMisuse_ASC
+  propertyMisuse_DESC
+  otherConduct_ASC
+  otherConduct_DESC
+  VerbalWarning_ASC
+  VerbalWarning_DESC
+  buddyRoom_ASC
+  buddyRoom_DESC
+  conferenceWithStudent_ASC
+  conferenceWithStudent_DESC
+  ParentContact_ASC
+  ParentContact_DESC
+  PlanningRoomReferral_ASC
+  PlanningRoomReferral_DESC
+  FollowupPlan_ASC
+  FollowupPlan_DESC
+  LossOfPrivilege_ASC
+  LossOfPrivilege_DESC
+  DetentionWithTeacher_ASC
+  DetentionWithTeacher_DESC
+  IndividualizedInstruction_ASC
+  IndividualizedInstruction_DESC
+  GuidanceReferral_ASC
+  GuidanceReferral_DESC
+  ReferToAdministrator_ASC
+  ReferToAdministrator_DESC
+  OtherAction_ASC
+  OtherAction_DESC
+  none_ASC
+  none_DESC
+  peers_ASC
+  peers_DESC
+  teacherInvolved_ASC
+  teacherInvolved_DESC
+  substitute_ASC
+  substitute_DESC
+  unknown_ASC
+  unknown_DESC
+  othersInvolved_ASC
+  othersInvolved_DESC
+}
+
+input DisciplineUpdateInput {
+  teacherComments: String
+  adminComments: String
+  classType: String
+  location: String
+  timeOfDay: String
+  student: UserRelateToOneInput
+  teacher: UserRelateToOneInput
+  date: String
+  addressed: String
+  inappropriateLanguage: Boolean
+  physicalConduct: Boolean
+  nonCompliance: Boolean
+  disruption: Boolean
+  propertyMisuse: Boolean
+  otherConduct: Boolean
+  VerbalWarning: Boolean
+  buddyRoom: Boolean
+  conferenceWithStudent: Boolean
+  ParentContact: Boolean
+  PlanningRoomReferral: Boolean
+  FollowupPlan: Boolean
+  LossOfPrivilege: Boolean
+  DetentionWithTeacher: Boolean
+  IndividualizedInstruction: Boolean
+  GuidanceReferral: Boolean
+  ReferToAdministrator: Boolean
+  OtherAction: Boolean
+  none: Boolean
+  peers: Boolean
+  teacherInvolved: Boolean
+  substitute: Boolean
+  unknown: Boolean
+  othersInvolved: Boolean
+}
+
+input DisciplinesUpdateInput {
+  id: ID!
+  data: DisciplineUpdateInput
+}
+
+input DisciplineCreateInput {
+  teacherComments: String
+  adminComments: String
+  classType: String
+  location: String
+  timeOfDay: String
+  student: UserRelateToOneInput
+  teacher: UserRelateToOneInput
+  date: String
+  addressed: String
+  inappropriateLanguage: Boolean
+  physicalConduct: Boolean
+  nonCompliance: Boolean
+  disruption: Boolean
+  propertyMisuse: Boolean
+  otherConduct: Boolean
+  VerbalWarning: Boolean
+  buddyRoom: Boolean
+  conferenceWithStudent: Boolean
+  ParentContact: Boolean
+  PlanningRoomReferral: Boolean
+  FollowupPlan: Boolean
+  LossOfPrivilege: Boolean
+  DetentionWithTeacher: Boolean
+  IndividualizedInstruction: Boolean
+  GuidanceReferral: Boolean
+  ReferToAdministrator: Boolean
+  OtherAction: Boolean
+  none: Boolean
+  peers: Boolean
+  teacherInvolved: Boolean
+  substitute: Boolean
+  unknown: Boolean
+  othersInvolved: Boolean
+}
+
+input DisciplinesCreateInput {
+  data: DisciplineCreateInput
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -2197,6 +2595,19 @@ type Query {
   """ Retrieve the meta-data for the Callback list. """
   _CallbacksMeta: _ListMeta
 
+  """ Search for all Discipline items which match the where clause. """
+  allDisciplines(where: DisciplineWhereInput, search: String, sortBy: [SortDisciplinesBy!], orderBy: String, first: Int, skip: Int): [Discipline]
+
+  """ Search for the Discipline item with the matching ID. """
+  Discipline(where: DisciplineWhereUniqueInput!): Discipline
+
+  """ Perform a meta-query on all Discipline items which match the where clause. 
+  """
+  _allDisciplinesMeta(where: DisciplineWhereInput, search: String, sortBy: [SortDisciplinesBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+
+  """ Retrieve the meta-data for the Discipline list. """
+  _DisciplinesMeta: _ListMeta
+
   """ Retrieve the meta-data for all lists. """
   _ksListsMeta(where: _ksListsMetaInput): [_ListMeta]
 
@@ -2368,6 +2779,24 @@ type Mutation {
 
   """ Delete multiple Callback items by ID. """
   deleteCallbacks(ids: [ID!]): [Callback]
+
+  """ Create a single Discipline item. """
+  createDiscipline(data: DisciplineCreateInput): Discipline
+
+  """ Create multiple Discipline items. """
+  createDisciplines(data: [DisciplinesCreateInput]): [Discipline]
+
+  """ Update a single Discipline item by ID. """
+  updateDiscipline(id: ID!, data: DisciplineUpdateInput): Discipline
+
+  """ Update multiple Discipline items by ID. """
+  updateDisciplines(data: [DisciplinesUpdateInput]): [Discipline]
+
+  """ Delete a single Discipline item by ID. """
+  deleteDiscipline(id: ID!): Discipline
+
+  """ Delete multiple Discipline items by ID. """
+  deleteDisciplines(ids: [ID!]): [Discipline]
   authenticateUserWithPassword(email: String!, password: String!): UserAuthenticationWithPasswordResult!
   createInitialUser(data: CreateInitialUserInput!): UserAuthenticationWithPasswordSuccess!
   recalculatePBIS(userId: ID): User

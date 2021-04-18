@@ -48,6 +48,9 @@ export default function Home() {
           Callback: _allCallbacksMeta {
             count
           }
+          Discipline: _allDisciplinesMeta {
+            count
+          }
         }
       `}
     />
