@@ -24,10 +24,15 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
     ],
-    "/disciplines/[id]": [
+    "/callbacks": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/disciplines/[id].js"
+      "static/chunks/pages/callbacks.js"
+    ],
+    "/callbacks/[id]": [
+      "static/chunks/main.js",
+      "static/chunks/webpack.js",
+      "static/chunks/pages/callbacks/[id].js"
     ]
   },
   "ampFirstPages": []

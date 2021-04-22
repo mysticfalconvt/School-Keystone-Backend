@@ -2,5 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/disciplines/[id]": "pages/disciplines/[id].js"
+  "/callbacks": "pages/callbacks.js",
+  "/callbacks/[id]": "pages/callbacks/[id].js"
 }

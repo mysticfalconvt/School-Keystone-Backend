@@ -57,13 +57,13 @@ export const Discipline = list({
         }),
         timeOfDay: select({
             options: [
-                { label: 'Morning', value: 'Morning' },
+                { label: 'Morning TA', value: 'Morning TA' },
                 { label: 'Block 1', value: 'Block 1' },
                 { label: 'Block 2', value: 'Block 2' },
                 { label: 'Lunch', value: 'Lunch' },
                 { label: 'Block 3', value: 'Block 3' },
                 { label: 'Block 4', value: 'Block 4' },
-                { label: 'End of Day', value: 'End of Day' },
+                { label: 'Afternoon TA', value: 'Afternoon TA' },
 
             ],
             ui: {
