@@ -61,6 +61,13 @@ input CallbackRelateToManyInput {
   disconnectAll: Boolean
 }
 
+input MessageRelateToManyInput {
+  create: [MessageCreateInput]
+  connect: [MessageWhereUniqueInput]
+  disconnect: [MessageWhereUniqueInput]
+  disconnectAll: Boolean
+}
+
 """ A keystone list """
 type User {
   id: ID!
@@ -112,6 +119,10 @@ type User {
   _callbackItemsMeta(where: CallbackWhereInput, search: String, sortBy: [SortCallbacksBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
   callbackAssigned(where: CallbackWhereInput, search: String, sortBy: [SortCallbacksBy!], orderBy: String, first: Int, skip: Int): [Callback!]!
   _callbackAssignedMeta(where: CallbackWhereInput, search: String, sortBy: [SortCallbacksBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+  messageSender(where: MessageWhereInput, search: String, sortBy: [SortMessagesBy!], orderBy: String, first: Int, skip: Int): [Message!]!
+  _messageSenderMeta(where: MessageWhereInput, search: String, sortBy: [SortMessagesBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+  messageReceiver(where: MessageWhereInput, search: String, sortBy: [SortMessagesBy!], orderBy: String, first: Int, skip: Int): [Message!]!
+  _messageReceiverMeta(where: MessageWhereInput, search: String, sortBy: [SortMessagesBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
   callbackCount: Int
   PbisCardCount: Int
   YearPbisCount: Int
@@ -361,6 +372,24 @@ input UserWhereInput {
 
   """ condition must be false for all nodes """
   callbackAssigned_none: CallbackWhereInput
+
+  """ condition must be true for all nodes """
+  messageSender_every: MessageWhereInput
+
+  """ condition must be true for at least 1 node """
+  messageSender_some: MessageWhereInput
+
+  """ condition must be false for all nodes """
+  messageSender_none: MessageWhereInput
+
+  """ condition must be true for all nodes """
+  messageReceiver_every: MessageWhereInput
+
+  """ condition must be true for at least 1 node """
+  messageReceiver_some: MessageWhereInput
+
+  """ condition must be false for all nodes """
+  messageReceiver_none: MessageWhereInput
   callbackCount: Int
   callbackCount_not: Int
   callbackCount_lt: Int
@@ -616,6 +645,10 @@ enum SortUsersBy {
   callbackItems_DESC
   callbackAssigned_ASC
   callbackAssigned_DESC
+  messageSender_ASC
+  messageSender_DESC
+  messageReceiver_ASC
+  messageReceiver_DESC
   callbackCount_ASC
   callbackCount_DESC
   PbisCardCount_ASC
@@ -680,6 +713,8 @@ input UserUpdateInput {
   studentDiscipline: DisciplineRelateToManyInput
   callbackItems: CallbackRelateToManyInput
   callbackAssigned: CallbackRelateToManyInput
+  messageSender: MessageRelateToManyInput
+  messageReceiver: MessageRelateToManyInput
   callbackCount: Int
   PbisCardCount: Int
   YearPbisCount: Int
@@ -735,6 +770,8 @@ input UserCreateInput {
   studentDiscipline: DisciplineRelateToManyInput
   callbackItems: CallbackRelateToManyInput
   callbackAssigned: CallbackRelateToManyInput
+  messageSender: MessageRelateToManyInput
+  messageReceiver: MessageRelateToManyInput
   callbackCount: Int
   PbisCardCount: Int
   YearPbisCount: Int
@@ -2299,6 +2336,124 @@ input DisciplinesCreateInput {
   data: DisciplineCreateInput
 }
 
+""" A keystone list """
+type Message {
+  id: ID!
+  subject: String
+  message: String
+  sender: User
+  receiver: User
+  sent: String
+  read: Boolean
+}
+
+input MessageWhereInput {
+  AND: [MessageWhereInput]
+  OR: [MessageWhereInput]
+  id: ID
+  id_not: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  subject: String
+  subject_not: String
+  subject_contains: String
+  subject_not_contains: String
+  subject_starts_with: String
+  subject_not_starts_with: String
+  subject_ends_with: String
+  subject_not_ends_with: String
+  subject_i: String
+  subject_not_i: String
+  subject_contains_i: String
+  subject_not_contains_i: String
+  subject_starts_with_i: String
+  subject_not_starts_with_i: String
+  subject_ends_with_i: String
+  subject_not_ends_with_i: String
+  subject_in: [String]
+  subject_not_in: [String]
+  message: String
+  message_not: String
+  message_contains: String
+  message_not_contains: String
+  message_starts_with: String
+  message_not_starts_with: String
+  message_ends_with: String
+  message_not_ends_with: String
+  message_i: String
+  message_not_i: String
+  message_contains_i: String
+  message_not_contains_i: String
+  message_starts_with_i: String
+  message_not_starts_with_i: String
+  message_ends_with_i: String
+  message_not_ends_with_i: String
+  message_in: [String]
+  message_not_in: [String]
+  sender: UserWhereInput
+  sender_is_null: Boolean
+  receiver: UserWhereInput
+  receiver_is_null: Boolean
+  sent: String
+  sent_not: String
+  sent_lt: String
+  sent_lte: String
+  sent_gt: String
+  sent_gte: String
+  sent_in: [String]
+  sent_not_in: [String]
+  read: Boolean
+  read_not: Boolean
+}
+
+input MessageWhereUniqueInput {
+  id: ID!
+}
+
+enum SortMessagesBy {
+  id_ASC
+  id_DESC
+  subject_ASC
+  subject_DESC
+  message_ASC
+  message_DESC
+  sender_ASC
+  sender_DESC
+  receiver_ASC
+  receiver_DESC
+  sent_ASC
+  sent_DESC
+  read_ASC
+  read_DESC
+}
+
+input MessageUpdateInput {
+  subject: String
+  message: String
+  sender: UserRelateToOneInput
+  receiver: UserRelateToOneInput
+  sent: String
+  read: Boolean
+}
+
+input MessagesUpdateInput {
+  id: ID!
+  data: MessageUpdateInput
+}
+
+input MessageCreateInput {
+  subject: String
+  message: String
+  sender: UserRelateToOneInput
+  receiver: UserRelateToOneInput
+  sent: String
+  read: Boolean
+}
+
+input MessagesCreateInput {
+  data: MessageCreateInput
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -2608,6 +2763,19 @@ type Query {
   """ Retrieve the meta-data for the Discipline list. """
   _DisciplinesMeta: _ListMeta
 
+  """ Search for all Message items which match the where clause. """
+  allMessages(where: MessageWhereInput, search: String, sortBy: [SortMessagesBy!], orderBy: String, first: Int, skip: Int): [Message]
+
+  """ Search for the Message item with the matching ID. """
+  Message(where: MessageWhereUniqueInput!): Message
+
+  """ Perform a meta-query on all Message items which match the where clause. 
+  """
+  _allMessagesMeta(where: MessageWhereInput, search: String, sortBy: [SortMessagesBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+
+  """ Retrieve the meta-data for the Message list. """
+  _MessagesMeta: _ListMeta
+
   """ Retrieve the meta-data for all lists. """
   _ksListsMeta(where: _ksListsMetaInput): [_ListMeta]
 
@@ -2797,6 +2965,24 @@ type Mutation {
 
   """ Delete multiple Discipline items by ID. """
   deleteDisciplines(ids: [ID!]): [Discipline]
+
+  """ Create a single Message item. """
+  createMessage(data: MessageCreateInput): Message
+
+  """ Create multiple Message items. """
+  createMessages(data: [MessagesCreateInput]): [Message]
+
+  """ Update a single Message item by ID. """
+  updateMessage(id: ID!, data: MessageUpdateInput): Message
+
+  """ Update multiple Message items by ID. """
+  updateMessages(data: [MessagesUpdateInput]): [Message]
+
+  """ Delete a single Message item by ID. """
+  deleteMessage(id: ID!): Message
+
+  """ Delete multiple Message items by ID. """
+  deleteMessages(ids: [ID!]): [Message]
   authenticateUserWithPassword(email: String!, password: String!): UserAuthenticationWithPasswordResult!
   createInitialUser(data: CreateInitialUserInput!): UserAuthenticationWithPasswordSuccess!
   recalculatePBIS(userId: ID): User

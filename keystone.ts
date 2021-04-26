@@ -4,6 +4,7 @@ import { User } from './schemas/User';
 import { Calendar } from './schemas/Calendar'
 import { Role } from './schemas/Role'
 import { Link } from './schemas/Link'
+import { Message } from './schemas/Message'
 import { PbisCard } from './schemas/PbisCard'
 import { PbisTeam } from './schemas/PbisTeam'
 import { StudentFocus } from './schemas/StudentFocus'
@@ -60,7 +61,8 @@ export default withAuth(
       StudentFocus,
       CellPhoneViolation,
       Callback,
-      Discipline
+      Discipline,
+      Message,
     }),
     extendGraphqlSchema,
     ui: {

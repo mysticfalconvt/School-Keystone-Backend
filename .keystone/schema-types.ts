@@ -70,6 +70,13 @@ export type CallbackRelateToManyInput = {
   readonly disconnectAll?: Scalars['Boolean'] | null;
 };
 
+export type MessageRelateToManyInput = {
+  readonly create?: ReadonlyArray<MessageCreateInput | null> | null;
+  readonly connect?: ReadonlyArray<MessageWhereUniqueInput | null> | null;
+  readonly disconnect?: ReadonlyArray<MessageWhereUniqueInput | null> | null;
+  readonly disconnectAll?: Scalars['Boolean'] | null;
+};
+
 export type UserWhereInput = {
   readonly AND?: ReadonlyArray<UserWhereInput | null> | null;
   readonly OR?: ReadonlyArray<UserWhereInput | null> | null;
@@ -185,6 +192,12 @@ export type UserWhereInput = {
   readonly callbackAssigned_every?: CallbackWhereInput | null;
   readonly callbackAssigned_some?: CallbackWhereInput | null;
   readonly callbackAssigned_none?: CallbackWhereInput | null;
+  readonly messageSender_every?: MessageWhereInput | null;
+  readonly messageSender_some?: MessageWhereInput | null;
+  readonly messageSender_none?: MessageWhereInput | null;
+  readonly messageReceiver_every?: MessageWhereInput | null;
+  readonly messageReceiver_some?: MessageWhereInput | null;
+  readonly messageReceiver_none?: MessageWhereInput | null;
   readonly callbackCount?: Scalars['Int'] | null;
   readonly callbackCount_not?: Scalars['Int'] | null;
   readonly callbackCount_lt?: Scalars['Int'] | null;
@@ -476,6 +489,10 @@ export type SortUsersBy =
   | 'callbackItems_DESC'
   | 'callbackAssigned_ASC'
   | 'callbackAssigned_DESC'
+  | 'messageSender_ASC'
+  | 'messageSender_DESC'
+  | 'messageReceiver_ASC'
+  | 'messageReceiver_DESC'
   | 'callbackCount_ASC'
   | 'callbackCount_DESC'
   | 'PbisCardCount_ASC'
@@ -539,6 +556,8 @@ export type UserUpdateInput = {
   readonly studentDiscipline?: DisciplineRelateToManyInput | null;
   readonly callbackItems?: CallbackRelateToManyInput | null;
   readonly callbackAssigned?: CallbackRelateToManyInput | null;
+  readonly messageSender?: MessageRelateToManyInput | null;
+  readonly messageReceiver?: MessageRelateToManyInput | null;
   readonly callbackCount?: Scalars['Int'] | null;
   readonly PbisCardCount?: Scalars['Int'] | null;
   readonly YearPbisCount?: Scalars['Int'] | null;
@@ -594,6 +613,8 @@ export type UserCreateInput = {
   readonly studentDiscipline?: DisciplineRelateToManyInput | null;
   readonly callbackItems?: CallbackRelateToManyInput | null;
   readonly callbackAssigned?: CallbackRelateToManyInput | null;
+  readonly messageSender?: MessageRelateToManyInput | null;
+  readonly messageReceiver?: MessageRelateToManyInput | null;
   readonly callbackCount?: Scalars['Int'] | null;
   readonly PbisCardCount?: Scalars['Int'] | null;
   readonly YearPbisCount?: Scalars['Int'] | null;
@@ -2012,6 +2033,112 @@ export type DisciplinesCreateInput = {
   readonly data?: DisciplineCreateInput | null;
 };
 
+export type MessageWhereInput = {
+  readonly AND?: ReadonlyArray<MessageWhereInput | null> | null;
+  readonly OR?: ReadonlyArray<MessageWhereInput | null> | null;
+  readonly id?: Scalars['ID'] | null;
+  readonly id_not?: Scalars['ID'] | null;
+  readonly id_in?: ReadonlyArray<Scalars['ID'] | null> | null;
+  readonly id_not_in?: ReadonlyArray<Scalars['ID'] | null> | null;
+  readonly subject?: Scalars['String'] | null;
+  readonly subject_not?: Scalars['String'] | null;
+  readonly subject_contains?: Scalars['String'] | null;
+  readonly subject_not_contains?: Scalars['String'] | null;
+  readonly subject_starts_with?: Scalars['String'] | null;
+  readonly subject_not_starts_with?: Scalars['String'] | null;
+  readonly subject_ends_with?: Scalars['String'] | null;
+  readonly subject_not_ends_with?: Scalars['String'] | null;
+  readonly subject_i?: Scalars['String'] | null;
+  readonly subject_not_i?: Scalars['String'] | null;
+  readonly subject_contains_i?: Scalars['String'] | null;
+  readonly subject_not_contains_i?: Scalars['String'] | null;
+  readonly subject_starts_with_i?: Scalars['String'] | null;
+  readonly subject_not_starts_with_i?: Scalars['String'] | null;
+  readonly subject_ends_with_i?: Scalars['String'] | null;
+  readonly subject_not_ends_with_i?: Scalars['String'] | null;
+  readonly subject_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly subject_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly message?: Scalars['String'] | null;
+  readonly message_not?: Scalars['String'] | null;
+  readonly message_contains?: Scalars['String'] | null;
+  readonly message_not_contains?: Scalars['String'] | null;
+  readonly message_starts_with?: Scalars['String'] | null;
+  readonly message_not_starts_with?: Scalars['String'] | null;
+  readonly message_ends_with?: Scalars['String'] | null;
+  readonly message_not_ends_with?: Scalars['String'] | null;
+  readonly message_i?: Scalars['String'] | null;
+  readonly message_not_i?: Scalars['String'] | null;
+  readonly message_contains_i?: Scalars['String'] | null;
+  readonly message_not_contains_i?: Scalars['String'] | null;
+  readonly message_starts_with_i?: Scalars['String'] | null;
+  readonly message_not_starts_with_i?: Scalars['String'] | null;
+  readonly message_ends_with_i?: Scalars['String'] | null;
+  readonly message_not_ends_with_i?: Scalars['String'] | null;
+  readonly message_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly message_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly sender?: UserWhereInput | null;
+  readonly sender_is_null?: Scalars['Boolean'] | null;
+  readonly receiver?: UserWhereInput | null;
+  readonly receiver_is_null?: Scalars['Boolean'] | null;
+  readonly sent?: Scalars['String'] | null;
+  readonly sent_not?: Scalars['String'] | null;
+  readonly sent_lt?: Scalars['String'] | null;
+  readonly sent_lte?: Scalars['String'] | null;
+  readonly sent_gt?: Scalars['String'] | null;
+  readonly sent_gte?: Scalars['String'] | null;
+  readonly sent_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly sent_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly read?: Scalars['Boolean'] | null;
+  readonly read_not?: Scalars['Boolean'] | null;
+};
+
+export type MessageWhereUniqueInput = {
+  readonly id: Scalars['ID'];
+};
+
+export type SortMessagesBy =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'subject_ASC'
+  | 'subject_DESC'
+  | 'message_ASC'
+  | 'message_DESC'
+  | 'sender_ASC'
+  | 'sender_DESC'
+  | 'receiver_ASC'
+  | 'receiver_DESC'
+  | 'sent_ASC'
+  | 'sent_DESC'
+  | 'read_ASC'
+  | 'read_DESC';
+
+export type MessageUpdateInput = {
+  readonly subject?: Scalars['String'] | null;
+  readonly message?: Scalars['String'] | null;
+  readonly sender?: UserRelateToOneInput | null;
+  readonly receiver?: UserRelateToOneInput | null;
+  readonly sent?: Scalars['String'] | null;
+  readonly read?: Scalars['Boolean'] | null;
+};
+
+export type MessagesUpdateInput = {
+  readonly id: Scalars['ID'];
+  readonly data?: MessageUpdateInput | null;
+};
+
+export type MessageCreateInput = {
+  readonly subject?: Scalars['String'] | null;
+  readonly message?: Scalars['String'] | null;
+  readonly sender?: UserRelateToOneInput | null;
+  readonly receiver?: UserRelateToOneInput | null;
+  readonly sent?: Scalars['String'] | null;
+  readonly read?: Scalars['Boolean'] | null;
+};
+
+export type MessagesCreateInput = {
+  readonly data?: MessageCreateInput | null;
+};
+
 export type _ksListsMetaInput = {
   readonly key?: Scalars['String'] | null;
   readonly auxiliary?: Scalars['Boolean'] | null;
@@ -2078,6 +2205,8 @@ export type UserListTypeInfo = {
     | 'studentDiscipline'
     | 'callbackItems'
     | 'callbackAssigned'
+    | 'messageSender'
+    | 'messageReceiver'
     | 'callbackCount'
     | 'PbisCardCount'
     | 'YearPbisCount'
@@ -2127,6 +2256,8 @@ export type UserListTypeInfo = {
     readonly studentDiscipline?: string | null;
     readonly callbackItems?: string | null;
     readonly callbackAssigned?: string | null;
+    readonly messageSender?: string | null;
+    readonly messageReceiver?: string | null;
     readonly callbackCount?: number | null;
     readonly PbisCardCount?: number | null;
     readonly YearPbisCount?: number | null;
@@ -2650,6 +2781,50 @@ export type DisciplineListFn = (
   DisciplineListTypeInfo['fields']
 >;
 
+export type MessageListTypeInfo = {
+  key: 'Message';
+  fields:
+    | 'id'
+    | 'subject'
+    | 'message'
+    | 'sender'
+    | 'receiver'
+    | 'sent'
+    | 'read';
+  backing: {
+    readonly id: string;
+    readonly subject?: string | null;
+    readonly message?: string | null;
+    readonly sender?: string | null;
+    readonly receiver?: string | null;
+    readonly sent?: Date | null;
+    readonly read?: boolean | null;
+  };
+  inputs: {
+    where: MessageWhereInput;
+    create: MessageCreateInput;
+    update: MessageUpdateInput;
+  };
+  args: {
+    listQuery: {
+      readonly where?: MessageWhereInput | null;
+      readonly sortBy?: ReadonlyArray<SortMessagesBy> | null;
+      readonly first?: Scalars['Int'] | null;
+      readonly skip?: Scalars['Int'] | null;
+    };
+  };
+};
+
+export type MessageListFn = (
+  listConfig: import('@keystone-next/keystone/schema').ListConfig<
+    MessageListTypeInfo,
+    MessageListTypeInfo['fields']
+  >
+) => import('@keystone-next/keystone/schema').ListConfig<
+  MessageListTypeInfo,
+  MessageListTypeInfo['fields']
+>;
+
 export type KeystoneListsTypeInfo = {
   readonly User: UserListTypeInfo;
   readonly Calendar: CalendarListTypeInfo;
@@ -2661,4 +2836,5 @@ export type KeystoneListsTypeInfo = {
   readonly CellPhoneViolation: CellPhoneViolationListTypeInfo;
   readonly Callback: CallbackListTypeInfo;
   readonly Discipline: DisciplineListTypeInfo;
+  readonly Message: MessageListTypeInfo;
 };

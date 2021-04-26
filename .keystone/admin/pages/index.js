@@ -51,6 +51,9 @@ export default function Home() {
           Discipline: _allDisciplinesMeta {
             count
           }
+          Message: _allMessagesMeta {
+            count
+          }
         }
       `}
     />

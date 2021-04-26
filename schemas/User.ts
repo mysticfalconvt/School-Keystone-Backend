@@ -57,6 +57,8 @@ export const User = list({
     studentDiscipline: relationship({ ref: 'Discipline.student', many: true }),
     callbackItems: relationship({ ref: 'Callback.student', many: true }),
     callbackAssigned: relationship({ ref: 'Callback.teacher', many: true }),
+    messageSender: relationship({ ref: 'Message.sender', many: true }),
+    messageReceiver: relationship({ ref: 'Message.receiver', many: true }),
 
 
     // Important Info
