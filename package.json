@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "keystone-next",
     "seed-data": "keystone-next --seed-data",
-
     "start": "keystone-next",
     "build": "keystone-next build"
   },

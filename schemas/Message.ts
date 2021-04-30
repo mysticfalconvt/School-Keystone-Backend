@@ -32,5 +32,6 @@ export const Message = list({
             }
         }),
         read: checkbox({ defaultValue: false, isRequired: true, label: 'Read' }),
+        link: text(),
     },
 });

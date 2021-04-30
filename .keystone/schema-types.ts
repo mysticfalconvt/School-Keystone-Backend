@@ -2090,6 +2090,24 @@ export type MessageWhereInput = {
   readonly sent_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly read?: Scalars['Boolean'] | null;
   readonly read_not?: Scalars['Boolean'] | null;
+  readonly link?: Scalars['String'] | null;
+  readonly link_not?: Scalars['String'] | null;
+  readonly link_contains?: Scalars['String'] | null;
+  readonly link_not_contains?: Scalars['String'] | null;
+  readonly link_starts_with?: Scalars['String'] | null;
+  readonly link_not_starts_with?: Scalars['String'] | null;
+  readonly link_ends_with?: Scalars['String'] | null;
+  readonly link_not_ends_with?: Scalars['String'] | null;
+  readonly link_i?: Scalars['String'] | null;
+  readonly link_not_i?: Scalars['String'] | null;
+  readonly link_contains_i?: Scalars['String'] | null;
+  readonly link_not_contains_i?: Scalars['String'] | null;
+  readonly link_starts_with_i?: Scalars['String'] | null;
+  readonly link_not_starts_with_i?: Scalars['String'] | null;
+  readonly link_ends_with_i?: Scalars['String'] | null;
+  readonly link_not_ends_with_i?: Scalars['String'] | null;
+  readonly link_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly link_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
 };
 
 export type MessageWhereUniqueInput = {
@@ -2110,7 +2128,9 @@ export type SortMessagesBy =
   | 'sent_ASC'
   | 'sent_DESC'
   | 'read_ASC'
-  | 'read_DESC';
+  | 'read_DESC'
+  | 'link_ASC'
+  | 'link_DESC';
 
 export type MessageUpdateInput = {
   readonly subject?: Scalars['String'] | null;
@@ -2119,6 +2139,7 @@ export type MessageUpdateInput = {
   readonly receiver?: UserRelateToOneInput | null;
   readonly sent?: Scalars['String'] | null;
   readonly read?: Scalars['Boolean'] | null;
+  readonly link?: Scalars['String'] | null;
 };
 
 export type MessagesUpdateInput = {
@@ -2133,6 +2154,7 @@ export type MessageCreateInput = {
   readonly receiver?: UserRelateToOneInput | null;
   readonly sent?: Scalars['String'] | null;
   readonly read?: Scalars['Boolean'] | null;
+  readonly link?: Scalars['String'] | null;
 };
 
 export type MessagesCreateInput = {
@@ -2790,7 +2812,8 @@ export type MessageListTypeInfo = {
     | 'sender'
     | 'receiver'
     | 'sent'
-    | 'read';
+    | 'read'
+    | 'link';
   backing: {
     readonly id: string;
     readonly subject?: string | null;
@@ -2799,6 +2822,7 @@ export type MessageListTypeInfo = {
     readonly receiver?: string | null;
     readonly sent?: Date | null;
     readonly read?: boolean | null;
+    readonly link?: string | null;
   };
   inputs: {
     where: MessageWhereInput;
