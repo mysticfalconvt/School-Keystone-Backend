@@ -130,11 +130,20 @@ type User {
   taPbisCardCount: Int
   averageTimeToCompleteCallback: Int
   block1Assignment: String
+  block1ClassName: String
   block1AssignmentLastUpdated: String
   block2Assignment: String
+  block2ClassName: String
+  block2AssignmentLastUpdated: String
   block3Assignment: String
+  block3ClassName: String
+  block3AssignmentLastUpdated: String
   block4Assignment: String
+  block4ClassName: String
+  block4AssignmentLastUpdated: String
   block5Assignment: String
+  block5ClassName: String
+  block5AssignmentLastUpdated: String
   passwordResetToken_is_set: Boolean
   passwordResetIssuedAt: String
   passwordResetRedeemedAt: String
@@ -466,6 +475,24 @@ input UserWhereInput {
   block1Assignment_not_ends_with_i: String
   block1Assignment_in: [String]
   block1Assignment_not_in: [String]
+  block1ClassName: String
+  block1ClassName_not: String
+  block1ClassName_contains: String
+  block1ClassName_not_contains: String
+  block1ClassName_starts_with: String
+  block1ClassName_not_starts_with: String
+  block1ClassName_ends_with: String
+  block1ClassName_not_ends_with: String
+  block1ClassName_i: String
+  block1ClassName_not_i: String
+  block1ClassName_contains_i: String
+  block1ClassName_not_contains_i: String
+  block1ClassName_starts_with_i: String
+  block1ClassName_not_starts_with_i: String
+  block1ClassName_ends_with_i: String
+  block1ClassName_not_ends_with_i: String
+  block1ClassName_in: [String]
+  block1ClassName_not_in: [String]
   block1AssignmentLastUpdated: String
   block1AssignmentLastUpdated_not: String
   block1AssignmentLastUpdated_lt: String
@@ -492,6 +519,32 @@ input UserWhereInput {
   block2Assignment_not_ends_with_i: String
   block2Assignment_in: [String]
   block2Assignment_not_in: [String]
+  block2ClassName: String
+  block2ClassName_not: String
+  block2ClassName_contains: String
+  block2ClassName_not_contains: String
+  block2ClassName_starts_with: String
+  block2ClassName_not_starts_with: String
+  block2ClassName_ends_with: String
+  block2ClassName_not_ends_with: String
+  block2ClassName_i: String
+  block2ClassName_not_i: String
+  block2ClassName_contains_i: String
+  block2ClassName_not_contains_i: String
+  block2ClassName_starts_with_i: String
+  block2ClassName_not_starts_with_i: String
+  block2ClassName_ends_with_i: String
+  block2ClassName_not_ends_with_i: String
+  block2ClassName_in: [String]
+  block2ClassName_not_in: [String]
+  block2AssignmentLastUpdated: String
+  block2AssignmentLastUpdated_not: String
+  block2AssignmentLastUpdated_lt: String
+  block2AssignmentLastUpdated_lte: String
+  block2AssignmentLastUpdated_gt: String
+  block2AssignmentLastUpdated_gte: String
+  block2AssignmentLastUpdated_in: [String]
+  block2AssignmentLastUpdated_not_in: [String]
   block3Assignment: String
   block3Assignment_not: String
   block3Assignment_contains: String
@@ -510,6 +563,32 @@ input UserWhereInput {
   block3Assignment_not_ends_with_i: String
   block3Assignment_in: [String]
   block3Assignment_not_in: [String]
+  block3ClassName: String
+  block3ClassName_not: String
+  block3ClassName_contains: String
+  block3ClassName_not_contains: String
+  block3ClassName_starts_with: String
+  block3ClassName_not_starts_with: String
+  block3ClassName_ends_with: String
+  block3ClassName_not_ends_with: String
+  block3ClassName_i: String
+  block3ClassName_not_i: String
+  block3ClassName_contains_i: String
+  block3ClassName_not_contains_i: String
+  block3ClassName_starts_with_i: String
+  block3ClassName_not_starts_with_i: String
+  block3ClassName_ends_with_i: String
+  block3ClassName_not_ends_with_i: String
+  block3ClassName_in: [String]
+  block3ClassName_not_in: [String]
+  block3AssignmentLastUpdated: String
+  block3AssignmentLastUpdated_not: String
+  block3AssignmentLastUpdated_lt: String
+  block3AssignmentLastUpdated_lte: String
+  block3AssignmentLastUpdated_gt: String
+  block3AssignmentLastUpdated_gte: String
+  block3AssignmentLastUpdated_in: [String]
+  block3AssignmentLastUpdated_not_in: [String]
   block4Assignment: String
   block4Assignment_not: String
   block4Assignment_contains: String
@@ -528,6 +607,32 @@ input UserWhereInput {
   block4Assignment_not_ends_with_i: String
   block4Assignment_in: [String]
   block4Assignment_not_in: [String]
+  block4ClassName: String
+  block4ClassName_not: String
+  block4ClassName_contains: String
+  block4ClassName_not_contains: String
+  block4ClassName_starts_with: String
+  block4ClassName_not_starts_with: String
+  block4ClassName_ends_with: String
+  block4ClassName_not_ends_with: String
+  block4ClassName_i: String
+  block4ClassName_not_i: String
+  block4ClassName_contains_i: String
+  block4ClassName_not_contains_i: String
+  block4ClassName_starts_with_i: String
+  block4ClassName_not_starts_with_i: String
+  block4ClassName_ends_with_i: String
+  block4ClassName_not_ends_with_i: String
+  block4ClassName_in: [String]
+  block4ClassName_not_in: [String]
+  block4AssignmentLastUpdated: String
+  block4AssignmentLastUpdated_not: String
+  block4AssignmentLastUpdated_lt: String
+  block4AssignmentLastUpdated_lte: String
+  block4AssignmentLastUpdated_gt: String
+  block4AssignmentLastUpdated_gte: String
+  block4AssignmentLastUpdated_in: [String]
+  block4AssignmentLastUpdated_not_in: [String]
   block5Assignment: String
   block5Assignment_not: String
   block5Assignment_contains: String
@@ -546,6 +651,32 @@ input UserWhereInput {
   block5Assignment_not_ends_with_i: String
   block5Assignment_in: [String]
   block5Assignment_not_in: [String]
+  block5ClassName: String
+  block5ClassName_not: String
+  block5ClassName_contains: String
+  block5ClassName_not_contains: String
+  block5ClassName_starts_with: String
+  block5ClassName_not_starts_with: String
+  block5ClassName_ends_with: String
+  block5ClassName_not_ends_with: String
+  block5ClassName_i: String
+  block5ClassName_not_i: String
+  block5ClassName_contains_i: String
+  block5ClassName_not_contains_i: String
+  block5ClassName_starts_with_i: String
+  block5ClassName_not_starts_with_i: String
+  block5ClassName_ends_with_i: String
+  block5ClassName_not_ends_with_i: String
+  block5ClassName_in: [String]
+  block5ClassName_not_in: [String]
+  block5AssignmentLastUpdated: String
+  block5AssignmentLastUpdated_not: String
+  block5AssignmentLastUpdated_lt: String
+  block5AssignmentLastUpdated_lte: String
+  block5AssignmentLastUpdated_gt: String
+  block5AssignmentLastUpdated_gte: String
+  block5AssignmentLastUpdated_in: [String]
+  block5AssignmentLastUpdated_not_in: [String]
   passwordResetToken_is_set: Boolean
   passwordResetIssuedAt: String
   passwordResetIssuedAt_not: String
@@ -663,16 +794,34 @@ enum SortUsersBy {
   averageTimeToCompleteCallback_DESC
   block1Assignment_ASC
   block1Assignment_DESC
+  block1ClassName_ASC
+  block1ClassName_DESC
   block1AssignmentLastUpdated_ASC
   block1AssignmentLastUpdated_DESC
   block2Assignment_ASC
   block2Assignment_DESC
+  block2ClassName_ASC
+  block2ClassName_DESC
+  block2AssignmentLastUpdated_ASC
+  block2AssignmentLastUpdated_DESC
   block3Assignment_ASC
   block3Assignment_DESC
+  block3ClassName_ASC
+  block3ClassName_DESC
+  block3AssignmentLastUpdated_ASC
+  block3AssignmentLastUpdated_DESC
   block4Assignment_ASC
   block4Assignment_DESC
+  block4ClassName_ASC
+  block4ClassName_DESC
+  block4AssignmentLastUpdated_ASC
+  block4AssignmentLastUpdated_DESC
   block5Assignment_ASC
   block5Assignment_DESC
+  block5ClassName_ASC
+  block5ClassName_DESC
+  block5AssignmentLastUpdated_ASC
+  block5AssignmentLastUpdated_DESC
   passwordResetIssuedAt_ASC
   passwordResetIssuedAt_DESC
   passwordResetRedeemedAt_ASC
@@ -722,11 +871,20 @@ input UserUpdateInput {
   taPbisCardCount: Int
   averageTimeToCompleteCallback: Int
   block1Assignment: String
+  block1ClassName: String
   block1AssignmentLastUpdated: String
   block2Assignment: String
+  block2ClassName: String
+  block2AssignmentLastUpdated: String
   block3Assignment: String
+  block3ClassName: String
+  block3AssignmentLastUpdated: String
   block4Assignment: String
+  block4ClassName: String
+  block4AssignmentLastUpdated: String
   block5Assignment: String
+  block5ClassName: String
+  block5AssignmentLastUpdated: String
   passwordResetToken: String
   passwordResetIssuedAt: String
   passwordResetRedeemedAt: String
@@ -779,11 +937,20 @@ input UserCreateInput {
   taPbisCardCount: Int
   averageTimeToCompleteCallback: Int
   block1Assignment: String
+  block1ClassName: String
   block1AssignmentLastUpdated: String
   block2Assignment: String
+  block2ClassName: String
+  block2AssignmentLastUpdated: String
   block3Assignment: String
+  block3ClassName: String
+  block3AssignmentLastUpdated: String
   block4Assignment: String
+  block4ClassName: String
+  block4AssignmentLastUpdated: String
   block5Assignment: String
+  block5ClassName: String
+  block5AssignmentLastUpdated: String
   passwordResetToken: String
   passwordResetIssuedAt: String
   passwordResetRedeemedAt: String

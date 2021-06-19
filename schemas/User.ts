@@ -71,11 +71,20 @@ export const User = list({
 
     // assignments
     block1Assignment: text({ defaultValue: 'Current Assignment for Block 1 goes here' }),
+    block1ClassName: text({ defaultValue: 'Class Name Goes Here' }),
     block1AssignmentLastUpdated: timestamp(),
     block2Assignment: text({ defaultValue: 'Current Assignment for Block 2 goes here' }),
+    block2ClassName: text({ defaultValue: 'Class Name Goes Here' }),
+    block2AssignmentLastUpdated: timestamp(),
     block3Assignment: text({ defaultValue: 'Current Assignment for Block 3 goes here' }),
+    block3ClassName: text({ defaultValue: 'Class Name Goes Here' }),
+    block3AssignmentLastUpdated: timestamp(),
     block4Assignment: text({ defaultValue: 'Current Assignment for Block 4 goes here' }),
+    block4ClassName: text({ defaultValue: 'Class Name Goes Here' }),
+    block4AssignmentLastUpdated: timestamp(),
     block5Assignment: text({ defaultValue: 'Current Assignment for Block 5 goes here' }),
+    block5ClassName: text({ defaultValue: 'Class Name Goes Here' }),
+    block5AssignmentLastUpdated: timestamp(),
 
 
 

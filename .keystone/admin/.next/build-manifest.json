@@ -23,11 +23,6 @@
       "static/chunks/main.js",
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
-    ],
-    "/messages/[id]": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/pages/messages/[id].js"
     ]
   },
   "ampFirstPages": []

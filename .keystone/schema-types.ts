@@ -282,6 +282,26 @@ export type UserWhereInput = {
   readonly block1Assignment_not_in?: ReadonlyArray<
     Scalars['String'] | null
   > | null;
+  readonly block1ClassName?: Scalars['String'] | null;
+  readonly block1ClassName_not?: Scalars['String'] | null;
+  readonly block1ClassName_contains?: Scalars['String'] | null;
+  readonly block1ClassName_not_contains?: Scalars['String'] | null;
+  readonly block1ClassName_starts_with?: Scalars['String'] | null;
+  readonly block1ClassName_not_starts_with?: Scalars['String'] | null;
+  readonly block1ClassName_ends_with?: Scalars['String'] | null;
+  readonly block1ClassName_not_ends_with?: Scalars['String'] | null;
+  readonly block1ClassName_i?: Scalars['String'] | null;
+  readonly block1ClassName_not_i?: Scalars['String'] | null;
+  readonly block1ClassName_contains_i?: Scalars['String'] | null;
+  readonly block1ClassName_not_contains_i?: Scalars['String'] | null;
+  readonly block1ClassName_starts_with_i?: Scalars['String'] | null;
+  readonly block1ClassName_not_starts_with_i?: Scalars['String'] | null;
+  readonly block1ClassName_ends_with_i?: Scalars['String'] | null;
+  readonly block1ClassName_not_ends_with_i?: Scalars['String'] | null;
+  readonly block1ClassName_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly block1ClassName_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
   readonly block1AssignmentLastUpdated?: Scalars['String'] | null;
   readonly block1AssignmentLastUpdated_not?: Scalars['String'] | null;
   readonly block1AssignmentLastUpdated_lt?: Scalars['String'] | null;
@@ -314,6 +334,38 @@ export type UserWhereInput = {
   readonly block2Assignment_not_in?: ReadonlyArray<
     Scalars['String'] | null
   > | null;
+  readonly block2ClassName?: Scalars['String'] | null;
+  readonly block2ClassName_not?: Scalars['String'] | null;
+  readonly block2ClassName_contains?: Scalars['String'] | null;
+  readonly block2ClassName_not_contains?: Scalars['String'] | null;
+  readonly block2ClassName_starts_with?: Scalars['String'] | null;
+  readonly block2ClassName_not_starts_with?: Scalars['String'] | null;
+  readonly block2ClassName_ends_with?: Scalars['String'] | null;
+  readonly block2ClassName_not_ends_with?: Scalars['String'] | null;
+  readonly block2ClassName_i?: Scalars['String'] | null;
+  readonly block2ClassName_not_i?: Scalars['String'] | null;
+  readonly block2ClassName_contains_i?: Scalars['String'] | null;
+  readonly block2ClassName_not_contains_i?: Scalars['String'] | null;
+  readonly block2ClassName_starts_with_i?: Scalars['String'] | null;
+  readonly block2ClassName_not_starts_with_i?: Scalars['String'] | null;
+  readonly block2ClassName_ends_with_i?: Scalars['String'] | null;
+  readonly block2ClassName_not_ends_with_i?: Scalars['String'] | null;
+  readonly block2ClassName_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly block2ClassName_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly block2AssignmentLastUpdated?: Scalars['String'] | null;
+  readonly block2AssignmentLastUpdated_not?: Scalars['String'] | null;
+  readonly block2AssignmentLastUpdated_lt?: Scalars['String'] | null;
+  readonly block2AssignmentLastUpdated_lte?: Scalars['String'] | null;
+  readonly block2AssignmentLastUpdated_gt?: Scalars['String'] | null;
+  readonly block2AssignmentLastUpdated_gte?: Scalars['String'] | null;
+  readonly block2AssignmentLastUpdated_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly block2AssignmentLastUpdated_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
   readonly block3Assignment?: Scalars['String'] | null;
   readonly block3Assignment_not?: Scalars['String'] | null;
   readonly block3Assignment_contains?: Scalars['String'] | null;
@@ -332,6 +384,38 @@ export type UserWhereInput = {
   readonly block3Assignment_not_ends_with_i?: Scalars['String'] | null;
   readonly block3Assignment_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly block3Assignment_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly block3ClassName?: Scalars['String'] | null;
+  readonly block3ClassName_not?: Scalars['String'] | null;
+  readonly block3ClassName_contains?: Scalars['String'] | null;
+  readonly block3ClassName_not_contains?: Scalars['String'] | null;
+  readonly block3ClassName_starts_with?: Scalars['String'] | null;
+  readonly block3ClassName_not_starts_with?: Scalars['String'] | null;
+  readonly block3ClassName_ends_with?: Scalars['String'] | null;
+  readonly block3ClassName_not_ends_with?: Scalars['String'] | null;
+  readonly block3ClassName_i?: Scalars['String'] | null;
+  readonly block3ClassName_not_i?: Scalars['String'] | null;
+  readonly block3ClassName_contains_i?: Scalars['String'] | null;
+  readonly block3ClassName_not_contains_i?: Scalars['String'] | null;
+  readonly block3ClassName_starts_with_i?: Scalars['String'] | null;
+  readonly block3ClassName_not_starts_with_i?: Scalars['String'] | null;
+  readonly block3ClassName_ends_with_i?: Scalars['String'] | null;
+  readonly block3ClassName_not_ends_with_i?: Scalars['String'] | null;
+  readonly block3ClassName_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly block3ClassName_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly block3AssignmentLastUpdated?: Scalars['String'] | null;
+  readonly block3AssignmentLastUpdated_not?: Scalars['String'] | null;
+  readonly block3AssignmentLastUpdated_lt?: Scalars['String'] | null;
+  readonly block3AssignmentLastUpdated_lte?: Scalars['String'] | null;
+  readonly block3AssignmentLastUpdated_gt?: Scalars['String'] | null;
+  readonly block3AssignmentLastUpdated_gte?: Scalars['String'] | null;
+  readonly block3AssignmentLastUpdated_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly block3AssignmentLastUpdated_not_in?: ReadonlyArray<
     Scalars['String'] | null
   > | null;
   readonly block4Assignment?: Scalars['String'] | null;
@@ -354,6 +438,38 @@ export type UserWhereInput = {
   readonly block4Assignment_not_in?: ReadonlyArray<
     Scalars['String'] | null
   > | null;
+  readonly block4ClassName?: Scalars['String'] | null;
+  readonly block4ClassName_not?: Scalars['String'] | null;
+  readonly block4ClassName_contains?: Scalars['String'] | null;
+  readonly block4ClassName_not_contains?: Scalars['String'] | null;
+  readonly block4ClassName_starts_with?: Scalars['String'] | null;
+  readonly block4ClassName_not_starts_with?: Scalars['String'] | null;
+  readonly block4ClassName_ends_with?: Scalars['String'] | null;
+  readonly block4ClassName_not_ends_with?: Scalars['String'] | null;
+  readonly block4ClassName_i?: Scalars['String'] | null;
+  readonly block4ClassName_not_i?: Scalars['String'] | null;
+  readonly block4ClassName_contains_i?: Scalars['String'] | null;
+  readonly block4ClassName_not_contains_i?: Scalars['String'] | null;
+  readonly block4ClassName_starts_with_i?: Scalars['String'] | null;
+  readonly block4ClassName_not_starts_with_i?: Scalars['String'] | null;
+  readonly block4ClassName_ends_with_i?: Scalars['String'] | null;
+  readonly block4ClassName_not_ends_with_i?: Scalars['String'] | null;
+  readonly block4ClassName_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly block4ClassName_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly block4AssignmentLastUpdated?: Scalars['String'] | null;
+  readonly block4AssignmentLastUpdated_not?: Scalars['String'] | null;
+  readonly block4AssignmentLastUpdated_lt?: Scalars['String'] | null;
+  readonly block4AssignmentLastUpdated_lte?: Scalars['String'] | null;
+  readonly block4AssignmentLastUpdated_gt?: Scalars['String'] | null;
+  readonly block4AssignmentLastUpdated_gte?: Scalars['String'] | null;
+  readonly block4AssignmentLastUpdated_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly block4AssignmentLastUpdated_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
   readonly block5Assignment?: Scalars['String'] | null;
   readonly block5Assignment_not?: Scalars['String'] | null;
   readonly block5Assignment_contains?: Scalars['String'] | null;
@@ -372,6 +488,38 @@ export type UserWhereInput = {
   readonly block5Assignment_not_ends_with_i?: Scalars['String'] | null;
   readonly block5Assignment_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly block5Assignment_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly block5ClassName?: Scalars['String'] | null;
+  readonly block5ClassName_not?: Scalars['String'] | null;
+  readonly block5ClassName_contains?: Scalars['String'] | null;
+  readonly block5ClassName_not_contains?: Scalars['String'] | null;
+  readonly block5ClassName_starts_with?: Scalars['String'] | null;
+  readonly block5ClassName_not_starts_with?: Scalars['String'] | null;
+  readonly block5ClassName_ends_with?: Scalars['String'] | null;
+  readonly block5ClassName_not_ends_with?: Scalars['String'] | null;
+  readonly block5ClassName_i?: Scalars['String'] | null;
+  readonly block5ClassName_not_i?: Scalars['String'] | null;
+  readonly block5ClassName_contains_i?: Scalars['String'] | null;
+  readonly block5ClassName_not_contains_i?: Scalars['String'] | null;
+  readonly block5ClassName_starts_with_i?: Scalars['String'] | null;
+  readonly block5ClassName_not_starts_with_i?: Scalars['String'] | null;
+  readonly block5ClassName_ends_with_i?: Scalars['String'] | null;
+  readonly block5ClassName_not_ends_with_i?: Scalars['String'] | null;
+  readonly block5ClassName_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly block5ClassName_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly block5AssignmentLastUpdated?: Scalars['String'] | null;
+  readonly block5AssignmentLastUpdated_not?: Scalars['String'] | null;
+  readonly block5AssignmentLastUpdated_lt?: Scalars['String'] | null;
+  readonly block5AssignmentLastUpdated_lte?: Scalars['String'] | null;
+  readonly block5AssignmentLastUpdated_gt?: Scalars['String'] | null;
+  readonly block5AssignmentLastUpdated_gte?: Scalars['String'] | null;
+  readonly block5AssignmentLastUpdated_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly block5AssignmentLastUpdated_not_in?: ReadonlyArray<
     Scalars['String'] | null
   > | null;
   readonly passwordResetToken_is_set?: Scalars['Boolean'] | null;
@@ -507,16 +655,34 @@ export type SortUsersBy =
   | 'averageTimeToCompleteCallback_DESC'
   | 'block1Assignment_ASC'
   | 'block1Assignment_DESC'
+  | 'block1ClassName_ASC'
+  | 'block1ClassName_DESC'
   | 'block1AssignmentLastUpdated_ASC'
   | 'block1AssignmentLastUpdated_DESC'
   | 'block2Assignment_ASC'
   | 'block2Assignment_DESC'
+  | 'block2ClassName_ASC'
+  | 'block2ClassName_DESC'
+  | 'block2AssignmentLastUpdated_ASC'
+  | 'block2AssignmentLastUpdated_DESC'
   | 'block3Assignment_ASC'
   | 'block3Assignment_DESC'
+  | 'block3ClassName_ASC'
+  | 'block3ClassName_DESC'
+  | 'block3AssignmentLastUpdated_ASC'
+  | 'block3AssignmentLastUpdated_DESC'
   | 'block4Assignment_ASC'
   | 'block4Assignment_DESC'
+  | 'block4ClassName_ASC'
+  | 'block4ClassName_DESC'
+  | 'block4AssignmentLastUpdated_ASC'
+  | 'block4AssignmentLastUpdated_DESC'
   | 'block5Assignment_ASC'
   | 'block5Assignment_DESC'
+  | 'block5ClassName_ASC'
+  | 'block5ClassName_DESC'
+  | 'block5AssignmentLastUpdated_ASC'
+  | 'block5AssignmentLastUpdated_DESC'
   | 'passwordResetIssuedAt_ASC'
   | 'passwordResetIssuedAt_DESC'
   | 'passwordResetRedeemedAt_ASC'
@@ -565,11 +731,20 @@ export type UserUpdateInput = {
   readonly taPbisCardCount?: Scalars['Int'] | null;
   readonly averageTimeToCompleteCallback?: Scalars['Int'] | null;
   readonly block1Assignment?: Scalars['String'] | null;
+  readonly block1ClassName?: Scalars['String'] | null;
   readonly block1AssignmentLastUpdated?: Scalars['String'] | null;
   readonly block2Assignment?: Scalars['String'] | null;
+  readonly block2ClassName?: Scalars['String'] | null;
+  readonly block2AssignmentLastUpdated?: Scalars['String'] | null;
   readonly block3Assignment?: Scalars['String'] | null;
+  readonly block3ClassName?: Scalars['String'] | null;
+  readonly block3AssignmentLastUpdated?: Scalars['String'] | null;
   readonly block4Assignment?: Scalars['String'] | null;
+  readonly block4ClassName?: Scalars['String'] | null;
+  readonly block4AssignmentLastUpdated?: Scalars['String'] | null;
   readonly block5Assignment?: Scalars['String'] | null;
+  readonly block5ClassName?: Scalars['String'] | null;
+  readonly block5AssignmentLastUpdated?: Scalars['String'] | null;
   readonly passwordResetToken?: Scalars['String'] | null;
   readonly passwordResetIssuedAt?: Scalars['String'] | null;
   readonly passwordResetRedeemedAt?: Scalars['String'] | null;
@@ -622,11 +797,20 @@ export type UserCreateInput = {
   readonly taPbisCardCount?: Scalars['Int'] | null;
   readonly averageTimeToCompleteCallback?: Scalars['Int'] | null;
   readonly block1Assignment?: Scalars['String'] | null;
+  readonly block1ClassName?: Scalars['String'] | null;
   readonly block1AssignmentLastUpdated?: Scalars['String'] | null;
   readonly block2Assignment?: Scalars['String'] | null;
+  readonly block2ClassName?: Scalars['String'] | null;
+  readonly block2AssignmentLastUpdated?: Scalars['String'] | null;
   readonly block3Assignment?: Scalars['String'] | null;
+  readonly block3ClassName?: Scalars['String'] | null;
+  readonly block3AssignmentLastUpdated?: Scalars['String'] | null;
   readonly block4Assignment?: Scalars['String'] | null;
+  readonly block4ClassName?: Scalars['String'] | null;
+  readonly block4AssignmentLastUpdated?: Scalars['String'] | null;
   readonly block5Assignment?: Scalars['String'] | null;
+  readonly block5ClassName?: Scalars['String'] | null;
+  readonly block5AssignmentLastUpdated?: Scalars['String'] | null;
   readonly passwordResetToken?: Scalars['String'] | null;
   readonly passwordResetIssuedAt?: Scalars['String'] | null;
   readonly passwordResetRedeemedAt?: Scalars['String'] | null;
@@ -2236,11 +2420,20 @@ export type UserListTypeInfo = {
     | 'taPbisCardCount'
     | 'averageTimeToCompleteCallback'
     | 'block1Assignment'
+    | 'block1ClassName'
     | 'block1AssignmentLastUpdated'
     | 'block2Assignment'
+    | 'block2ClassName'
+    | 'block2AssignmentLastUpdated'
     | 'block3Assignment'
+    | 'block3ClassName'
+    | 'block3AssignmentLastUpdated'
     | 'block4Assignment'
+    | 'block4ClassName'
+    | 'block4AssignmentLastUpdated'
     | 'block5Assignment'
+    | 'block5ClassName'
+    | 'block5AssignmentLastUpdated'
     | 'passwordResetToken'
     | 'passwordResetIssuedAt'
     | 'passwordResetRedeemedAt'
@@ -2287,11 +2480,20 @@ export type UserListTypeInfo = {
     readonly taPbisCardCount?: number | null;
     readonly averageTimeToCompleteCallback?: number | null;
     readonly block1Assignment?: string | null;
+    readonly block1ClassName?: string | null;
     readonly block1AssignmentLastUpdated?: Date | null;
     readonly block2Assignment?: string | null;
+    readonly block2ClassName?: string | null;
+    readonly block2AssignmentLastUpdated?: Date | null;
     readonly block3Assignment?: string | null;
+    readonly block3ClassName?: string | null;
+    readonly block3AssignmentLastUpdated?: Date | null;
     readonly block4Assignment?: string | null;
+    readonly block4ClassName?: string | null;
+    readonly block4AssignmentLastUpdated?: Date | null;
     readonly block5Assignment?: string | null;
+    readonly block5ClassName?: string | null;
+    readonly block5AssignmentLastUpdated?: Date | null;
     readonly passwordResetToken?: string | null;
     readonly passwordResetIssuedAt?: Date | null;
     readonly passwordResetRedeemedAt?: Date | null;
