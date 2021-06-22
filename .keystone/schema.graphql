@@ -124,6 +124,7 @@ type User {
   messageReceiver(where: MessageWhereInput, search: String, sortBy: [SortMessagesBy!], orderBy: String, first: Int, skip: Int): [Message!]!
   _messageReceiverMeta(where: MessageWhereInput, search: String, sortBy: [SortMessagesBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
   callbackCount: Int
+  totalCallbackCount: Int
   PbisCardCount: Int
   YearPbisCount: Int
   teacherSubject: String
@@ -407,6 +408,14 @@ input UserWhereInput {
   callbackCount_gte: Int
   callbackCount_in: [Int]
   callbackCount_not_in: [Int]
+  totalCallbackCount: Int
+  totalCallbackCount_not: Int
+  totalCallbackCount_lt: Int
+  totalCallbackCount_lte: Int
+  totalCallbackCount_gt: Int
+  totalCallbackCount_gte: Int
+  totalCallbackCount_in: [Int]
+  totalCallbackCount_not_in: [Int]
   PbisCardCount: Int
   PbisCardCount_not: Int
   PbisCardCount_lt: Int
@@ -782,6 +791,8 @@ enum SortUsersBy {
   messageReceiver_DESC
   callbackCount_ASC
   callbackCount_DESC
+  totalCallbackCount_ASC
+  totalCallbackCount_DESC
   PbisCardCount_ASC
   PbisCardCount_DESC
   YearPbisCount_ASC
@@ -865,6 +876,7 @@ input UserUpdateInput {
   messageSender: MessageRelateToManyInput
   messageReceiver: MessageRelateToManyInput
   callbackCount: Int
+  totalCallbackCount: Int
   PbisCardCount: Int
   YearPbisCount: Int
   teacherSubject: String
@@ -931,6 +943,7 @@ input UserCreateInput {
   messageSender: MessageRelateToManyInput
   messageReceiver: MessageRelateToManyInput
   callbackCount: Int
+  totalCallbackCount: Int
   PbisCardCount: Int
   YearPbisCount: Int
   teacherSubject: String
@@ -3175,6 +3188,7 @@ type Mutation {
   deleteMessages(ids: [ID!]): [Message]
   authenticateUserWithPassword(email: String!, password: String!): UserAuthenticationWithPasswordResult!
   createInitialUser(data: CreateInitialUserInput!): UserAuthenticationWithPasswordSuccess!
+  recalculateCallback(callbackID: ID): User
   recalculatePBIS(userId: ID): User
   endSession: Boolean!
 }

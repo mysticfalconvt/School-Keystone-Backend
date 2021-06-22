@@ -63,6 +63,7 @@ export const User = list({
 
     // Important Info
     callbackCount: integer({ defaultValue: 0 }),
+    totalCallbackCount: integer({ defaultValue: 0 }),
     PbisCardCount: integer({ defaultValue: 0 }),
     YearPbisCount: integer({ defaultValue: 0 }),
     teacherSubject: text({ defaultValue: undefined, }),

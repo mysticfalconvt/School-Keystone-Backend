@@ -206,6 +206,16 @@ export type UserWhereInput = {
   readonly callbackCount_gte?: Scalars['Int'] | null;
   readonly callbackCount_in?: ReadonlyArray<Scalars['Int'] | null> | null;
   readonly callbackCount_not_in?: ReadonlyArray<Scalars['Int'] | null> | null;
+  readonly totalCallbackCount?: Scalars['Int'] | null;
+  readonly totalCallbackCount_not?: Scalars['Int'] | null;
+  readonly totalCallbackCount_lt?: Scalars['Int'] | null;
+  readonly totalCallbackCount_lte?: Scalars['Int'] | null;
+  readonly totalCallbackCount_gt?: Scalars['Int'] | null;
+  readonly totalCallbackCount_gte?: Scalars['Int'] | null;
+  readonly totalCallbackCount_in?: ReadonlyArray<Scalars['Int'] | null> | null;
+  readonly totalCallbackCount_not_in?: ReadonlyArray<
+    Scalars['Int'] | null
+  > | null;
   readonly PbisCardCount?: Scalars['Int'] | null;
   readonly PbisCardCount_not?: Scalars['Int'] | null;
   readonly PbisCardCount_lt?: Scalars['Int'] | null;
@@ -643,6 +653,8 @@ export type SortUsersBy =
   | 'messageReceiver_DESC'
   | 'callbackCount_ASC'
   | 'callbackCount_DESC'
+  | 'totalCallbackCount_ASC'
+  | 'totalCallbackCount_DESC'
   | 'PbisCardCount_ASC'
   | 'PbisCardCount_DESC'
   | 'YearPbisCount_ASC'
@@ -725,6 +737,7 @@ export type UserUpdateInput = {
   readonly messageSender?: MessageRelateToManyInput | null;
   readonly messageReceiver?: MessageRelateToManyInput | null;
   readonly callbackCount?: Scalars['Int'] | null;
+  readonly totalCallbackCount?: Scalars['Int'] | null;
   readonly PbisCardCount?: Scalars['Int'] | null;
   readonly YearPbisCount?: Scalars['Int'] | null;
   readonly teacherSubject?: Scalars['String'] | null;
@@ -791,6 +804,7 @@ export type UserCreateInput = {
   readonly messageSender?: MessageRelateToManyInput | null;
   readonly messageReceiver?: MessageRelateToManyInput | null;
   readonly callbackCount?: Scalars['Int'] | null;
+  readonly totalCallbackCount?: Scalars['Int'] | null;
   readonly PbisCardCount?: Scalars['Int'] | null;
   readonly YearPbisCount?: Scalars['Int'] | null;
   readonly teacherSubject?: Scalars['String'] | null;
@@ -2414,6 +2428,7 @@ export type UserListTypeInfo = {
     | 'messageSender'
     | 'messageReceiver'
     | 'callbackCount'
+    | 'totalCallbackCount'
     | 'PbisCardCount'
     | 'YearPbisCount'
     | 'teacherSubject'
@@ -2474,6 +2489,7 @@ export type UserListTypeInfo = {
     readonly messageSender?: string | null;
     readonly messageReceiver?: string | null;
     readonly callbackCount?: number | null;
+    readonly totalCallbackCount?: number | null;
     readonly PbisCardCount?: number | null;
     readonly YearPbisCount?: number | null;
     readonly teacherSubject?: string | null;
