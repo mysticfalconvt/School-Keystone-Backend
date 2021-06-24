@@ -1844,6 +1844,14 @@ export type CallbackWhereInput = {
   readonly messageFromStudent_not_in?: ReadonlyArray<
     Scalars['String'] | null
   > | null;
+  readonly daysLate?: Scalars['Int'] | null;
+  readonly daysLate_not?: Scalars['Int'] | null;
+  readonly daysLate_lt?: Scalars['Int'] | null;
+  readonly daysLate_lte?: Scalars['Int'] | null;
+  readonly daysLate_gt?: Scalars['Int'] | null;
+  readonly daysLate_gte?: Scalars['Int'] | null;
+  readonly daysLate_in?: ReadonlyArray<Scalars['Int'] | null> | null;
+  readonly daysLate_not_in?: ReadonlyArray<Scalars['Int'] | null> | null;
 };
 
 export type CallbackWhereUniqueInput = {
@@ -1870,7 +1878,9 @@ export type SortCallbacksBy =
   | 'messageFromTeacher_ASC'
   | 'messageFromTeacher_DESC'
   | 'messageFromStudent_ASC'
-  | 'messageFromStudent_DESC';
+  | 'messageFromStudent_DESC'
+  | 'daysLate_ASC'
+  | 'daysLate_DESC';
 
 export type CallbackUpdateInput = {
   readonly title?: Scalars['String'] | null;
@@ -1882,6 +1892,7 @@ export type CallbackUpdateInput = {
   readonly link?: Scalars['String'] | null;
   readonly messageFromTeacher?: Scalars['String'] | null;
   readonly messageFromStudent?: Scalars['String'] | null;
+  readonly daysLate?: Scalars['Int'] | null;
 };
 
 export type CallbacksUpdateInput = {
@@ -1899,6 +1910,7 @@ export type CallbackCreateInput = {
   readonly link?: Scalars['String'] | null;
   readonly messageFromTeacher?: Scalars['String'] | null;
   readonly messageFromStudent?: Scalars['String'] | null;
+  readonly daysLate?: Scalars['Int'] | null;
 };
 
 export type CallbacksCreateInput = {
@@ -2885,7 +2897,8 @@ export type CallbackListTypeInfo = {
     | 'dateCompleted'
     | 'link'
     | 'messageFromTeacher'
-    | 'messageFromStudent';
+    | 'messageFromStudent'
+    | 'daysLate';
   backing: {
     readonly id: string;
     readonly title?: string | null;
@@ -2897,6 +2910,7 @@ export type CallbackListTypeInfo = {
     readonly link?: string | null;
     readonly messageFromTeacher?: string | null;
     readonly messageFromStudent?: string | null;
+    readonly daysLate?: number | null;
   };
   inputs: {
     where: CallbackWhereInput;

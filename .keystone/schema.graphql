@@ -1974,6 +1974,7 @@ type Callback {
   link: String
   messageFromTeacher: String
   messageFromStudent: String
+  daysLate: Int
 }
 
 input CallbackWhereInput {
@@ -2093,6 +2094,14 @@ input CallbackWhereInput {
   messageFromStudent_not_ends_with_i: String
   messageFromStudent_in: [String]
   messageFromStudent_not_in: [String]
+  daysLate: Int
+  daysLate_not: Int
+  daysLate_lt: Int
+  daysLate_lte: Int
+  daysLate_gt: Int
+  daysLate_gte: Int
+  daysLate_in: [Int]
+  daysLate_not_in: [Int]
 }
 
 input CallbackWhereUniqueInput {
@@ -2120,6 +2129,8 @@ enum SortCallbacksBy {
   messageFromTeacher_DESC
   messageFromStudent_ASC
   messageFromStudent_DESC
+  daysLate_ASC
+  daysLate_DESC
 }
 
 input CallbackUpdateInput {
@@ -2132,6 +2143,7 @@ input CallbackUpdateInput {
   link: String
   messageFromTeacher: String
   messageFromStudent: String
+  daysLate: Int
 }
 
 input CallbacksUpdateInput {
@@ -2149,6 +2161,7 @@ input CallbackCreateInput {
   link: String
   messageFromTeacher: String
   messageFromStudent: String
+  daysLate: Int
 }
 
 input CallbacksCreateInput {
