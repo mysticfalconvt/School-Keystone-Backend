@@ -45,10 +45,23 @@ async function recalculateCallback(root: any,
              callbackToDo: _callbackItemsMeta(where:{dateCompleted:null}){
              count
             }
+            callbackItems(where: {daysLate_not: null}){
+              daysLate
+            }
           
         `,
   });
-  // console.log(student)
+  //get average days late for callback items
+
+  function getAvg(grades) {
+    const total = grades.reduce((acc, c) => acc + c, 0);
+    return total / grades.length;
+  }
+  const completedCallbacks = student.callbackItems
+  const listOfDaysLate = completedCallbacks.map((item)=> item.daysLate)
+  const averageTimeToComplete = Math.round(getAvg(listOfDaysLate) || 0)
+  console.log(averageTimeToComplete)
+
 
   //get teacher callback totals
   const teacher = await context.lists.User.findOne({
@@ -69,7 +82,8 @@ async function recalculateCallback(root: any,
     id: studentId,
     data: {
       callbackCount: student.callbackToDo.count,
-      totalCallbackCount: student.callbackTotal.count
+      totalCallbackCount: student.callbackTotal.count,
+      averageTimeToCompleteCallback: Math.floor(averageTimeToComplete),
     },
     resolveFields: false,
   });
