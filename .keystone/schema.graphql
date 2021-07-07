@@ -3203,6 +3203,7 @@ type Mutation {
   createInitialUser(data: CreateInitialUserInput!): UserAuthenticationWithPasswordSuccess!
   recalculateCallback(callbackID: ID): User
   recalculatePBIS(userId: ID): User
+  updateStudentSchedules(studentScheduleData: String): User
   endSession: Boolean!
 }
 
