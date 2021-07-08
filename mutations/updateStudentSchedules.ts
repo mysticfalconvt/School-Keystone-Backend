@@ -31,9 +31,8 @@ async function updateStudentSchedules(root: any,
     });
 
     studentUpdateResults.email = student.email;
-    if (studentInfo.length > 0) {
-      studentUpdateResults.id = studentInfo[0].id;
-    }
+
+
     //check if the student has a teacher for block 1
     if (student.block1) {
       const block1Teacher = await context.lists.User.findMany({
@@ -54,7 +53,7 @@ async function updateStudentSchedules(root: any,
     email
     ` });
       if (block2Teacher.length > 0) {
-        studentUpdateResults.block2Teacher = block2Teacher[0].id;
+        studentUpdateResults.block2Teacher = { connect: { id: block2Teacher[0].id } };
       }
     }
     if (student.block3) {
@@ -64,7 +63,7 @@ async function updateStudentSchedules(root: any,
     email
     ` });
       if (block3Teacher.length > 0) {
-        studentUpdateResults.block3Teacher = block3Teacher[0].id;
+        studentUpdateResults.block3Teacher = { connect: { id: block3Teacher[0].id } };
       }
     }
     if (student.block4) {
@@ -74,7 +73,7 @@ async function updateStudentSchedules(root: any,
     email
     ` });
       if (block4Teacher.length > 0) {
-        studentUpdateResults.block4Teacher = block4Teacher[0].id;
+        studentUpdateResults.block4Teacher = { connect: { id: block4Teacher[0].id } };
       }
     }
     if (student.block5) {
@@ -84,17 +83,28 @@ async function updateStudentSchedules(root: any,
     email
     ` });
       if (block5Teacher.length > 0) {
-        studentUpdateResults.block5Teacher = block5Teacher[0].id;
+        studentUpdateResults.block5Teacher = { connect: { id: block5Teacher[0].id } };
+      }
+    }
+    if (student.ta) {
+      const taTeacher = await context.lists.User.findMany({
+        where: { email: student.ta }, resolveFields: graphql`
+      id
+    email
+    ` });
+      if (taTeacher.length > 0) {
+        studentUpdateResults.taTeacher = { connect: { id: taTeacher[0].id } };
       }
     }
 
     //if user is new create new user
-    if (!studentUpdateResults.id) {
+    if (!studentInfo[0]?.id) {
       console.log(`Creating new user ${student.email}`);
       //get name as a string from email separated by . 
       const nameArray = student.email.split('@')[0].split('.');
       //join the names together
       studentUpdateResults.name = nameArray.join(' ');
+      studentUpdateResults.isStudent = true;
 
       const createdStudent = await context.lists.User.createOne({
         data: {
@@ -105,15 +115,20 @@ async function updateStudentSchedules(root: any,
     }
 
     //if user exists update their schedule
-
-    // console.log(student);
-    // console.log(block1Teacher);
-    // console.log(studentUpdateResults);
+    if (studentInfo[0]?.id) {
+      console.log(`Updating user ${student.email}`);
+      const updatedStudent = await context.lists.User.updateOne({
+        id: studentInfo[0].id,
+        data: {
+          ...studentUpdateResults
+        }
+      });
+    }
+    // save if student is new or updated and add data to array
     studentUpdateResults.existed = !!studentInfo[0];
     allStudentUpdateResults.push(studentUpdateResults);
   }))
 
-  console.log(allStudentUpdateResults);
   const name = JSON.stringify(allStudentUpdateResults);
   return { name }
 }

@@ -10,7 +10,7 @@ const generatedPermissions = Object.fromEntries(
   permissionsList.map((permission) => [
     permission,
     function ({ session }: ListAccessArgs) {
-      return !!session?.data.role?.[permission];
+      return !!session?.data[permission];
     },
   ]),
 );

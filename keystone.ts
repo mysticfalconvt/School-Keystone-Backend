@@ -54,7 +54,7 @@ export default withAuth(
       // Schema items go in here
       User,
       Calendar,
-      Role,
+      // Role,
       Link,
       PbisCard,
       PbisTeam,
@@ -74,7 +74,7 @@ export default withAuth(
     },
     session: withItemData(statelessSessions(sessionConfig), {
       // GraphQL Query
-      User: 'id name email role',
+      User: 'id name email canManageUsers canManageCalendar',
     }),
   })
 );

@@ -27,9 +27,6 @@ export default function Home() {
           Calendar: _allCalendarsMeta {
             count
           }
-          Role: _allRolesMeta {
-            count
-          }
           Link: _allLinksMeta {
             count
           }

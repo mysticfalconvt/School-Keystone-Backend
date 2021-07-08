@@ -21,13 +21,6 @@ export type UserRelateToOneInput = {
   readonly disconnectAll?: Scalars['Boolean'] | null;
 };
 
-export type RoleRelateToOneInput = {
-  readonly create?: RoleCreateInput | null;
-  readonly connect?: RoleWhereUniqueInput | null;
-  readonly disconnect?: RoleWhereUniqueInput | null;
-  readonly disconnectAll?: Scalars['Boolean'] | null;
-};
-
 export type PbisTeamRelateToOneInput = {
   readonly create?: PbisTeamCreateInput | null;
   readonly connect?: PbisTeamWhereUniqueInput | null;
@@ -168,8 +161,6 @@ export type UserWhereInput = {
   readonly isTeacher_not?: Scalars['Boolean'] | null;
   readonly isSuperAdmin?: Scalars['Boolean'] | null;
   readonly isSuperAdmin_not?: Scalars['Boolean'] | null;
-  readonly role?: RoleWhereInput | null;
-  readonly role_is_null?: Scalars['Boolean'] | null;
   readonly block1Teacher?: UserWhereInput | null;
   readonly block1Teacher_is_null?: Scalars['Boolean'] | null;
   readonly block1Students_every?: UserWhereInput | null;
@@ -674,8 +665,6 @@ export type SortUsersBy =
   | 'isTeacher_DESC'
   | 'isSuperAdmin_ASC'
   | 'isSuperAdmin_DESC'
-  | 'role_ASC'
-  | 'role_DESC'
   | 'block1Teacher_ASC'
   | 'block1Teacher_DESC'
   | 'block1Students_ASC'
@@ -801,7 +790,6 @@ export type UserUpdateInput = {
   readonly isStaff?: Scalars['Boolean'] | null;
   readonly isTeacher?: Scalars['Boolean'] | null;
   readonly isSuperAdmin?: Scalars['Boolean'] | null;
-  readonly role?: RoleRelateToOneInput | null;
   readonly block1Teacher?: UserRelateToOneInput | null;
   readonly block1Students?: UserRelateToManyInput | null;
   readonly block2Teacher?: UserRelateToOneInput | null;
@@ -886,7 +874,6 @@ export type UserCreateInput = {
   readonly isStaff?: Scalars['Boolean'] | null;
   readonly isTeacher?: Scalars['Boolean'] | null;
   readonly isSuperAdmin?: Scalars['Boolean'] | null;
-  readonly role?: RoleRelateToOneInput | null;
   readonly block1Teacher?: UserRelateToOneInput | null;
   readonly block1Students?: UserRelateToManyInput | null;
   readonly block2Teacher?: UserRelateToOneInput | null;
@@ -1114,175 +1101,6 @@ export type CalendarCreateInput = {
 
 export type CalendarsCreateInput = {
   readonly data?: CalendarCreateInput | null;
-};
-
-export type RoleWhereInput = {
-  readonly AND?: ReadonlyArray<RoleWhereInput | null> | null;
-  readonly OR?: ReadonlyArray<RoleWhereInput | null> | null;
-  readonly id?: Scalars['ID'] | null;
-  readonly id_not?: Scalars['ID'] | null;
-  readonly id_in?: ReadonlyArray<Scalars['ID'] | null> | null;
-  readonly id_not_in?: ReadonlyArray<Scalars['ID'] | null> | null;
-  readonly name?: Scalars['String'] | null;
-  readonly name_not?: Scalars['String'] | null;
-  readonly name_contains?: Scalars['String'] | null;
-  readonly name_not_contains?: Scalars['String'] | null;
-  readonly name_starts_with?: Scalars['String'] | null;
-  readonly name_not_starts_with?: Scalars['String'] | null;
-  readonly name_ends_with?: Scalars['String'] | null;
-  readonly name_not_ends_with?: Scalars['String'] | null;
-  readonly name_i?: Scalars['String'] | null;
-  readonly name_not_i?: Scalars['String'] | null;
-  readonly name_contains_i?: Scalars['String'] | null;
-  readonly name_not_contains_i?: Scalars['String'] | null;
-  readonly name_starts_with_i?: Scalars['String'] | null;
-  readonly name_not_starts_with_i?: Scalars['String'] | null;
-  readonly name_ends_with_i?: Scalars['String'] | null;
-  readonly name_not_ends_with_i?: Scalars['String'] | null;
-  readonly name_in?: ReadonlyArray<Scalars['String'] | null> | null;
-  readonly name_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
-  readonly canManageCalendar?: Scalars['Boolean'] | null;
-  readonly canManageCalendar_not?: Scalars['Boolean'] | null;
-  readonly canSeeOtherUsers?: Scalars['Boolean'] | null;
-  readonly canSeeOtherUsers_not?: Scalars['Boolean'] | null;
-  readonly canManageUsers?: Scalars['Boolean'] | null;
-  readonly canManageUsers_not?: Scalars['Boolean'] | null;
-  readonly canManageRoles?: Scalars['Boolean'] | null;
-  readonly canManageRoles_not?: Scalars['Boolean'] | null;
-  readonly canManageLinks?: Scalars['Boolean'] | null;
-  readonly canManageLinks_not?: Scalars['Boolean'] | null;
-  readonly canManageDiscipline?: Scalars['Boolean'] | null;
-  readonly canManageDiscipline_not?: Scalars['Boolean'] | null;
-  readonly canSeeAllDiscipline?: Scalars['Boolean'] | null;
-  readonly canSeeAllDiscipline_not?: Scalars['Boolean'] | null;
-  readonly canSeeAllTeacherEvents?: Scalars['Boolean'] | null;
-  readonly canSeeAllTeacherEvents_not?: Scalars['Boolean'] | null;
-  readonly canSeeStudentEvents?: Scalars['Boolean'] | null;
-  readonly canSeeStudentEvents_not?: Scalars['Boolean'] | null;
-  readonly canSeeOwnCallback?: Scalars['Boolean'] | null;
-  readonly canSeeOwnCallback_not?: Scalars['Boolean'] | null;
-  readonly canSeeAllCallback?: Scalars['Boolean'] | null;
-  readonly canSeeAllCallback_not?: Scalars['Boolean'] | null;
-  readonly hasTA?: Scalars['Boolean'] | null;
-  readonly hasTA_not?: Scalars['Boolean'] | null;
-  readonly hasClasses?: Scalars['Boolean'] | null;
-  readonly hasClasses_not?: Scalars['Boolean'] | null;
-  readonly isStudent?: Scalars['Boolean'] | null;
-  readonly isStudent_not?: Scalars['Boolean'] | null;
-  readonly isParent?: Scalars['Boolean'] | null;
-  readonly isParent_not?: Scalars['Boolean'] | null;
-  readonly isStaff?: Scalars['Boolean'] | null;
-  readonly isStaff_not?: Scalars['Boolean'] | null;
-  readonly isTeacher?: Scalars['Boolean'] | null;
-  readonly isTeacher_not?: Scalars['Boolean'] | null;
-  readonly isSuperAdmin?: Scalars['Boolean'] | null;
-  readonly isSuperAdmin_not?: Scalars['Boolean'] | null;
-  readonly assignedTo_every?: UserWhereInput | null;
-  readonly assignedTo_some?: UserWhereInput | null;
-  readonly assignedTo_none?: UserWhereInput | null;
-};
-
-export type RoleWhereUniqueInput = {
-  readonly id: Scalars['ID'];
-};
-
-export type SortRolesBy =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'name_ASC'
-  | 'name_DESC'
-  | 'canManageCalendar_ASC'
-  | 'canManageCalendar_DESC'
-  | 'canSeeOtherUsers_ASC'
-  | 'canSeeOtherUsers_DESC'
-  | 'canManageUsers_ASC'
-  | 'canManageUsers_DESC'
-  | 'canManageRoles_ASC'
-  | 'canManageRoles_DESC'
-  | 'canManageLinks_ASC'
-  | 'canManageLinks_DESC'
-  | 'canManageDiscipline_ASC'
-  | 'canManageDiscipline_DESC'
-  | 'canSeeAllDiscipline_ASC'
-  | 'canSeeAllDiscipline_DESC'
-  | 'canSeeAllTeacherEvents_ASC'
-  | 'canSeeAllTeacherEvents_DESC'
-  | 'canSeeStudentEvents_ASC'
-  | 'canSeeStudentEvents_DESC'
-  | 'canSeeOwnCallback_ASC'
-  | 'canSeeOwnCallback_DESC'
-  | 'canSeeAllCallback_ASC'
-  | 'canSeeAllCallback_DESC'
-  | 'hasTA_ASC'
-  | 'hasTA_DESC'
-  | 'hasClasses_ASC'
-  | 'hasClasses_DESC'
-  | 'isStudent_ASC'
-  | 'isStudent_DESC'
-  | 'isParent_ASC'
-  | 'isParent_DESC'
-  | 'isStaff_ASC'
-  | 'isStaff_DESC'
-  | 'isTeacher_ASC'
-  | 'isTeacher_DESC'
-  | 'isSuperAdmin_ASC'
-  | 'isSuperAdmin_DESC'
-  | 'assignedTo_ASC'
-  | 'assignedTo_DESC';
-
-export type RoleUpdateInput = {
-  readonly name?: Scalars['String'] | null;
-  readonly canManageCalendar?: Scalars['Boolean'] | null;
-  readonly canSeeOtherUsers?: Scalars['Boolean'] | null;
-  readonly canManageUsers?: Scalars['Boolean'] | null;
-  readonly canManageRoles?: Scalars['Boolean'] | null;
-  readonly canManageLinks?: Scalars['Boolean'] | null;
-  readonly canManageDiscipline?: Scalars['Boolean'] | null;
-  readonly canSeeAllDiscipline?: Scalars['Boolean'] | null;
-  readonly canSeeAllTeacherEvents?: Scalars['Boolean'] | null;
-  readonly canSeeStudentEvents?: Scalars['Boolean'] | null;
-  readonly canSeeOwnCallback?: Scalars['Boolean'] | null;
-  readonly canSeeAllCallback?: Scalars['Boolean'] | null;
-  readonly hasTA?: Scalars['Boolean'] | null;
-  readonly hasClasses?: Scalars['Boolean'] | null;
-  readonly isStudent?: Scalars['Boolean'] | null;
-  readonly isParent?: Scalars['Boolean'] | null;
-  readonly isStaff?: Scalars['Boolean'] | null;
-  readonly isTeacher?: Scalars['Boolean'] | null;
-  readonly isSuperAdmin?: Scalars['Boolean'] | null;
-  readonly assignedTo?: UserRelateToManyInput | null;
-};
-
-export type RolesUpdateInput = {
-  readonly id: Scalars['ID'];
-  readonly data?: RoleUpdateInput | null;
-};
-
-export type RoleCreateInput = {
-  readonly name?: Scalars['String'] | null;
-  readonly canManageCalendar?: Scalars['Boolean'] | null;
-  readonly canSeeOtherUsers?: Scalars['Boolean'] | null;
-  readonly canManageUsers?: Scalars['Boolean'] | null;
-  readonly canManageRoles?: Scalars['Boolean'] | null;
-  readonly canManageLinks?: Scalars['Boolean'] | null;
-  readonly canManageDiscipline?: Scalars['Boolean'] | null;
-  readonly canSeeAllDiscipline?: Scalars['Boolean'] | null;
-  readonly canSeeAllTeacherEvents?: Scalars['Boolean'] | null;
-  readonly canSeeStudentEvents?: Scalars['Boolean'] | null;
-  readonly canSeeOwnCallback?: Scalars['Boolean'] | null;
-  readonly canSeeAllCallback?: Scalars['Boolean'] | null;
-  readonly hasTA?: Scalars['Boolean'] | null;
-  readonly hasClasses?: Scalars['Boolean'] | null;
-  readonly isStudent?: Scalars['Boolean'] | null;
-  readonly isParent?: Scalars['Boolean'] | null;
-  readonly isStaff?: Scalars['Boolean'] | null;
-  readonly isTeacher?: Scalars['Boolean'] | null;
-  readonly isSuperAdmin?: Scalars['Boolean'] | null;
-  readonly assignedTo?: UserRelateToManyInput | null;
-};
-
-export type RolesCreateInput = {
-  readonly data?: RoleCreateInput | null;
 };
 
 export type LinkWhereInput = {
@@ -2570,7 +2388,6 @@ export type UserListTypeInfo = {
     | 'isStaff'
     | 'isTeacher'
     | 'isSuperAdmin'
-    | 'role'
     | 'block1Teacher'
     | 'block1Students'
     | 'block2Teacher'
@@ -2649,7 +2466,6 @@ export type UserListTypeInfo = {
     readonly isStaff?: boolean | null;
     readonly isTeacher?: boolean | null;
     readonly isSuperAdmin?: boolean | null;
-    readonly role?: string | null;
     readonly block1Teacher?: string | null;
     readonly block1Students?: string | null;
     readonly block2Teacher?: string | null;
@@ -2773,78 +2589,6 @@ export type CalendarListFn = (
 ) => import('@keystone-next/keystone/schema').ListConfig<
   CalendarListTypeInfo,
   CalendarListTypeInfo['fields']
->;
-
-export type RoleListTypeInfo = {
-  key: 'Role';
-  fields:
-    | 'id'
-    | 'name'
-    | 'canManageCalendar'
-    | 'canSeeOtherUsers'
-    | 'canManageUsers'
-    | 'canManageRoles'
-    | 'canManageLinks'
-    | 'canManageDiscipline'
-    | 'canSeeAllDiscipline'
-    | 'canSeeAllTeacherEvents'
-    | 'canSeeStudentEvents'
-    | 'canSeeOwnCallback'
-    | 'canSeeAllCallback'
-    | 'hasTA'
-    | 'hasClasses'
-    | 'isStudent'
-    | 'isParent'
-    | 'isStaff'
-    | 'isTeacher'
-    | 'isSuperAdmin'
-    | 'assignedTo';
-  backing: {
-    readonly id: string;
-    readonly name?: string | null;
-    readonly canManageCalendar?: boolean | null;
-    readonly canSeeOtherUsers?: boolean | null;
-    readonly canManageUsers?: boolean | null;
-    readonly canManageRoles?: boolean | null;
-    readonly canManageLinks?: boolean | null;
-    readonly canManageDiscipline?: boolean | null;
-    readonly canSeeAllDiscipline?: boolean | null;
-    readonly canSeeAllTeacherEvents?: boolean | null;
-    readonly canSeeStudentEvents?: boolean | null;
-    readonly canSeeOwnCallback?: boolean | null;
-    readonly canSeeAllCallback?: boolean | null;
-    readonly hasTA?: boolean | null;
-    readonly hasClasses?: boolean | null;
-    readonly isStudent?: boolean | null;
-    readonly isParent?: boolean | null;
-    readonly isStaff?: boolean | null;
-    readonly isTeacher?: boolean | null;
-    readonly isSuperAdmin?: boolean | null;
-    readonly assignedTo?: string | null;
-  };
-  inputs: {
-    where: RoleWhereInput;
-    create: RoleCreateInput;
-    update: RoleUpdateInput;
-  };
-  args: {
-    listQuery: {
-      readonly where?: RoleWhereInput | null;
-      readonly sortBy?: ReadonlyArray<SortRolesBy> | null;
-      readonly first?: Scalars['Int'] | null;
-      readonly skip?: Scalars['Int'] | null;
-    };
-  };
-};
-
-export type RoleListFn = (
-  listConfig: import('@keystone-next/keystone/schema').ListConfig<
-    RoleListTypeInfo,
-    RoleListTypeInfo['fields']
-  >
-) => import('@keystone-next/keystone/schema').ListConfig<
-  RoleListTypeInfo,
-  RoleListTypeInfo['fields']
 >;
 
 export type LinkListTypeInfo = {
@@ -3267,7 +3011,6 @@ export type MessageListFn = (
 export type KeystoneListsTypeInfo = {
   readonly User: UserListTypeInfo;
   readonly Calendar: CalendarListTypeInfo;
-  readonly Role: RoleListTypeInfo;
   readonly Link: LinkListTypeInfo;
   readonly PbisCard: PbisCardListTypeInfo;
   readonly PbisTeam: PbisTeamListTypeInfo;

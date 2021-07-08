@@ -5,10 +5,9 @@ import { permissionFields } from './fields';
 
 export const User = list({
   access: {
-    create: () => true,
+    create: isSignedIn,
     read: isSignedIn,
-    update: () => true,
-
+    update: rules.canManageUsers,
     delete: rules.canManageUsers,
     // delete: rules.canManageUsers,
     // update: rules.canManageUsers,
@@ -29,14 +28,14 @@ export const User = list({
     parent: relationship({ ref: 'User.children', many: true }),
     children: relationship({ ref: 'User.parent', many: true }),
     ...permissionFields,
-    role: relationship({
-      ref: 'Role.assignedTo',
-      // many: true,
-      // access: {
-      //   create: permissions.canManageUsers,
-      //   update: permissions.canManageUsers,
-      // },
-    }),
+    // role: relationship({
+    //   ref: 'Role.assignedTo',
+    //   // many: true,
+    //   // access: {
+    //   //   create: permissions.canManageUsers,
+    //   //   update: permissions.canManageUsers,
+    //   // },
+    // }),
     //classes
     block1Teacher: relationship({ ref: 'User.block1Students', many: false }),
     block1Students: relationship({ ref: 'User.block1Teacher', many: true }),
@@ -90,9 +89,6 @@ export const User = list({
     block5Assignment: text({ defaultValue: 'Current Assignment for Block 5 goes here' }),
     block5ClassName: text({ defaultValue: 'Class Name Goes Here' }),
     block5AssignmentLastUpdated: timestamp(),
-
-
-
 
 
   },
