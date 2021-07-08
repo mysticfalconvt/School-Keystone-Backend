@@ -34,7 +34,6 @@ async function updateStudentSchedules(root: any,
     if (studentInfo.length > 0) {
       studentUpdateResults.id = studentInfo[0].id;
     }
-    studentUpdateResults.existed = !!studentInfo[0];
     //check if the student has a teacher for block 1
     if (student.block1) {
       const block1Teacher = await context.lists.User.findMany({
@@ -42,9 +41,10 @@ async function updateStudentSchedules(root: any,
       id
     email
     ` });
+
       //if the student has a teacher for block 1 set the teacher to that teacher
       if (block1Teacher.length > 0) {
-        studentUpdateResults.block1Teacher = block1Teacher[0].id;
+        studentUpdateResults.block1Teacher = { connect: { id: block1Teacher[0].id } };
       }
     }
     if (student.block2) {
@@ -88,10 +88,28 @@ async function updateStudentSchedules(root: any,
       }
     }
 
+    //if user is new create new user
+    if (!studentUpdateResults.id) {
+      console.log(`Creating new user ${student.email}`);
+      //get name as a string from email separated by . 
+      const nameArray = student.email.split('@')[0].split('.');
+      //join the names together
+      studentUpdateResults.name = nameArray.join(' ');
+
+      const createdStudent = await context.lists.User.createOne({
+        data: {
+          ...studentUpdateResults
+        },
+        resolveFields: 'id'
+      })
+    }
+
+    //if user exists update their schedule
 
     // console.log(student);
     // console.log(block1Teacher);
     // console.log(studentUpdateResults);
+    studentUpdateResults.existed = !!studentInfo[0];
     allStudentUpdateResults.push(studentUpdateResults);
   }))
 

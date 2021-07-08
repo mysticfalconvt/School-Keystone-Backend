@@ -53,6 +53,26 @@ export const permissionFields = {
     defaultValue: false,
     label: 'User teaches classes',
   }),
+  isStudent: checkbox({
+    defaultValue: false,
+    label: 'User is a student',
+  }),
+  isParent: checkbox({
+    defaultValue: false,
+    label: 'User is a parent',
+  }),
+  isStaff: checkbox({
+    defaultValue: false,
+    label: 'User is a staff member',
+  }),
+  isTeacher: checkbox({
+    defaultValue: false,
+    label: 'User is a teacher',
+  }),
+  isSuperAdmin: checkbox({
+    defaultValue: false,
+    label: 'User is a super admin',
+  }),
 };
 
 export type Permission = keyof typeof permissionFields;

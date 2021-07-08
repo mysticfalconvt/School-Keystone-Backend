@@ -21,10 +21,10 @@ export type UserRelateToOneInput = {
   readonly disconnectAll?: Scalars['Boolean'] | null;
 };
 
-export type RoleRelateToManyInput = {
-  readonly create?: ReadonlyArray<RoleCreateInput | null> | null;
-  readonly connect?: ReadonlyArray<RoleWhereUniqueInput | null> | null;
-  readonly disconnect?: ReadonlyArray<RoleWhereUniqueInput | null> | null;
+export type RoleRelateToOneInput = {
+  readonly create?: RoleCreateInput | null;
+  readonly connect?: RoleWhereUniqueInput | null;
+  readonly disconnect?: RoleWhereUniqueInput | null;
   readonly disconnectAll?: Scalars['Boolean'] | null;
 };
 
@@ -132,9 +132,44 @@ export type UserWhereInput = {
   readonly children_every?: UserWhereInput | null;
   readonly children_some?: UserWhereInput | null;
   readonly children_none?: UserWhereInput | null;
-  readonly role_every?: RoleWhereInput | null;
-  readonly role_some?: RoleWhereInput | null;
-  readonly role_none?: RoleWhereInput | null;
+  readonly canManageCalendar?: Scalars['Boolean'] | null;
+  readonly canManageCalendar_not?: Scalars['Boolean'] | null;
+  readonly canSeeOtherUsers?: Scalars['Boolean'] | null;
+  readonly canSeeOtherUsers_not?: Scalars['Boolean'] | null;
+  readonly canManageUsers?: Scalars['Boolean'] | null;
+  readonly canManageUsers_not?: Scalars['Boolean'] | null;
+  readonly canManageRoles?: Scalars['Boolean'] | null;
+  readonly canManageRoles_not?: Scalars['Boolean'] | null;
+  readonly canManageLinks?: Scalars['Boolean'] | null;
+  readonly canManageLinks_not?: Scalars['Boolean'] | null;
+  readonly canManageDiscipline?: Scalars['Boolean'] | null;
+  readonly canManageDiscipline_not?: Scalars['Boolean'] | null;
+  readonly canSeeAllDiscipline?: Scalars['Boolean'] | null;
+  readonly canSeeAllDiscipline_not?: Scalars['Boolean'] | null;
+  readonly canSeeAllTeacherEvents?: Scalars['Boolean'] | null;
+  readonly canSeeAllTeacherEvents_not?: Scalars['Boolean'] | null;
+  readonly canSeeStudentEvents?: Scalars['Boolean'] | null;
+  readonly canSeeStudentEvents_not?: Scalars['Boolean'] | null;
+  readonly canSeeOwnCallback?: Scalars['Boolean'] | null;
+  readonly canSeeOwnCallback_not?: Scalars['Boolean'] | null;
+  readonly canSeeAllCallback?: Scalars['Boolean'] | null;
+  readonly canSeeAllCallback_not?: Scalars['Boolean'] | null;
+  readonly hasTA?: Scalars['Boolean'] | null;
+  readonly hasTA_not?: Scalars['Boolean'] | null;
+  readonly hasClasses?: Scalars['Boolean'] | null;
+  readonly hasClasses_not?: Scalars['Boolean'] | null;
+  readonly isStudent?: Scalars['Boolean'] | null;
+  readonly isStudent_not?: Scalars['Boolean'] | null;
+  readonly isParent?: Scalars['Boolean'] | null;
+  readonly isParent_not?: Scalars['Boolean'] | null;
+  readonly isStaff?: Scalars['Boolean'] | null;
+  readonly isStaff_not?: Scalars['Boolean'] | null;
+  readonly isTeacher?: Scalars['Boolean'] | null;
+  readonly isTeacher_not?: Scalars['Boolean'] | null;
+  readonly isSuperAdmin?: Scalars['Boolean'] | null;
+  readonly isSuperAdmin_not?: Scalars['Boolean'] | null;
+  readonly role?: RoleWhereInput | null;
+  readonly role_is_null?: Scalars['Boolean'] | null;
   readonly block1Teacher?: UserWhereInput | null;
   readonly block1Teacher_is_null?: Scalars['Boolean'] | null;
   readonly block1Students_every?: UserWhereInput | null;
@@ -603,6 +638,42 @@ export type SortUsersBy =
   | 'parent_DESC'
   | 'children_ASC'
   | 'children_DESC'
+  | 'canManageCalendar_ASC'
+  | 'canManageCalendar_DESC'
+  | 'canSeeOtherUsers_ASC'
+  | 'canSeeOtherUsers_DESC'
+  | 'canManageUsers_ASC'
+  | 'canManageUsers_DESC'
+  | 'canManageRoles_ASC'
+  | 'canManageRoles_DESC'
+  | 'canManageLinks_ASC'
+  | 'canManageLinks_DESC'
+  | 'canManageDiscipline_ASC'
+  | 'canManageDiscipline_DESC'
+  | 'canSeeAllDiscipline_ASC'
+  | 'canSeeAllDiscipline_DESC'
+  | 'canSeeAllTeacherEvents_ASC'
+  | 'canSeeAllTeacherEvents_DESC'
+  | 'canSeeStudentEvents_ASC'
+  | 'canSeeStudentEvents_DESC'
+  | 'canSeeOwnCallback_ASC'
+  | 'canSeeOwnCallback_DESC'
+  | 'canSeeAllCallback_ASC'
+  | 'canSeeAllCallback_DESC'
+  | 'hasTA_ASC'
+  | 'hasTA_DESC'
+  | 'hasClasses_ASC'
+  | 'hasClasses_DESC'
+  | 'isStudent_ASC'
+  | 'isStudent_DESC'
+  | 'isParent_ASC'
+  | 'isParent_DESC'
+  | 'isStaff_ASC'
+  | 'isStaff_DESC'
+  | 'isTeacher_ASC'
+  | 'isTeacher_DESC'
+  | 'isSuperAdmin_ASC'
+  | 'isSuperAdmin_DESC'
   | 'role_ASC'
   | 'role_DESC'
   | 'block1Teacher_ASC'
@@ -712,7 +783,25 @@ export type UserUpdateInput = {
   readonly taTeacher?: UserRelateToOneInput | null;
   readonly parent?: UserRelateToManyInput | null;
   readonly children?: UserRelateToManyInput | null;
-  readonly role?: RoleRelateToManyInput | null;
+  readonly canManageCalendar?: Scalars['Boolean'] | null;
+  readonly canSeeOtherUsers?: Scalars['Boolean'] | null;
+  readonly canManageUsers?: Scalars['Boolean'] | null;
+  readonly canManageRoles?: Scalars['Boolean'] | null;
+  readonly canManageLinks?: Scalars['Boolean'] | null;
+  readonly canManageDiscipline?: Scalars['Boolean'] | null;
+  readonly canSeeAllDiscipline?: Scalars['Boolean'] | null;
+  readonly canSeeAllTeacherEvents?: Scalars['Boolean'] | null;
+  readonly canSeeStudentEvents?: Scalars['Boolean'] | null;
+  readonly canSeeOwnCallback?: Scalars['Boolean'] | null;
+  readonly canSeeAllCallback?: Scalars['Boolean'] | null;
+  readonly hasTA?: Scalars['Boolean'] | null;
+  readonly hasClasses?: Scalars['Boolean'] | null;
+  readonly isStudent?: Scalars['Boolean'] | null;
+  readonly isParent?: Scalars['Boolean'] | null;
+  readonly isStaff?: Scalars['Boolean'] | null;
+  readonly isTeacher?: Scalars['Boolean'] | null;
+  readonly isSuperAdmin?: Scalars['Boolean'] | null;
+  readonly role?: RoleRelateToOneInput | null;
   readonly block1Teacher?: UserRelateToOneInput | null;
   readonly block1Students?: UserRelateToManyInput | null;
   readonly block2Teacher?: UserRelateToOneInput | null;
@@ -779,7 +868,25 @@ export type UserCreateInput = {
   readonly taTeacher?: UserRelateToOneInput | null;
   readonly parent?: UserRelateToManyInput | null;
   readonly children?: UserRelateToManyInput | null;
-  readonly role?: RoleRelateToManyInput | null;
+  readonly canManageCalendar?: Scalars['Boolean'] | null;
+  readonly canSeeOtherUsers?: Scalars['Boolean'] | null;
+  readonly canManageUsers?: Scalars['Boolean'] | null;
+  readonly canManageRoles?: Scalars['Boolean'] | null;
+  readonly canManageLinks?: Scalars['Boolean'] | null;
+  readonly canManageDiscipline?: Scalars['Boolean'] | null;
+  readonly canSeeAllDiscipline?: Scalars['Boolean'] | null;
+  readonly canSeeAllTeacherEvents?: Scalars['Boolean'] | null;
+  readonly canSeeStudentEvents?: Scalars['Boolean'] | null;
+  readonly canSeeOwnCallback?: Scalars['Boolean'] | null;
+  readonly canSeeAllCallback?: Scalars['Boolean'] | null;
+  readonly hasTA?: Scalars['Boolean'] | null;
+  readonly hasClasses?: Scalars['Boolean'] | null;
+  readonly isStudent?: Scalars['Boolean'] | null;
+  readonly isParent?: Scalars['Boolean'] | null;
+  readonly isStaff?: Scalars['Boolean'] | null;
+  readonly isTeacher?: Scalars['Boolean'] | null;
+  readonly isSuperAdmin?: Scalars['Boolean'] | null;
+  readonly role?: RoleRelateToOneInput | null;
   readonly block1Teacher?: UserRelateToOneInput | null;
   readonly block1Students?: UserRelateToManyInput | null;
   readonly block2Teacher?: UserRelateToOneInput | null;
@@ -1060,6 +1167,16 @@ export type RoleWhereInput = {
   readonly hasTA_not?: Scalars['Boolean'] | null;
   readonly hasClasses?: Scalars['Boolean'] | null;
   readonly hasClasses_not?: Scalars['Boolean'] | null;
+  readonly isStudent?: Scalars['Boolean'] | null;
+  readonly isStudent_not?: Scalars['Boolean'] | null;
+  readonly isParent?: Scalars['Boolean'] | null;
+  readonly isParent_not?: Scalars['Boolean'] | null;
+  readonly isStaff?: Scalars['Boolean'] | null;
+  readonly isStaff_not?: Scalars['Boolean'] | null;
+  readonly isTeacher?: Scalars['Boolean'] | null;
+  readonly isTeacher_not?: Scalars['Boolean'] | null;
+  readonly isSuperAdmin?: Scalars['Boolean'] | null;
+  readonly isSuperAdmin_not?: Scalars['Boolean'] | null;
   readonly assignedTo_every?: UserWhereInput | null;
   readonly assignedTo_some?: UserWhereInput | null;
   readonly assignedTo_none?: UserWhereInput | null;
@@ -1100,6 +1217,16 @@ export type SortRolesBy =
   | 'hasTA_DESC'
   | 'hasClasses_ASC'
   | 'hasClasses_DESC'
+  | 'isStudent_ASC'
+  | 'isStudent_DESC'
+  | 'isParent_ASC'
+  | 'isParent_DESC'
+  | 'isStaff_ASC'
+  | 'isStaff_DESC'
+  | 'isTeacher_ASC'
+  | 'isTeacher_DESC'
+  | 'isSuperAdmin_ASC'
+  | 'isSuperAdmin_DESC'
   | 'assignedTo_ASC'
   | 'assignedTo_DESC';
 
@@ -1118,6 +1245,11 @@ export type RoleUpdateInput = {
   readonly canSeeAllCallback?: Scalars['Boolean'] | null;
   readonly hasTA?: Scalars['Boolean'] | null;
   readonly hasClasses?: Scalars['Boolean'] | null;
+  readonly isStudent?: Scalars['Boolean'] | null;
+  readonly isParent?: Scalars['Boolean'] | null;
+  readonly isStaff?: Scalars['Boolean'] | null;
+  readonly isTeacher?: Scalars['Boolean'] | null;
+  readonly isSuperAdmin?: Scalars['Boolean'] | null;
   readonly assignedTo?: UserRelateToManyInput | null;
 };
 
@@ -1141,6 +1273,11 @@ export type RoleCreateInput = {
   readonly canSeeAllCallback?: Scalars['Boolean'] | null;
   readonly hasTA?: Scalars['Boolean'] | null;
   readonly hasClasses?: Scalars['Boolean'] | null;
+  readonly isStudent?: Scalars['Boolean'] | null;
+  readonly isParent?: Scalars['Boolean'] | null;
+  readonly isStaff?: Scalars['Boolean'] | null;
+  readonly isTeacher?: Scalars['Boolean'] | null;
+  readonly isSuperAdmin?: Scalars['Boolean'] | null;
   readonly assignedTo?: UserRelateToManyInput | null;
 };
 
@@ -2415,6 +2552,24 @@ export type UserListTypeInfo = {
     | 'taTeacher'
     | 'parent'
     | 'children'
+    | 'canManageCalendar'
+    | 'canSeeOtherUsers'
+    | 'canManageUsers'
+    | 'canManageRoles'
+    | 'canManageLinks'
+    | 'canManageDiscipline'
+    | 'canSeeAllDiscipline'
+    | 'canSeeAllTeacherEvents'
+    | 'canSeeStudentEvents'
+    | 'canSeeOwnCallback'
+    | 'canSeeAllCallback'
+    | 'hasTA'
+    | 'hasClasses'
+    | 'isStudent'
+    | 'isParent'
+    | 'isStaff'
+    | 'isTeacher'
+    | 'isSuperAdmin'
     | 'role'
     | 'block1Teacher'
     | 'block1Students'
@@ -2476,6 +2631,24 @@ export type UserListTypeInfo = {
     readonly taTeacher?: string | null;
     readonly parent?: string | null;
     readonly children?: string | null;
+    readonly canManageCalendar?: boolean | null;
+    readonly canSeeOtherUsers?: boolean | null;
+    readonly canManageUsers?: boolean | null;
+    readonly canManageRoles?: boolean | null;
+    readonly canManageLinks?: boolean | null;
+    readonly canManageDiscipline?: boolean | null;
+    readonly canSeeAllDiscipline?: boolean | null;
+    readonly canSeeAllTeacherEvents?: boolean | null;
+    readonly canSeeStudentEvents?: boolean | null;
+    readonly canSeeOwnCallback?: boolean | null;
+    readonly canSeeAllCallback?: boolean | null;
+    readonly hasTA?: boolean | null;
+    readonly hasClasses?: boolean | null;
+    readonly isStudent?: boolean | null;
+    readonly isParent?: boolean | null;
+    readonly isStaff?: boolean | null;
+    readonly isTeacher?: boolean | null;
+    readonly isSuperAdmin?: boolean | null;
     readonly role?: string | null;
     readonly block1Teacher?: string | null;
     readonly block1Students?: string | null;
@@ -2620,6 +2793,11 @@ export type RoleListTypeInfo = {
     | 'canSeeAllCallback'
     | 'hasTA'
     | 'hasClasses'
+    | 'isStudent'
+    | 'isParent'
+    | 'isStaff'
+    | 'isTeacher'
+    | 'isSuperAdmin'
     | 'assignedTo';
   backing: {
     readonly id: string;
@@ -2637,6 +2815,11 @@ export type RoleListTypeInfo = {
     readonly canSeeAllCallback?: boolean | null;
     readonly hasTA?: boolean | null;
     readonly hasClasses?: boolean | null;
+    readonly isStudent?: boolean | null;
+    readonly isParent?: boolean | null;
+    readonly isStaff?: boolean | null;
+    readonly isTeacher?: boolean | null;
+    readonly isSuperAdmin?: boolean | null;
     readonly assignedTo?: string | null;
   };
   inputs: {

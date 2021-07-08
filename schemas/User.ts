@@ -1,21 +1,24 @@
 import { list } from '@keystone-next/keystone/schema';
 import { text, password, relationship, integer, timestamp } from '@keystone-next/fields';
 import { isSignedIn, permissions, rules } from '../access';
+import { permissionFields } from './fields';
 
 export const User = list({
   access: {
     create: () => true,
     read: isSignedIn,
     update: () => true,
+
+    delete: rules.canManageUsers,
+    // delete: rules.canManageUsers,
     // update: rules.canManageUsers,
     // only people with the permission can delete themselves!
     // You can't delete yourself
-    delete: permissions.canManageUsers,
   },
   ui: {
     // hide the backend UI from regular users
-    hideCreate: (args) => !permissions.canManageUsers(args),
-    hideDelete: (args) => !permissions.canManageUsers(args),
+    hideCreate: (args) => !rules.canManageUsers(args),
+    hideDelete: (args) => !rules.canManageUsers(args),
   },
   fields: {
     name: text({ isRequired: true, isIndexed: true }),
@@ -25,9 +28,10 @@ export const User = list({
     taTeacher: relationship({ ref: 'User.taStudents', many: false }),
     parent: relationship({ ref: 'User.children', many: true }),
     children: relationship({ ref: 'User.parent', many: true }),
+    ...permissionFields,
     role: relationship({
       ref: 'Role.assignedTo',
-      many: true,
+      // many: true,
       // access: {
       //   create: permissions.canManageUsers,
       //   update: permissions.canManageUsers,

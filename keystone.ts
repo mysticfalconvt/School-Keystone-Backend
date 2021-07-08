@@ -74,7 +74,7 @@ export default withAuth(
     },
     session: withItemData(statelessSessions(sessionConfig), {
       // GraphQL Query
-      User: 'id name email',
+      User: 'id name email role',
     }),
   })
 );

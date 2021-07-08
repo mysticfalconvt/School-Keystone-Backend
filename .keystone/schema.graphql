@@ -12,10 +12,10 @@ input UserRelateToOneInput {
   disconnectAll: Boolean
 }
 
-input RoleRelateToManyInput {
-  create: [RoleCreateInput]
-  connect: [RoleWhereUniqueInput]
-  disconnect: [RoleWhereUniqueInput]
+input RoleRelateToOneInput {
+  create: RoleCreateInput
+  connect: RoleWhereUniqueInput
+  disconnect: RoleWhereUniqueInput
   disconnectAll: Boolean
 }
 
@@ -81,8 +81,25 @@ type User {
   _parentMeta(where: UserWhereInput, search: String, sortBy: [SortUsersBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
   children(where: UserWhereInput, search: String, sortBy: [SortUsersBy!], orderBy: String, first: Int, skip: Int): [User!]!
   _childrenMeta(where: UserWhereInput, search: String, sortBy: [SortUsersBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
-  role(where: RoleWhereInput, search: String, sortBy: [SortRolesBy!], orderBy: String, first: Int, skip: Int): [Role!]!
-  _roleMeta(where: RoleWhereInput, search: String, sortBy: [SortRolesBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+  canManageCalendar: Boolean
+  canSeeOtherUsers: Boolean
+  canManageUsers: Boolean
+  canManageRoles: Boolean
+  canManageLinks: Boolean
+  canManageDiscipline: Boolean
+  canSeeAllDiscipline: Boolean
+  canSeeAllTeacherEvents: Boolean
+  canSeeStudentEvents: Boolean
+  canSeeOwnCallback: Boolean
+  canSeeAllCallback: Boolean
+  hasTA: Boolean
+  hasClasses: Boolean
+  isStudent: Boolean
+  isParent: Boolean
+  isStaff: Boolean
+  isTeacher: Boolean
+  isSuperAdmin: Boolean
+  role: Role
   block1Teacher: User
   block1Students(where: UserWhereInput, search: String, sortBy: [SortUsersBy!], orderBy: String, first: Int, skip: Int): [User!]!
   _block1StudentsMeta(where: UserWhereInput, search: String, sortBy: [SortUsersBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
@@ -226,15 +243,44 @@ input UserWhereInput {
 
   """ condition must be false for all nodes """
   children_none: UserWhereInput
-
-  """ condition must be true for all nodes """
-  role_every: RoleWhereInput
-
-  """ condition must be true for at least 1 node """
-  role_some: RoleWhereInput
-
-  """ condition must be false for all nodes """
-  role_none: RoleWhereInput
+  canManageCalendar: Boolean
+  canManageCalendar_not: Boolean
+  canSeeOtherUsers: Boolean
+  canSeeOtherUsers_not: Boolean
+  canManageUsers: Boolean
+  canManageUsers_not: Boolean
+  canManageRoles: Boolean
+  canManageRoles_not: Boolean
+  canManageLinks: Boolean
+  canManageLinks_not: Boolean
+  canManageDiscipline: Boolean
+  canManageDiscipline_not: Boolean
+  canSeeAllDiscipline: Boolean
+  canSeeAllDiscipline_not: Boolean
+  canSeeAllTeacherEvents: Boolean
+  canSeeAllTeacherEvents_not: Boolean
+  canSeeStudentEvents: Boolean
+  canSeeStudentEvents_not: Boolean
+  canSeeOwnCallback: Boolean
+  canSeeOwnCallback_not: Boolean
+  canSeeAllCallback: Boolean
+  canSeeAllCallback_not: Boolean
+  hasTA: Boolean
+  hasTA_not: Boolean
+  hasClasses: Boolean
+  hasClasses_not: Boolean
+  isStudent: Boolean
+  isStudent_not: Boolean
+  isParent: Boolean
+  isParent_not: Boolean
+  isStaff: Boolean
+  isStaff_not: Boolean
+  isTeacher: Boolean
+  isTeacher_not: Boolean
+  isSuperAdmin: Boolean
+  isSuperAdmin_not: Boolean
+  role: RoleWhereInput
+  role_is_null: Boolean
   block1Teacher: UserWhereInput
   block1Teacher_is_null: Boolean
 
@@ -741,6 +787,42 @@ enum SortUsersBy {
   parent_DESC
   children_ASC
   children_DESC
+  canManageCalendar_ASC
+  canManageCalendar_DESC
+  canSeeOtherUsers_ASC
+  canSeeOtherUsers_DESC
+  canManageUsers_ASC
+  canManageUsers_DESC
+  canManageRoles_ASC
+  canManageRoles_DESC
+  canManageLinks_ASC
+  canManageLinks_DESC
+  canManageDiscipline_ASC
+  canManageDiscipline_DESC
+  canSeeAllDiscipline_ASC
+  canSeeAllDiscipline_DESC
+  canSeeAllTeacherEvents_ASC
+  canSeeAllTeacherEvents_DESC
+  canSeeStudentEvents_ASC
+  canSeeStudentEvents_DESC
+  canSeeOwnCallback_ASC
+  canSeeOwnCallback_DESC
+  canSeeAllCallback_ASC
+  canSeeAllCallback_DESC
+  hasTA_ASC
+  hasTA_DESC
+  hasClasses_ASC
+  hasClasses_DESC
+  isStudent_ASC
+  isStudent_DESC
+  isParent_ASC
+  isParent_DESC
+  isStaff_ASC
+  isStaff_DESC
+  isTeacher_ASC
+  isTeacher_DESC
+  isSuperAdmin_ASC
+  isSuperAdmin_DESC
   role_ASC
   role_DESC
   block1Teacher_ASC
@@ -851,7 +933,25 @@ input UserUpdateInput {
   taTeacher: UserRelateToOneInput
   parent: UserRelateToManyInput
   children: UserRelateToManyInput
-  role: RoleRelateToManyInput
+  canManageCalendar: Boolean
+  canSeeOtherUsers: Boolean
+  canManageUsers: Boolean
+  canManageRoles: Boolean
+  canManageLinks: Boolean
+  canManageDiscipline: Boolean
+  canSeeAllDiscipline: Boolean
+  canSeeAllTeacherEvents: Boolean
+  canSeeStudentEvents: Boolean
+  canSeeOwnCallback: Boolean
+  canSeeAllCallback: Boolean
+  hasTA: Boolean
+  hasClasses: Boolean
+  isStudent: Boolean
+  isParent: Boolean
+  isStaff: Boolean
+  isTeacher: Boolean
+  isSuperAdmin: Boolean
+  role: RoleRelateToOneInput
   block1Teacher: UserRelateToOneInput
   block1Students: UserRelateToManyInput
   block2Teacher: UserRelateToOneInput
@@ -918,7 +1018,25 @@ input UserCreateInput {
   taTeacher: UserRelateToOneInput
   parent: UserRelateToManyInput
   children: UserRelateToManyInput
-  role: RoleRelateToManyInput
+  canManageCalendar: Boolean
+  canSeeOtherUsers: Boolean
+  canManageUsers: Boolean
+  canManageRoles: Boolean
+  canManageLinks: Boolean
+  canManageDiscipline: Boolean
+  canSeeAllDiscipline: Boolean
+  canSeeAllTeacherEvents: Boolean
+  canSeeStudentEvents: Boolean
+  canSeeOwnCallback: Boolean
+  canSeeAllCallback: Boolean
+  hasTA: Boolean
+  hasClasses: Boolean
+  isStudent: Boolean
+  isParent: Boolean
+  isStaff: Boolean
+  isTeacher: Boolean
+  isSuperAdmin: Boolean
+  role: RoleRelateToOneInput
   block1Teacher: UserRelateToOneInput
   block1Students: UserRelateToManyInput
   block2Teacher: UserRelateToOneInput
@@ -1179,6 +1297,11 @@ type Role {
   canSeeAllCallback: Boolean
   hasTA: Boolean
   hasClasses: Boolean
+  isStudent: Boolean
+  isParent: Boolean
+  isStaff: Boolean
+  isTeacher: Boolean
+  isSuperAdmin: Boolean
   assignedTo(where: UserWhereInput, search: String, sortBy: [SortUsersBy!], orderBy: String, first: Int, skip: Int): [User!]!
   _assignedToMeta(where: UserWhereInput, search: String, sortBy: [SortUsersBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
 }
@@ -1234,6 +1357,16 @@ input RoleWhereInput {
   hasTA_not: Boolean
   hasClasses: Boolean
   hasClasses_not: Boolean
+  isStudent: Boolean
+  isStudent_not: Boolean
+  isParent: Boolean
+  isParent_not: Boolean
+  isStaff: Boolean
+  isStaff_not: Boolean
+  isTeacher: Boolean
+  isTeacher_not: Boolean
+  isSuperAdmin: Boolean
+  isSuperAdmin_not: Boolean
 
   """ condition must be true for all nodes """
   assignedTo_every: UserWhereInput
@@ -1280,6 +1413,16 @@ enum SortRolesBy {
   hasTA_DESC
   hasClasses_ASC
   hasClasses_DESC
+  isStudent_ASC
+  isStudent_DESC
+  isParent_ASC
+  isParent_DESC
+  isStaff_ASC
+  isStaff_DESC
+  isTeacher_ASC
+  isTeacher_DESC
+  isSuperAdmin_ASC
+  isSuperAdmin_DESC
   assignedTo_ASC
   assignedTo_DESC
 }
@@ -1299,6 +1442,11 @@ input RoleUpdateInput {
   canSeeAllCallback: Boolean
   hasTA: Boolean
   hasClasses: Boolean
+  isStudent: Boolean
+  isParent: Boolean
+  isStaff: Boolean
+  isTeacher: Boolean
+  isSuperAdmin: Boolean
   assignedTo: UserRelateToManyInput
 }
 
@@ -1322,6 +1470,11 @@ input RoleCreateInput {
   canSeeAllCallback: Boolean
   hasTA: Boolean
   hasClasses: Boolean
+  isStudent: Boolean
+  isParent: Boolean
+  isStaff: Boolean
+  isTeacher: Boolean
+  isSuperAdmin: Boolean
   assignedTo: UserRelateToManyInput
 }
 
