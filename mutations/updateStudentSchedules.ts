@@ -105,7 +105,7 @@ async function updateStudentSchedules(root: any,
       //join the names together
       studentUpdateResults.name = nameArray.join(' ');
       studentUpdateResults.isStudent = true;
-
+      studentUpdateResults.password = "password"
       const createdStudent = await context.lists.User.createOne({
         data: {
           ...studentUpdateResults
