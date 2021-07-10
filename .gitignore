@@ -15,7 +15,7 @@
 /.keystone/admin/.next/
 .keystone/admin/.next
 /.keystone/admin/.next
-.keystone/admin/.next/
+.keystone/admin/.next/*
 # production
 /build
 
@@ -37,3 +37,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+.keystone/admin/.next/build-manifest.json
+.gitignore
+.keystone/admin/.next/server/pages-manifest.json
