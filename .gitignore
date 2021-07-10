@@ -12,7 +12,10 @@
 /.next/
 /out/
 .next
-
+/.keystone/admin/.next/
+.keystone/admin/.next
+/.keystone/admin/.next
+.keystone/admin/.next/
 # production
 /build
 
