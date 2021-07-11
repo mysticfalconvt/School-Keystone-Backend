@@ -52,7 +52,7 @@ export const rules = {
     if (!isSignedIn({ session })) {
       return false;
     }
-    console.log(session.data)
+
     if (permissions.canManageUsers({ session })) {
       return true;
     }
