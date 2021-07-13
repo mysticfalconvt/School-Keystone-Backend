@@ -3114,6 +3114,7 @@ type Mutation {
   recalculateCallback(callbackID: ID): User
   recalculatePBIS(userId: ID): User
   updateStudentSchedules(studentScheduleData: String): User
+  addStaff(staffData: String): User
   endSession: Boolean!
 }
 
