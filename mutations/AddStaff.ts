@@ -17,12 +17,11 @@ async function addStaff(root: any,
   console.log('Adding Staff');
   const allStudentUpdateResults = [];
   const studentDataList = JSON.parse(staffData);
-  studentDataList.email = student.email.toLowerCase();
   //go through each student and update their schedule or create a new student
   await Promise.all(studentDataList.map(async student => {
     const studentUpdateResults = {};
     const studentInfo = await context.lists.User.findMany({
-      where: { email: student.email },
+      where: { email: student.email.toLowerCase() },
       resolveFields: graphql`
               id
               email
@@ -30,7 +29,7 @@ async function addStaff(root: any,
           `,
     });
 
-    studentUpdateResults.email = student.email;
+    studentUpdateResults.email = student.email.toLowerCase();
 
 
 
