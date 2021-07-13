@@ -26,6 +26,7 @@ export const Calendar = list({
         { label: 'Both', value: 'Both' },
       ],
       defaultValue: 'Both',
+      isRequired: true,
       ui: {
         displayMode: 'segmented-control',
         createView: { fieldMode: 'hidden' },
