@@ -4,7 +4,7 @@ import { graphQLSchemaExtension } from '@keystone-next/keystone/schema';
 import recalculatePBIS from './recalculatePBIS'
 import recalculateCallback from './recalculateCallback'
 import updateStudentSchedules from './updateStudentSchedules'
-import addStaff from './addStaff'
+import addStaff from './AddStaff'
 // make a fake gql tagged template Literal
 const graphql = String.raw;
 
