@@ -47,15 +47,31 @@ export const rules = {
     // 2. If not, do they own this item?
     return false;
   },
+  canSeeLinks( { session }: ListAccessArgs) {
+    if (!isSignedIn({ session })) {
+      return false;
+    }
 
+    if(permissions.isStaff({session})){
+      return { forTeachers: true }
+    }
+  },
+  canManageLinks({ session }: ListAccessArgs) {
+    if (!isSignedIn({ session })) {
+      return false;
+    }
+    // 1. Do they have the permission of canManageProducts
+    if (permissions.canManageLinks({ session })) {
+      return true;
+    }
+    // 2. If not, do they own this item?
+    return false;
+  },
   canManageUsers({ session }: ListAccessArgs) {
     if (!isSignedIn({ session })) {
       return false;
     }
 
-    if (permissions.canManageUsers({ session })) {
-      return true;
-    }
     // Otherwise they may only update themselves!
     return { id: session.itemId };
   },
