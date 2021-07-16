@@ -7,8 +7,8 @@ export const User = list({
   access: {
     create: isSignedIn,
     read: isSignedIn,
-    update: rules.canManageUsers,
-    delete: rules.canManageUsers,
+    update: isSignedIn,
+    delete: isSignedIn,
     // delete: rules.canManageUsers,
     // update: rules.canManageUsers,
     // only people with the permission can delete themselves!
@@ -62,6 +62,13 @@ export const User = list({
     callbackAssigned: relationship({ ref: 'Callback.teacher', many: true }),
     messageSender: relationship({ ref: 'Message.sender', many: true }),
     messageReceiver: relationship({ ref: 'Message.receiver', many: true }),
+
+    //PBIS Collection Winners
+    currentTaWinner: relationship({ ref: 'User.studentIsCurrentWinner', many: false }),
+    previousTaWinner: relationship({ ref: 'User.studentIsPreviousWinner', many: false }),
+    studentIsCurrentWinner: relationship({ ref: 'User.currentTaWinner', many: false }),
+    studentIsPreviousWinner: relationship({ ref: 'User.previousTaWinner', many: false }),
+    individualPbisLevel: integer({ defaultValue: 0 }),
 
 
     // Important Info

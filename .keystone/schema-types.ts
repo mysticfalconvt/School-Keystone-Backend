@@ -224,6 +224,24 @@ export type UserWhereInput = {
   readonly messageReceiver_every?: MessageWhereInput | null;
   readonly messageReceiver_some?: MessageWhereInput | null;
   readonly messageReceiver_none?: MessageWhereInput | null;
+  readonly currentTaWinner?: UserWhereInput | null;
+  readonly currentTaWinner_is_null?: Scalars['Boolean'] | null;
+  readonly previousTaWinner?: UserWhereInput | null;
+  readonly previousTaWinner_is_null?: Scalars['Boolean'] | null;
+  readonly studentIsCurrentWinner?: UserWhereInput | null;
+  readonly studentIsCurrentWinner_is_null?: Scalars['Boolean'] | null;
+  readonly studentIsPreviousWinner?: UserWhereInput | null;
+  readonly studentIsPreviousWinner_is_null?: Scalars['Boolean'] | null;
+  readonly individualPbisLevel?: Scalars['Int'] | null;
+  readonly individualPbisLevel_not?: Scalars['Int'] | null;
+  readonly individualPbisLevel_lt?: Scalars['Int'] | null;
+  readonly individualPbisLevel_lte?: Scalars['Int'] | null;
+  readonly individualPbisLevel_gt?: Scalars['Int'] | null;
+  readonly individualPbisLevel_gte?: Scalars['Int'] | null;
+  readonly individualPbisLevel_in?: ReadonlyArray<Scalars['Int'] | null> | null;
+  readonly individualPbisLevel_not_in?: ReadonlyArray<
+    Scalars['Int'] | null
+  > | null;
   readonly callbackCount?: Scalars['Int'] | null;
   readonly callbackCount_not?: Scalars['Int'] | null;
   readonly callbackCount_lt?: Scalars['Int'] | null;
@@ -711,6 +729,16 @@ export type SortUsersBy =
   | 'messageSender_DESC'
   | 'messageReceiver_ASC'
   | 'messageReceiver_DESC'
+  | 'currentTaWinner_ASC'
+  | 'currentTaWinner_DESC'
+  | 'previousTaWinner_ASC'
+  | 'previousTaWinner_DESC'
+  | 'studentIsCurrentWinner_ASC'
+  | 'studentIsCurrentWinner_DESC'
+  | 'studentIsPreviousWinner_ASC'
+  | 'studentIsPreviousWinner_DESC'
+  | 'individualPbisLevel_ASC'
+  | 'individualPbisLevel_DESC'
   | 'callbackCount_ASC'
   | 'callbackCount_DESC'
   | 'totalCallbackCount_ASC'
@@ -813,6 +841,11 @@ export type UserUpdateInput = {
   readonly callbackAssigned?: CallbackRelateToManyInput | null;
   readonly messageSender?: MessageRelateToManyInput | null;
   readonly messageReceiver?: MessageRelateToManyInput | null;
+  readonly currentTaWinner?: UserRelateToOneInput | null;
+  readonly previousTaWinner?: UserRelateToOneInput | null;
+  readonly studentIsCurrentWinner?: UserRelateToOneInput | null;
+  readonly studentIsPreviousWinner?: UserRelateToOneInput | null;
+  readonly individualPbisLevel?: Scalars['Int'] | null;
   readonly callbackCount?: Scalars['Int'] | null;
   readonly totalCallbackCount?: Scalars['Int'] | null;
   readonly PbisCardCount?: Scalars['Int'] | null;
@@ -897,6 +930,11 @@ export type UserCreateInput = {
   readonly callbackAssigned?: CallbackRelateToManyInput | null;
   readonly messageSender?: MessageRelateToManyInput | null;
   readonly messageReceiver?: MessageRelateToManyInput | null;
+  readonly currentTaWinner?: UserRelateToOneInput | null;
+  readonly previousTaWinner?: UserRelateToOneInput | null;
+  readonly studentIsCurrentWinner?: UserRelateToOneInput | null;
+  readonly studentIsPreviousWinner?: UserRelateToOneInput | null;
+  readonly individualPbisLevel?: Scalars['Int'] | null;
   readonly callbackCount?: Scalars['Int'] | null;
   readonly totalCallbackCount?: Scalars['Int'] | null;
   readonly PbisCardCount?: Scalars['Int'] | null;
@@ -2424,6 +2462,11 @@ export type UserListTypeInfo = {
     | 'callbackAssigned'
     | 'messageSender'
     | 'messageReceiver'
+    | 'currentTaWinner'
+    | 'previousTaWinner'
+    | 'studentIsCurrentWinner'
+    | 'studentIsPreviousWinner'
+    | 'individualPbisLevel'
     | 'callbackCount'
     | 'totalCallbackCount'
     | 'PbisCardCount'
@@ -2502,6 +2545,11 @@ export type UserListTypeInfo = {
     readonly callbackAssigned?: string | null;
     readonly messageSender?: string | null;
     readonly messageReceiver?: string | null;
+    readonly currentTaWinner?: string | null;
+    readonly previousTaWinner?: string | null;
+    readonly studentIsCurrentWinner?: string | null;
+    readonly studentIsPreviousWinner?: string | null;
+    readonly individualPbisLevel?: number | null;
     readonly callbackCount?: number | null;
     readonly totalCallbackCount?: number | null;
     readonly PbisCardCount?: number | null;

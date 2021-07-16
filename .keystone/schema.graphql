@@ -132,6 +132,11 @@ type User {
   _messageSenderMeta(where: MessageWhereInput, search: String, sortBy: [SortMessagesBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
   messageReceiver(where: MessageWhereInput, search: String, sortBy: [SortMessagesBy!], orderBy: String, first: Int, skip: Int): [Message!]!
   _messageReceiverMeta(where: MessageWhereInput, search: String, sortBy: [SortMessagesBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+  currentTaWinner: User
+  previousTaWinner: User
+  studentIsCurrentWinner: User
+  studentIsPreviousWinner: User
+  individualPbisLevel: Int
   callbackCount: Int
   totalCallbackCount: Int
   PbisCardCount: Int
@@ -436,6 +441,22 @@ input UserWhereInput {
 
   """ condition must be false for all nodes """
   messageReceiver_none: MessageWhereInput
+  currentTaWinner: UserWhereInput
+  currentTaWinner_is_null: Boolean
+  previousTaWinner: UserWhereInput
+  previousTaWinner_is_null: Boolean
+  studentIsCurrentWinner: UserWhereInput
+  studentIsCurrentWinner_is_null: Boolean
+  studentIsPreviousWinner: UserWhereInput
+  studentIsPreviousWinner_is_null: Boolean
+  individualPbisLevel: Int
+  individualPbisLevel_not: Int
+  individualPbisLevel_lt: Int
+  individualPbisLevel_lte: Int
+  individualPbisLevel_gt: Int
+  individualPbisLevel_gte: Int
+  individualPbisLevel_in: [Int]
+  individualPbisLevel_not_in: [Int]
   callbackCount: Int
   callbackCount_not: Int
   callbackCount_lt: Int
@@ -859,6 +880,16 @@ enum SortUsersBy {
   messageSender_DESC
   messageReceiver_ASC
   messageReceiver_DESC
+  currentTaWinner_ASC
+  currentTaWinner_DESC
+  previousTaWinner_ASC
+  previousTaWinner_DESC
+  studentIsCurrentWinner_ASC
+  studentIsCurrentWinner_DESC
+  studentIsPreviousWinner_ASC
+  studentIsPreviousWinner_DESC
+  individualPbisLevel_ASC
+  individualPbisLevel_DESC
   callbackCount_ASC
   callbackCount_DESC
   totalCallbackCount_ASC
@@ -962,6 +993,11 @@ input UserUpdateInput {
   callbackAssigned: CallbackRelateToManyInput
   messageSender: MessageRelateToManyInput
   messageReceiver: MessageRelateToManyInput
+  currentTaWinner: UserRelateToOneInput
+  previousTaWinner: UserRelateToOneInput
+  studentIsCurrentWinner: UserRelateToOneInput
+  studentIsPreviousWinner: UserRelateToOneInput
+  individualPbisLevel: Int
   callbackCount: Int
   totalCallbackCount: Int
   PbisCardCount: Int
@@ -1046,6 +1082,11 @@ input UserCreateInput {
   callbackAssigned: CallbackRelateToManyInput
   messageSender: MessageRelateToManyInput
   messageReceiver: MessageRelateToManyInput
+  currentTaWinner: UserRelateToOneInput
+  previousTaWinner: UserRelateToOneInput
+  studentIsCurrentWinner: UserRelateToOneInput
+  studentIsPreviousWinner: UserRelateToOneInput
+  individualPbisLevel: Int
   callbackCount: Int
   totalCallbackCount: Int
   PbisCardCount: Int
