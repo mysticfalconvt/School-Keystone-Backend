@@ -51,6 +51,12 @@ export default function Home() {
           Message: _allMessagesMeta {
             count
           }
+          PbisCollection: _allPbisCollectionsMeta {
+            count
+          }
+          SchoolPbisInfo: _allSchoolPbisInfosMeta {
+            count
+          }
         }
       `}
     />

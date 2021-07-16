@@ -73,6 +73,10 @@ export const permissionFields = {
     defaultValue: false,
     label: 'User is a super admin',
   }),
+  canManagePbis: checkbox({
+    defaultValue: false,
+    label: 'User can manage PBIS',
+  }),
 };
 
 export type Permission = keyof typeof permissionFields;

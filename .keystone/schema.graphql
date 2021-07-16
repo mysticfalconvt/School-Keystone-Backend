@@ -92,6 +92,7 @@ type User {
   isStaff: Boolean
   isTeacher: Boolean
   isSuperAdmin: Boolean
+  canManagePbis: Boolean
   block1Teacher: User
   block1Students(where: UserWhereInput, search: String, sortBy: [SortUsersBy!], orderBy: String, first: Int, skip: Int): [User!]!
   _block1StudentsMeta(where: UserWhereInput, search: String, sortBy: [SortUsersBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
@@ -276,6 +277,8 @@ input UserWhereInput {
   isTeacher_not: Boolean
   isSuperAdmin: Boolean
   isSuperAdmin_not: Boolean
+  canManagePbis: Boolean
+  canManagePbis_not: Boolean
   block1Teacher: UserWhereInput
   block1Teacher_is_null: Boolean
 
@@ -834,6 +837,8 @@ enum SortUsersBy {
   isTeacher_DESC
   isSuperAdmin_ASC
   isSuperAdmin_DESC
+  canManagePbis_ASC
+  canManagePbis_DESC
   block1Teacher_ASC
   block1Teacher_DESC
   block1Students_ASC
@@ -970,6 +975,7 @@ input UserUpdateInput {
   isStaff: Boolean
   isTeacher: Boolean
   isSuperAdmin: Boolean
+  canManagePbis: Boolean
   block1Teacher: UserRelateToOneInput
   block1Students: UserRelateToManyInput
   block2Teacher: UserRelateToOneInput
@@ -1059,6 +1065,7 @@ input UserCreateInput {
   isStaff: Boolean
   isTeacher: Boolean
   isSuperAdmin: Boolean
+  canManagePbis: Boolean
   block1Teacher: UserRelateToOneInput
   block1Students: UserRelateToManyInput
   block2Teacher: UserRelateToOneInput
@@ -2648,6 +2655,308 @@ input MessagesCreateInput {
   data: MessageCreateInput
 }
 
+""" A keystone list """
+type PbisCollection {
+  id: ID!
+  name: String
+  collectionDate: String
+  personalLevelWinners: String
+  randomDrawingWinners: String
+  taTeamsLevels: String
+  dateModified: String
+  lastModifiedBy: User
+}
+
+input PbisCollectionWhereInput {
+  AND: [PbisCollectionWhereInput]
+  OR: [PbisCollectionWhereInput]
+  id: ID
+  id_not: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  name: String
+  name_not: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  name_i: String
+  name_not_i: String
+  name_contains_i: String
+  name_not_contains_i: String
+  name_starts_with_i: String
+  name_not_starts_with_i: String
+  name_ends_with_i: String
+  name_not_ends_with_i: String
+  name_in: [String]
+  name_not_in: [String]
+  collectionDate: String
+  collectionDate_not: String
+  collectionDate_lt: String
+  collectionDate_lte: String
+  collectionDate_gt: String
+  collectionDate_gte: String
+  collectionDate_in: [String]
+  collectionDate_not_in: [String]
+  personalLevelWinners: String
+  personalLevelWinners_not: String
+  personalLevelWinners_contains: String
+  personalLevelWinners_not_contains: String
+  personalLevelWinners_starts_with: String
+  personalLevelWinners_not_starts_with: String
+  personalLevelWinners_ends_with: String
+  personalLevelWinners_not_ends_with: String
+  personalLevelWinners_i: String
+  personalLevelWinners_not_i: String
+  personalLevelWinners_contains_i: String
+  personalLevelWinners_not_contains_i: String
+  personalLevelWinners_starts_with_i: String
+  personalLevelWinners_not_starts_with_i: String
+  personalLevelWinners_ends_with_i: String
+  personalLevelWinners_not_ends_with_i: String
+  personalLevelWinners_in: [String]
+  personalLevelWinners_not_in: [String]
+  randomDrawingWinners: String
+  randomDrawingWinners_not: String
+  randomDrawingWinners_contains: String
+  randomDrawingWinners_not_contains: String
+  randomDrawingWinners_starts_with: String
+  randomDrawingWinners_not_starts_with: String
+  randomDrawingWinners_ends_with: String
+  randomDrawingWinners_not_ends_with: String
+  randomDrawingWinners_i: String
+  randomDrawingWinners_not_i: String
+  randomDrawingWinners_contains_i: String
+  randomDrawingWinners_not_contains_i: String
+  randomDrawingWinners_starts_with_i: String
+  randomDrawingWinners_not_starts_with_i: String
+  randomDrawingWinners_ends_with_i: String
+  randomDrawingWinners_not_ends_with_i: String
+  randomDrawingWinners_in: [String]
+  randomDrawingWinners_not_in: [String]
+  taTeamsLevels: String
+  taTeamsLevels_not: String
+  taTeamsLevels_contains: String
+  taTeamsLevels_not_contains: String
+  taTeamsLevels_starts_with: String
+  taTeamsLevels_not_starts_with: String
+  taTeamsLevels_ends_with: String
+  taTeamsLevels_not_ends_with: String
+  taTeamsLevels_i: String
+  taTeamsLevels_not_i: String
+  taTeamsLevels_contains_i: String
+  taTeamsLevels_not_contains_i: String
+  taTeamsLevels_starts_with_i: String
+  taTeamsLevels_not_starts_with_i: String
+  taTeamsLevels_ends_with_i: String
+  taTeamsLevels_not_ends_with_i: String
+  taTeamsLevels_in: [String]
+  taTeamsLevels_not_in: [String]
+  dateModified: String
+  dateModified_not: String
+  dateModified_lt: String
+  dateModified_lte: String
+  dateModified_gt: String
+  dateModified_gte: String
+  dateModified_in: [String]
+  dateModified_not_in: [String]
+  lastModifiedBy: UserWhereInput
+  lastModifiedBy_is_null: Boolean
+}
+
+input PbisCollectionWhereUniqueInput {
+  id: ID!
+}
+
+enum SortPbisCollectionsBy {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  collectionDate_ASC
+  collectionDate_DESC
+  personalLevelWinners_ASC
+  personalLevelWinners_DESC
+  randomDrawingWinners_ASC
+  randomDrawingWinners_DESC
+  taTeamsLevels_ASC
+  taTeamsLevels_DESC
+  dateModified_ASC
+  dateModified_DESC
+  lastModifiedBy_ASC
+  lastModifiedBy_DESC
+}
+
+input PbisCollectionUpdateInput {
+  name: String
+  collectionDate: String
+  personalLevelWinners: String
+  randomDrawingWinners: String
+  taTeamsLevels: String
+  dateModified: String
+  lastModifiedBy: UserRelateToOneInput
+}
+
+input PbisCollectionsUpdateInput {
+  id: ID!
+  data: PbisCollectionUpdateInput
+}
+
+input PbisCollectionCreateInput {
+  name: String
+  collectionDate: String
+  personalLevelWinners: String
+  randomDrawingWinners: String
+  taTeamsLevels: String
+  dateModified: String
+  lastModifiedBy: UserRelateToOneInput
+}
+
+input PbisCollectionsCreateInput {
+  data: PbisCollectionCreateInput
+}
+
+""" A keystone list """
+type SchoolPbisInfo {
+  id: ID!
+  teamName: String
+  uncountedCards: Int
+  countedCards: Int
+  currentLevel: Int
+  numberOfStudents: Int
+  averageCardsPerStudent: Int
+  dateModified: String
+}
+
+input SchoolPbisInfoWhereInput {
+  AND: [SchoolPbisInfoWhereInput]
+  OR: [SchoolPbisInfoWhereInput]
+  id: ID
+  id_not: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  teamName: String
+  teamName_not: String
+  teamName_contains: String
+  teamName_not_contains: String
+  teamName_starts_with: String
+  teamName_not_starts_with: String
+  teamName_ends_with: String
+  teamName_not_ends_with: String
+  teamName_i: String
+  teamName_not_i: String
+  teamName_contains_i: String
+  teamName_not_contains_i: String
+  teamName_starts_with_i: String
+  teamName_not_starts_with_i: String
+  teamName_ends_with_i: String
+  teamName_not_ends_with_i: String
+  teamName_in: [String]
+  teamName_not_in: [String]
+  uncountedCards: Int
+  uncountedCards_not: Int
+  uncountedCards_lt: Int
+  uncountedCards_lte: Int
+  uncountedCards_gt: Int
+  uncountedCards_gte: Int
+  uncountedCards_in: [Int]
+  uncountedCards_not_in: [Int]
+  countedCards: Int
+  countedCards_not: Int
+  countedCards_lt: Int
+  countedCards_lte: Int
+  countedCards_gt: Int
+  countedCards_gte: Int
+  countedCards_in: [Int]
+  countedCards_not_in: [Int]
+  currentLevel: Int
+  currentLevel_not: Int
+  currentLevel_lt: Int
+  currentLevel_lte: Int
+  currentLevel_gt: Int
+  currentLevel_gte: Int
+  currentLevel_in: [Int]
+  currentLevel_not_in: [Int]
+  numberOfStudents: Int
+  numberOfStudents_not: Int
+  numberOfStudents_lt: Int
+  numberOfStudents_lte: Int
+  numberOfStudents_gt: Int
+  numberOfStudents_gte: Int
+  numberOfStudents_in: [Int]
+  numberOfStudents_not_in: [Int]
+  averageCardsPerStudent: Int
+  averageCardsPerStudent_not: Int
+  averageCardsPerStudent_lt: Int
+  averageCardsPerStudent_lte: Int
+  averageCardsPerStudent_gt: Int
+  averageCardsPerStudent_gte: Int
+  averageCardsPerStudent_in: [Int]
+  averageCardsPerStudent_not_in: [Int]
+  dateModified: String
+  dateModified_not: String
+  dateModified_lt: String
+  dateModified_lte: String
+  dateModified_gt: String
+  dateModified_gte: String
+  dateModified_in: [String]
+  dateModified_not_in: [String]
+}
+
+input SchoolPbisInfoWhereUniqueInput {
+  id: ID!
+}
+
+enum SortSchoolPbisInfosBy {
+  id_ASC
+  id_DESC
+  teamName_ASC
+  teamName_DESC
+  uncountedCards_ASC
+  uncountedCards_DESC
+  countedCards_ASC
+  countedCards_DESC
+  currentLevel_ASC
+  currentLevel_DESC
+  numberOfStudents_ASC
+  numberOfStudents_DESC
+  averageCardsPerStudent_ASC
+  averageCardsPerStudent_DESC
+  dateModified_ASC
+  dateModified_DESC
+}
+
+input SchoolPbisInfoUpdateInput {
+  teamName: String
+  uncountedCards: Int
+  countedCards: Int
+  currentLevel: Int
+  numberOfStudents: Int
+  averageCardsPerStudent: Int
+  dateModified: String
+}
+
+input SchoolPbisInfosUpdateInput {
+  id: ID!
+  data: SchoolPbisInfoUpdateInput
+}
+
+input SchoolPbisInfoCreateInput {
+  teamName: String
+  uncountedCards: Int
+  countedCards: Int
+  currentLevel: Int
+  numberOfStudents: Int
+  averageCardsPerStudent: Int
+  dateModified: String
+}
+
+input SchoolPbisInfosCreateInput {
+  data: SchoolPbisInfoCreateInput
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -2958,6 +3267,32 @@ type Query {
   """ Retrieve the meta-data for the Message list. """
   _MessagesMeta: _ListMeta
 
+  """ Search for all PbisCollection items which match the where clause. """
+  allPbisCollections(where: PbisCollectionWhereInput, search: String, sortBy: [SortPbisCollectionsBy!], orderBy: String, first: Int, skip: Int): [PbisCollection]
+
+  """ Search for the PbisCollection item with the matching ID. """
+  PbisCollection(where: PbisCollectionWhereUniqueInput!): PbisCollection
+
+  """ Perform a meta-query on all PbisCollection items which match the where clause. 
+  """
+  _allPbisCollectionsMeta(where: PbisCollectionWhereInput, search: String, sortBy: [SortPbisCollectionsBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+
+  """ Retrieve the meta-data for the PbisCollection list. """
+  _PbisCollectionsMeta: _ListMeta
+
+  """ Search for all SchoolPbisInfo items which match the where clause. """
+  allSchoolPbisInfos(where: SchoolPbisInfoWhereInput, search: String, sortBy: [SortSchoolPbisInfosBy!], orderBy: String, first: Int, skip: Int): [SchoolPbisInfo]
+
+  """ Search for the SchoolPbisInfo item with the matching ID. """
+  SchoolPbisInfo(where: SchoolPbisInfoWhereUniqueInput!): SchoolPbisInfo
+
+  """ Perform a meta-query on all SchoolPbisInfo items which match the where clause. 
+  """
+  _allSchoolPbisInfosMeta(where: SchoolPbisInfoWhereInput, search: String, sortBy: [SortSchoolPbisInfosBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+
+  """ Retrieve the meta-data for the SchoolPbisInfo list. """
+  _SchoolPbisInfosMeta: _ListMeta
+
   """ Retrieve the meta-data for all lists. """
   _ksListsMeta(where: _ksListsMetaInput): [_ListMeta]
 
@@ -3148,6 +3483,42 @@ type Mutation {
 
   """ Delete multiple Message items by ID. """
   deleteMessages(ids: [ID!]): [Message]
+
+  """ Create a single PbisCollection item. """
+  createPbisCollection(data: PbisCollectionCreateInput): PbisCollection
+
+  """ Create multiple PbisCollection items. """
+  createPbisCollections(data: [PbisCollectionsCreateInput]): [PbisCollection]
+
+  """ Update a single PbisCollection item by ID. """
+  updatePbisCollection(id: ID!, data: PbisCollectionUpdateInput): PbisCollection
+
+  """ Update multiple PbisCollection items by ID. """
+  updatePbisCollections(data: [PbisCollectionsUpdateInput]): [PbisCollection]
+
+  """ Delete a single PbisCollection item by ID. """
+  deletePbisCollection(id: ID!): PbisCollection
+
+  """ Delete multiple PbisCollection items by ID. """
+  deletePbisCollections(ids: [ID!]): [PbisCollection]
+
+  """ Create a single SchoolPbisInfo item. """
+  createSchoolPbisInfo(data: SchoolPbisInfoCreateInput): SchoolPbisInfo
+
+  """ Create multiple SchoolPbisInfo items. """
+  createSchoolPbisInfos(data: [SchoolPbisInfosCreateInput]): [SchoolPbisInfo]
+
+  """ Update a single SchoolPbisInfo item by ID. """
+  updateSchoolPbisInfo(id: ID!, data: SchoolPbisInfoUpdateInput): SchoolPbisInfo
+
+  """ Update multiple SchoolPbisInfo items by ID. """
+  updateSchoolPbisInfos(data: [SchoolPbisInfosUpdateInput]): [SchoolPbisInfo]
+
+  """ Delete a single SchoolPbisInfo item by ID. """
+  deleteSchoolPbisInfo(id: ID!): SchoolPbisInfo
+
+  """ Delete multiple SchoolPbisInfo items by ID. """
+  deleteSchoolPbisInfos(ids: [ID!]): [SchoolPbisInfo]
   authenticateUserWithPassword(email: String!, password: String!): UserAuthenticationWithPasswordResult!
   createInitialUser(data: CreateInitialUserInput!): UserAuthenticationWithPasswordSuccess!
   sendUserPasswordResetLink(email: String!): SendUserPasswordResetLinkResult

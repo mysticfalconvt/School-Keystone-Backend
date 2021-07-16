@@ -2,7 +2,6 @@ import { createAuth } from '@keystone-next/auth';
 import { config, createSchema } from '@keystone-next/keystone/schema';
 import { User } from './schemas/User';
 import { Calendar } from './schemas/Calendar'
-import { Role } from './schemas/Role'
 import { Link } from './schemas/Link'
 import { Message } from './schemas/Message'
 import { PbisCard } from './schemas/PbisCard'
@@ -11,6 +10,9 @@ import { StudentFocus } from './schemas/StudentFocus'
 import { CellPhoneViolation } from './schemas/CellPhoneViolation'
 import { Callback } from './schemas/Callback'
 import { Discipline } from './schemas/Discipline'
+import { PbisCollection } from './schemas/PbisCollection'
+import { SchoolPbisInfo } from './schemas/SchoolPbisInfo'
+
 import { extendGraphqlSchema } from './mutations';
 import 'dotenv/config';
 import {
@@ -70,6 +72,8 @@ export default withAuth(
       Callback,
       Discipline,
       Message,
+      PbisCollection,
+      SchoolPbisInfo,
     }),
     extendGraphqlSchema,
     ui: {
