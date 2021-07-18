@@ -24,7 +24,7 @@ export const PbisCollection = list({
         randomDrawingWinners: text(),
         taTeamsLevels: text(),
         taTeamNewLevelWinners: text(),
-
+        currentPbisTeamGoal: text({defaultValue: '0', isRequired: true}),
 
 
         dateModified: timestamp({

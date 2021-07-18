@@ -2664,6 +2664,7 @@ type PbisCollection {
   randomDrawingWinners: String
   taTeamsLevels: String
   taTeamNewLevelWinners: String
+  currentPbisTeamGoal: String
   dateModified: String
   lastModifiedBy: User
 }
@@ -2773,6 +2774,24 @@ input PbisCollectionWhereInput {
   taTeamNewLevelWinners_not_ends_with_i: String
   taTeamNewLevelWinners_in: [String]
   taTeamNewLevelWinners_not_in: [String]
+  currentPbisTeamGoal: String
+  currentPbisTeamGoal_not: String
+  currentPbisTeamGoal_contains: String
+  currentPbisTeamGoal_not_contains: String
+  currentPbisTeamGoal_starts_with: String
+  currentPbisTeamGoal_not_starts_with: String
+  currentPbisTeamGoal_ends_with: String
+  currentPbisTeamGoal_not_ends_with: String
+  currentPbisTeamGoal_i: String
+  currentPbisTeamGoal_not_i: String
+  currentPbisTeamGoal_contains_i: String
+  currentPbisTeamGoal_not_contains_i: String
+  currentPbisTeamGoal_starts_with_i: String
+  currentPbisTeamGoal_not_starts_with_i: String
+  currentPbisTeamGoal_ends_with_i: String
+  currentPbisTeamGoal_not_ends_with_i: String
+  currentPbisTeamGoal_in: [String]
+  currentPbisTeamGoal_not_in: [String]
   dateModified: String
   dateModified_not: String
   dateModified_lt: String
@@ -2804,6 +2823,8 @@ enum SortPbisCollectionsBy {
   taTeamsLevels_DESC
   taTeamNewLevelWinners_ASC
   taTeamNewLevelWinners_DESC
+  currentPbisTeamGoal_ASC
+  currentPbisTeamGoal_DESC
   dateModified_ASC
   dateModified_DESC
   lastModifiedBy_ASC
@@ -2817,6 +2838,7 @@ input PbisCollectionUpdateInput {
   randomDrawingWinners: String
   taTeamsLevels: String
   taTeamNewLevelWinners: String
+  currentPbisTeamGoal: String
   dateModified: String
   lastModifiedBy: UserRelateToOneInput
 }
@@ -2833,6 +2855,7 @@ input PbisCollectionCreateInput {
   randomDrawingWinners: String
   taTeamsLevels: String
   taTeamNewLevelWinners: String
+  currentPbisTeamGoal: String
   dateModified: String
   lastModifiedBy: UserRelateToOneInput
 }
