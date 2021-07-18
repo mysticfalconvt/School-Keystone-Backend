@@ -23,6 +23,7 @@ export const PbisCollection = list({
         personalLevelWinners: text(),
         randomDrawingWinners: text(),
         taTeamsLevels: text(),
+        taTeamNewLevelWinners: text(),
 
 
 

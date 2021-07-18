@@ -2469,6 +2469,28 @@ export type PbisCollectionWhereInput = {
   readonly taTeamsLevels_not_in?: ReadonlyArray<
     Scalars['String'] | null
   > | null;
+  readonly taTeamNewLevelWinners?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_not?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_contains?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_not_contains?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_starts_with?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_not_starts_with?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_ends_with?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_not_ends_with?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_i?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_not_i?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_contains_i?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_not_contains_i?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_starts_with_i?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_not_starts_with_i?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_ends_with_i?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_not_ends_with_i?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly taTeamNewLevelWinners_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
   readonly dateModified?: Scalars['String'] | null;
   readonly dateModified_not?: Scalars['String'] | null;
   readonly dateModified_lt?: Scalars['String'] | null;
@@ -2498,6 +2520,8 @@ export type SortPbisCollectionsBy =
   | 'randomDrawingWinners_DESC'
   | 'taTeamsLevels_ASC'
   | 'taTeamsLevels_DESC'
+  | 'taTeamNewLevelWinners_ASC'
+  | 'taTeamNewLevelWinners_DESC'
   | 'dateModified_ASC'
   | 'dateModified_DESC'
   | 'lastModifiedBy_ASC'
@@ -2509,6 +2533,7 @@ export type PbisCollectionUpdateInput = {
   readonly personalLevelWinners?: Scalars['String'] | null;
   readonly randomDrawingWinners?: Scalars['String'] | null;
   readonly taTeamsLevels?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners?: Scalars['String'] | null;
   readonly dateModified?: Scalars['String'] | null;
   readonly lastModifiedBy?: UserRelateToOneInput | null;
 };
@@ -2524,6 +2549,7 @@ export type PbisCollectionCreateInput = {
   readonly personalLevelWinners?: Scalars['String'] | null;
   readonly randomDrawingWinners?: Scalars['String'] | null;
   readonly taTeamsLevels?: Scalars['String'] | null;
+  readonly taTeamNewLevelWinners?: Scalars['String'] | null;
   readonly dateModified?: Scalars['String'] | null;
   readonly lastModifiedBy?: UserRelateToOneInput | null;
 };
@@ -3380,6 +3406,7 @@ export type PbisCollectionListTypeInfo = {
     | 'personalLevelWinners'
     | 'randomDrawingWinners'
     | 'taTeamsLevels'
+    | 'taTeamNewLevelWinners'
     | 'dateModified'
     | 'lastModifiedBy';
   backing: {
@@ -3389,6 +3416,7 @@ export type PbisCollectionListTypeInfo = {
     readonly personalLevelWinners?: string | null;
     readonly randomDrawingWinners?: string | null;
     readonly taTeamsLevels?: string | null;
+    readonly taTeamNewLevelWinners?: string | null;
     readonly dateModified?: Date | null;
     readonly lastModifiedBy?: string | null;
   };
