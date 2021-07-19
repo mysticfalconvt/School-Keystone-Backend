@@ -24,15 +24,15 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
     ],
-    "/pbis-collections": [
+    "/pbis-cards/[id]": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/pbis-collections.js"
+      "static/chunks/pages/pbis-cards/[id].js"
     ],
-    "/pbis-collections/[id]": [
+    "/users/[id]": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/pbis-collections/[id].js"
+      "static/chunks/pages/users/[id].js"
     ]
   },
   "ampFirstPages": []

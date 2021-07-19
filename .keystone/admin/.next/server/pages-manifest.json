@@ -2,6 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/pbis-collections": "pages/pbis-collections.js",
-  "/pbis-collections/[id]": "pages/pbis-collections/[id].js"
+  "/users/[id]": "pages/users/[id].js",
+  "/pbis-cards/[id]": "pages/pbis-cards/[id].js"
 }
