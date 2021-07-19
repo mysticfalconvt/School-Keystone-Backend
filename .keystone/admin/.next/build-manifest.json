@@ -24,10 +24,10 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
     ],
-    "/pbis-cards/[id]": [
+    "/disciplines/[id]": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/pbis-cards/[id].js"
+      "static/chunks/pages/disciplines/[id].js"
     ],
     "/users/[id]": [
       "static/chunks/main.js",
