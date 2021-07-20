@@ -3,10 +3,15 @@ import { createTransport, getTestMessageUrl } from 'nodemailer';
 const transport = createTransport({
   host: process.env.MAIL_HOST,
   port: process.env.MAIL_PORT,
+  // service: 'Outlook365',
   auth: {
     user: process.env.MAIL_USER,
     pass: process.env.MAIL_PASS,
   },
+  // tls: {
+  //   rejectUnauthorized: false,
+  // },
+  // secure: false,
 });
 
 function makeANiceEmail(text: string) {
@@ -53,6 +58,30 @@ export async function sendPasswordResetEmail(
     html: makeANiceEmail(`Your Password Reset Token is here!
       <a href="${process.env.FRONTEND_URL}/reset?token=${resetToken}">Click Here to reset</a>
     `),
+  })) as MailResponse;
+  if (process.env.MAIL_USER.includes('ethereal.email')) {
+    console.log(`💌 Message Sent!  Preview it at ${getTestMessageUrl(info)}`);
+  }
+}
+
+export async function sendAnEmail(
+  to: string,
+  from: string,
+  subject: string,
+  body: string
+): Promise<void> {
+  // email the user a token
+  // console.log(process.env.MAIL_HOST);
+  // console.log('to', to);
+  // console.log('from', from);
+  // console.log('subject', subject);
+  // console.log('body', body);
+  const info = (await transport.sendMail({
+    to,
+    from: 'ncujhs.tech@ncsuvt.org',
+    replyTo: from,
+    subject,
+    html: makeANiceEmail(body),
   })) as MailResponse;
   if (process.env.MAIL_USER.includes('ethereal.email')) {
     console.log(`💌 Message Sent!  Preview it at ${getTestMessageUrl(info)}`);

@@ -3597,6 +3597,7 @@ type Mutation {
   updateStudentSchedules(studentScheduleData: String): User
   addStaff(staffData: String): User
   addEvents(eventData: String): User
+  sendEmail(emailData: String): User
   endSession: Boolean!
 }
 
