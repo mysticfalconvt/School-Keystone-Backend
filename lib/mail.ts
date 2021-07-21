@@ -3,15 +3,14 @@ import { createTransport, getTestMessageUrl } from 'nodemailer';
 const transport = createTransport({
   host: process.env.MAIL_HOST,
   port: process.env.MAIL_PORT,
-  // service: 'Outlook365',
+  secure: false,
   auth: {
     user: process.env.MAIL_USER,
     pass: process.env.MAIL_PASS,
   },
-  // tls: {
-  //   rejectUnauthorized: false,
-  // },
-  // secure: false,
+  tls: {
+    ciphers: 'SSLv3',
+  },
 });
 
 function makeANiceEmail(text: string) {
