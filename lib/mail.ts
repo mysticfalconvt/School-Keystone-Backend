@@ -1,5 +1,7 @@
 import { createTransport, getTestMessageUrl } from 'nodemailer';
 
+import 'dotenv/config';
+
 const transport = createTransport({
   host: process.env.MAIL_HOST,
   port: process.env.MAIL_PORT,
@@ -52,7 +54,7 @@ export async function sendPasswordResetEmail(
   // email the user a token
   const info = (await transport.sendMail({
     to,
-    from: 'ncujhs.tech@ncsuvt.org',
+    from: 'dashboard@ncujhs.tech',
     subject: 'Your password reset token!',
     html: makeANiceEmail(`Your Password Reset Token is here!
       <a href="${process.env.FRONTEND_URL}/reset?token=${resetToken}">Click Here to reset</a>
@@ -73,10 +75,10 @@ export async function sendAnEmail(
   // console.log('to', to);
   // console.log('from', from);
   // console.log('subject', subject);
-  console.log('body', body);
+  // console.log('body', body);
   const info = (await transport.sendMail({
     to,
-    from: 'ncujhs.tech@ncsuvt.org',
+    from: 'dashboard@ncujhs.tech',
     replyTo: from,
     subject,
     html: makeANiceEmail(body),

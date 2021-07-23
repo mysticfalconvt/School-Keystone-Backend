@@ -16,7 +16,7 @@ async function sendEmail(root: any,
     context: KeystoneContext
 ): Promise<UserUpdateInput> {
     //console log all the inputs
-    console.log('Sending an Email');
+    // console.log('Sending an Email');
     const email = JSON.parse(emailData)
     // console.log('to', email);
     const to = email.toAddress;
