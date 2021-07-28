@@ -35,7 +35,10 @@ export const Link = list({
             defaultValue: false,
             label: 'Display on the home page'
         }),
-
+        forPbis: checkbox({
+            defaultValue: false,
+            label: 'Display on the PBIS page'
+        }),
 
         modifiedBy: relationship({
             ref: 'User',
