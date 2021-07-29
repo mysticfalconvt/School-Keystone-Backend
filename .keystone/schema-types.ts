@@ -1198,6 +1198,8 @@ export type LinkWhereInput = {
   readonly forParents_not?: Scalars['Boolean'] | null;
   readonly onHomePage?: Scalars['Boolean'] | null;
   readonly onHomePage_not?: Scalars['Boolean'] | null;
+  readonly forPbis?: Scalars['Boolean'] | null;
+  readonly forPbis_not?: Scalars['Boolean'] | null;
   readonly modifiedBy?: UserWhereInput | null;
   readonly modifiedBy_is_null?: Scalars['Boolean'] | null;
   readonly modified?: Scalars['String'] | null;
@@ -1247,6 +1249,8 @@ export type SortLinksBy =
   | 'forParents_DESC'
   | 'onHomePage_ASC'
   | 'onHomePage_DESC'
+  | 'forPbis_ASC'
+  | 'forPbis_DESC'
   | 'modifiedBy_ASC'
   | 'modifiedBy_DESC'
   | 'modified_ASC'
@@ -1261,6 +1265,7 @@ export type LinkUpdateInput = {
   readonly forStudents?: Scalars['Boolean'] | null;
   readonly forParents?: Scalars['Boolean'] | null;
   readonly onHomePage?: Scalars['Boolean'] | null;
+  readonly forPbis?: Scalars['Boolean'] | null;
   readonly modifiedBy?: UserRelateToOneInput | null;
   readonly modified?: Scalars['String'] | null;
   readonly link?: Scalars['String'] | null;
@@ -1278,6 +1283,7 @@ export type LinkCreateInput = {
   readonly forStudents?: Scalars['Boolean'] | null;
   readonly forParents?: Scalars['Boolean'] | null;
   readonly onHomePage?: Scalars['Boolean'] | null;
+  readonly forPbis?: Scalars['Boolean'] | null;
   readonly modifiedBy?: UserRelateToOneInput | null;
   readonly modified?: Scalars['String'] | null;
   readonly link?: Scalars['String'] | null;
@@ -3040,6 +3046,7 @@ export type LinkListTypeInfo = {
     | 'forStudents'
     | 'forParents'
     | 'onHomePage'
+    | 'forPbis'
     | 'modifiedBy'
     | 'modified'
     | 'link';
@@ -3051,6 +3058,7 @@ export type LinkListTypeInfo = {
     readonly forStudents?: boolean | null;
     readonly forParents?: boolean | null;
     readonly onHomePage?: boolean | null;
+    readonly forPbis?: boolean | null;
     readonly modifiedBy?: string | null;
     readonly modified?: Date | null;
     readonly link?: string | null;

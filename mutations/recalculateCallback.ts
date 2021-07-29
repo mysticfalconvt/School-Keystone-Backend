@@ -13,8 +13,8 @@ async function recalculateCallback(root: any,
 
   context: KeystoneContext
 ): Promise<UserUpdateInput> {
-  console.log('Updating Callback Count');
-  console.log(`callback: ${callbackID}`)
+  // console.log('Updating Callback Count');
+  // console.log(`callback: ${callbackID}`)
   const callback = await context.lists.Callback.findOne({
     where: { id: callbackID }, resolveFields: graphql`
   id
@@ -58,9 +58,9 @@ async function recalculateCallback(root: any,
     return total / grades.length;
   }
   const completedCallbacks = student.callbackItems
-  const listOfDaysLate = completedCallbacks.map((item)=> item.daysLate)
+  const listOfDaysLate = completedCallbacks.map((item) => item.daysLate)
   const averageTimeToComplete = Math.round(getAvg(listOfDaysLate) || 0)
-  console.log(averageTimeToComplete)
+  // console.log(averageTimeToComplete)
 
 
   //get teacher callback totals

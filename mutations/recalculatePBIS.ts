@@ -11,8 +11,8 @@ async function recalculatePbis(root: any,
   { userId }: { userId: string },
   context: KeystoneContext
 ): Promise<UserUpdateInput> {
-  console.log('Updating PBIS Count');
-  console.log(userId)
+  // console.log('Updating PBIS Count');
+  // console.log(userId)
   const student = await context.lists.User.findOne({
     where: { id: userId },
     resolveFields: graphql`
@@ -70,8 +70,8 @@ async function recalculatePbis(root: any,
       id
       `,
   })
-  console.log(totalTeamCards)
-  console.log(uncountedTeamCards)
+  // console.log(totalTeamCards)
+  // console.log(uncountedTeamCards)
 
   const updatedTeam = await context.lists.PbisTeam.updateOne({
     id: taTeacher.taTeam.id,

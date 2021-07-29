@@ -1323,6 +1323,7 @@ type Link {
   forStudents: Boolean
   forParents: Boolean
   onHomePage: Boolean
+  forPbis: Boolean
   modifiedBy: User
   modified: String
   link: String
@@ -1379,6 +1380,8 @@ input LinkWhereInput {
   forParents_not: Boolean
   onHomePage: Boolean
   onHomePage_not: Boolean
+  forPbis: Boolean
+  forPbis_not: Boolean
   modifiedBy: UserWhereInput
   modifiedBy_is_null: Boolean
   modified: String
@@ -1428,6 +1431,8 @@ enum SortLinksBy {
   forParents_DESC
   onHomePage_ASC
   onHomePage_DESC
+  forPbis_ASC
+  forPbis_DESC
   modifiedBy_ASC
   modifiedBy_DESC
   modified_ASC
@@ -1443,6 +1448,7 @@ input LinkUpdateInput {
   forStudents: Boolean
   forParents: Boolean
   onHomePage: Boolean
+  forPbis: Boolean
   modifiedBy: UserRelateToOneInput
   modified: String
   link: String
@@ -1460,6 +1466,7 @@ input LinkCreateInput {
   forStudents: Boolean
   forParents: Boolean
   onHomePage: Boolean
+  forPbis: Boolean
   modifiedBy: UserRelateToOneInput
   modified: String
   link: String
