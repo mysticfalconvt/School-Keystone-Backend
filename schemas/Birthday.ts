@@ -16,11 +16,11 @@ export const Birthday = list({
         }),
         hasChosen: checkbox({
             defaultValue: () => false,
-            label: 'Teachers can view',
+            label: 'Has Chosen a Cake',
         }),
         hasDelivered: checkbox({
             defaultValue: false,
-            label: 'Students can view',
+            label: 'Has gotten their cake',
         }),
 
         student: relationship({
