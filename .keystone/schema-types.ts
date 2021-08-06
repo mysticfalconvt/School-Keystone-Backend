@@ -70,6 +70,13 @@ export type MessageRelateToManyInput = {
   readonly disconnectAll?: Scalars['Boolean'] | null;
 };
 
+export type BirthdayRelateToOneInput = {
+  readonly create?: BirthdayCreateInput | null;
+  readonly connect?: BirthdayWhereUniqueInput | null;
+  readonly disconnect?: BirthdayWhereUniqueInput | null;
+  readonly disconnectAll?: Scalars['Boolean'] | null;
+};
+
 export type UserWhereInput = {
   readonly AND?: ReadonlyArray<UserWhereInput | null> | null;
   readonly OR?: ReadonlyArray<UserWhereInput | null> | null;
@@ -234,6 +241,8 @@ export type UserWhereInput = {
   readonly studentIsCurrentWinner_is_null?: Scalars['Boolean'] | null;
   readonly studentIsPreviousWinner?: UserWhereInput | null;
   readonly studentIsPreviousWinner_is_null?: Scalars['Boolean'] | null;
+  readonly birthday?: BirthdayWhereInput | null;
+  readonly birthday_is_null?: Scalars['Boolean'] | null;
   readonly individualPbisLevel?: Scalars['Int'] | null;
   readonly individualPbisLevel_not?: Scalars['Int'] | null;
   readonly individualPbisLevel_lt?: Scalars['Int'] | null;
@@ -741,6 +750,8 @@ export type SortUsersBy =
   | 'studentIsCurrentWinner_DESC'
   | 'studentIsPreviousWinner_ASC'
   | 'studentIsPreviousWinner_DESC'
+  | 'birthday_ASC'
+  | 'birthday_DESC'
   | 'individualPbisLevel_ASC'
   | 'individualPbisLevel_DESC'
   | 'callbackCount_ASC'
@@ -850,6 +861,7 @@ export type UserUpdateInput = {
   readonly previousTaWinner?: UserRelateToOneInput | null;
   readonly studentIsCurrentWinner?: UserRelateToOneInput | null;
   readonly studentIsPreviousWinner?: UserRelateToOneInput | null;
+  readonly birthday?: BirthdayRelateToOneInput | null;
   readonly individualPbisLevel?: Scalars['Int'] | null;
   readonly callbackCount?: Scalars['Int'] | null;
   readonly totalCallbackCount?: Scalars['Int'] | null;
@@ -940,6 +952,7 @@ export type UserCreateInput = {
   readonly previousTaWinner?: UserRelateToOneInput | null;
   readonly studentIsCurrentWinner?: UserRelateToOneInput | null;
   readonly studentIsPreviousWinner?: UserRelateToOneInput | null;
+  readonly birthday?: BirthdayRelateToOneInput | null;
   readonly individualPbisLevel?: Scalars['Int'] | null;
   readonly callbackCount?: Scalars['Int'] | null;
   readonly totalCallbackCount?: Scalars['Int'] | null;
@@ -2746,6 +2759,90 @@ export type SchoolPbisInfosCreateInput = {
   readonly data?: SchoolPbisInfoCreateInput | null;
 };
 
+export type BirthdayWhereInput = {
+  readonly AND?: ReadonlyArray<BirthdayWhereInput | null> | null;
+  readonly OR?: ReadonlyArray<BirthdayWhereInput | null> | null;
+  readonly id?: Scalars['ID'] | null;
+  readonly id_not?: Scalars['ID'] | null;
+  readonly id_in?: ReadonlyArray<Scalars['ID'] | null> | null;
+  readonly id_not_in?: ReadonlyArray<Scalars['ID'] | null> | null;
+  readonly cakeType?: Scalars['String'] | null;
+  readonly cakeType_not?: Scalars['String'] | null;
+  readonly cakeType_contains?: Scalars['String'] | null;
+  readonly cakeType_not_contains?: Scalars['String'] | null;
+  readonly cakeType_starts_with?: Scalars['String'] | null;
+  readonly cakeType_not_starts_with?: Scalars['String'] | null;
+  readonly cakeType_ends_with?: Scalars['String'] | null;
+  readonly cakeType_not_ends_with?: Scalars['String'] | null;
+  readonly cakeType_i?: Scalars['String'] | null;
+  readonly cakeType_not_i?: Scalars['String'] | null;
+  readonly cakeType_contains_i?: Scalars['String'] | null;
+  readonly cakeType_not_contains_i?: Scalars['String'] | null;
+  readonly cakeType_starts_with_i?: Scalars['String'] | null;
+  readonly cakeType_not_starts_with_i?: Scalars['String'] | null;
+  readonly cakeType_ends_with_i?: Scalars['String'] | null;
+  readonly cakeType_not_ends_with_i?: Scalars['String'] | null;
+  readonly cakeType_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly cakeType_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly date?: Scalars['String'] | null;
+  readonly date_not?: Scalars['String'] | null;
+  readonly date_lt?: Scalars['String'] | null;
+  readonly date_lte?: Scalars['String'] | null;
+  readonly date_gt?: Scalars['String'] | null;
+  readonly date_gte?: Scalars['String'] | null;
+  readonly date_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly date_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly hasChosen?: Scalars['Boolean'] | null;
+  readonly hasChosen_not?: Scalars['Boolean'] | null;
+  readonly hasDelivered?: Scalars['Boolean'] | null;
+  readonly hasDelivered_not?: Scalars['Boolean'] | null;
+  readonly student?: UserWhereInput | null;
+  readonly student_is_null?: Scalars['Boolean'] | null;
+};
+
+export type BirthdayWhereUniqueInput = {
+  readonly id: Scalars['ID'];
+};
+
+export type SortBirthdaysBy =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'cakeType_ASC'
+  | 'cakeType_DESC'
+  | 'date_ASC'
+  | 'date_DESC'
+  | 'hasChosen_ASC'
+  | 'hasChosen_DESC'
+  | 'hasDelivered_ASC'
+  | 'hasDelivered_DESC'
+  | 'student_ASC'
+  | 'student_DESC';
+
+export type BirthdayUpdateInput = {
+  readonly cakeType?: Scalars['String'] | null;
+  readonly date?: Scalars['String'] | null;
+  readonly hasChosen?: Scalars['Boolean'] | null;
+  readonly hasDelivered?: Scalars['Boolean'] | null;
+  readonly student?: UserRelateToOneInput | null;
+};
+
+export type BirthdaysUpdateInput = {
+  readonly id: Scalars['ID'];
+  readonly data?: BirthdayUpdateInput | null;
+};
+
+export type BirthdayCreateInput = {
+  readonly cakeType?: Scalars['String'] | null;
+  readonly date?: Scalars['String'] | null;
+  readonly hasChosen?: Scalars['Boolean'] | null;
+  readonly hasDelivered?: Scalars['Boolean'] | null;
+  readonly student?: UserRelateToOneInput | null;
+};
+
+export type BirthdaysCreateInput = {
+  readonly data?: BirthdayCreateInput | null;
+};
+
 export type _ksListsMetaInput = {
   readonly key?: Scalars['String'] | null;
   readonly auxiliary?: Scalars['Boolean'] | null;
@@ -2849,6 +2946,7 @@ export type UserListTypeInfo = {
     | 'previousTaWinner'
     | 'studentIsCurrentWinner'
     | 'studentIsPreviousWinner'
+    | 'birthday'
     | 'individualPbisLevel'
     | 'callbackCount'
     | 'totalCallbackCount'
@@ -2933,6 +3031,7 @@ export type UserListTypeInfo = {
     readonly previousTaWinner?: string | null;
     readonly studentIsCurrentWinner?: string | null;
     readonly studentIsPreviousWinner?: string | null;
+    readonly birthday?: string | null;
     readonly individualPbisLevel?: number | null;
     readonly callbackCount?: number | null;
     readonly totalCallbackCount?: number | null;
@@ -3553,6 +3652,42 @@ export type SchoolPbisInfoListFn = (
   SchoolPbisInfoListTypeInfo['fields']
 >;
 
+export type BirthdayListTypeInfo = {
+  key: 'Birthday';
+  fields: 'id' | 'cakeType' | 'date' | 'hasChosen' | 'hasDelivered' | 'student';
+  backing: {
+    readonly id: string;
+    readonly cakeType?: string | null;
+    readonly date?: Date | null;
+    readonly hasChosen?: boolean | null;
+    readonly hasDelivered?: boolean | null;
+    readonly student?: string | null;
+  };
+  inputs: {
+    where: BirthdayWhereInput;
+    create: BirthdayCreateInput;
+    update: BirthdayUpdateInput;
+  };
+  args: {
+    listQuery: {
+      readonly where?: BirthdayWhereInput | null;
+      readonly sortBy?: ReadonlyArray<SortBirthdaysBy> | null;
+      readonly first?: Scalars['Int'] | null;
+      readonly skip?: Scalars['Int'] | null;
+    };
+  };
+};
+
+export type BirthdayListFn = (
+  listConfig: import('@keystone-next/keystone/schema').ListConfig<
+    BirthdayListTypeInfo,
+    BirthdayListTypeInfo['fields']
+  >
+) => import('@keystone-next/keystone/schema').ListConfig<
+  BirthdayListTypeInfo,
+  BirthdayListTypeInfo['fields']
+>;
+
 export type KeystoneListsTypeInfo = {
   readonly User: UserListTypeInfo;
   readonly Calendar: CalendarListTypeInfo;
@@ -3566,4 +3701,5 @@ export type KeystoneListsTypeInfo = {
   readonly Message: MessageListTypeInfo;
   readonly PbisCollection: PbisCollectionListTypeInfo;
   readonly SchoolPbisInfo: SchoolPbisInfoListTypeInfo;
+  readonly Birthday: BirthdayListTypeInfo;
 };

@@ -61,6 +61,13 @@ input MessageRelateToManyInput {
   disconnectAll: Boolean
 }
 
+input BirthdayRelateToOneInput {
+  create: BirthdayCreateInput
+  connect: BirthdayWhereUniqueInput
+  disconnect: BirthdayWhereUniqueInput
+  disconnectAll: Boolean
+}
+
 """ A keystone list """
 type User {
   id: ID!
@@ -137,6 +144,7 @@ type User {
   previousTaWinner: User
   studentIsCurrentWinner: User
   studentIsPreviousWinner: User
+  birthday: Birthday
   individualPbisLevel: Int
   callbackCount: Int
   totalCallbackCount: Int
@@ -452,6 +460,8 @@ input UserWhereInput {
   studentIsCurrentWinner_is_null: Boolean
   studentIsPreviousWinner: UserWhereInput
   studentIsPreviousWinner_is_null: Boolean
+  birthday: BirthdayWhereInput
+  birthday_is_null: Boolean
   individualPbisLevel: Int
   individualPbisLevel_not: Int
   individualPbisLevel_lt: Int
@@ -893,6 +903,8 @@ enum SortUsersBy {
   studentIsCurrentWinner_DESC
   studentIsPreviousWinner_ASC
   studentIsPreviousWinner_DESC
+  birthday_ASC
+  birthday_DESC
   individualPbisLevel_ASC
   individualPbisLevel_DESC
   callbackCount_ASC
@@ -1003,6 +1015,7 @@ input UserUpdateInput {
   previousTaWinner: UserRelateToOneInput
   studentIsCurrentWinner: UserRelateToOneInput
   studentIsPreviousWinner: UserRelateToOneInput
+  birthday: BirthdayRelateToOneInput
   individualPbisLevel: Int
   callbackCount: Int
   totalCallbackCount: Int
@@ -1093,6 +1106,7 @@ input UserCreateInput {
   previousTaWinner: UserRelateToOneInput
   studentIsCurrentWinner: UserRelateToOneInput
   studentIsPreviousWinner: UserRelateToOneInput
+  birthday: BirthdayRelateToOneInput
   individualPbisLevel: Int
   callbackCount: Int
   totalCallbackCount: Int
@@ -3033,6 +3047,101 @@ input SchoolPbisInfosCreateInput {
   data: SchoolPbisInfoCreateInput
 }
 
+""" A keystone list """
+type Birthday {
+  id: ID!
+  cakeType: String
+  date: String
+  hasChosen: Boolean
+  hasDelivered: Boolean
+  student: User
+}
+
+input BirthdayWhereInput {
+  AND: [BirthdayWhereInput]
+  OR: [BirthdayWhereInput]
+  id: ID
+  id_not: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  cakeType: String
+  cakeType_not: String
+  cakeType_contains: String
+  cakeType_not_contains: String
+  cakeType_starts_with: String
+  cakeType_not_starts_with: String
+  cakeType_ends_with: String
+  cakeType_not_ends_with: String
+  cakeType_i: String
+  cakeType_not_i: String
+  cakeType_contains_i: String
+  cakeType_not_contains_i: String
+  cakeType_starts_with_i: String
+  cakeType_not_starts_with_i: String
+  cakeType_ends_with_i: String
+  cakeType_not_ends_with_i: String
+  cakeType_in: [String]
+  cakeType_not_in: [String]
+  date: String
+  date_not: String
+  date_lt: String
+  date_lte: String
+  date_gt: String
+  date_gte: String
+  date_in: [String]
+  date_not_in: [String]
+  hasChosen: Boolean
+  hasChosen_not: Boolean
+  hasDelivered: Boolean
+  hasDelivered_not: Boolean
+  student: UserWhereInput
+  student_is_null: Boolean
+}
+
+input BirthdayWhereUniqueInput {
+  id: ID!
+}
+
+enum SortBirthdaysBy {
+  id_ASC
+  id_DESC
+  cakeType_ASC
+  cakeType_DESC
+  date_ASC
+  date_DESC
+  hasChosen_ASC
+  hasChosen_DESC
+  hasDelivered_ASC
+  hasDelivered_DESC
+  student_ASC
+  student_DESC
+}
+
+input BirthdayUpdateInput {
+  cakeType: String
+  date: String
+  hasChosen: Boolean
+  hasDelivered: Boolean
+  student: UserRelateToOneInput
+}
+
+input BirthdaysUpdateInput {
+  id: ID!
+  data: BirthdayUpdateInput
+}
+
+input BirthdayCreateInput {
+  cakeType: String
+  date: String
+  hasChosen: Boolean
+  hasDelivered: Boolean
+  student: UserRelateToOneInput
+}
+
+input BirthdaysCreateInput {
+  data: BirthdayCreateInput
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -3369,6 +3478,19 @@ type Query {
   """ Retrieve the meta-data for the SchoolPbisInfo list. """
   _SchoolPbisInfosMeta: _ListMeta
 
+  """ Search for all Birthday items which match the where clause. """
+  allBirthdays(where: BirthdayWhereInput, search: String, sortBy: [SortBirthdaysBy!], orderBy: String, first: Int, skip: Int): [Birthday]
+
+  """ Search for the Birthday item with the matching ID. """
+  Birthday(where: BirthdayWhereUniqueInput!): Birthday
+
+  """ Perform a meta-query on all Birthday items which match the where clause. 
+  """
+  _allBirthdaysMeta(where: BirthdayWhereInput, search: String, sortBy: [SortBirthdaysBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+
+  """ Retrieve the meta-data for the Birthday list. """
+  _BirthdaysMeta: _ListMeta
+
   """ Retrieve the meta-data for all lists. """
   _ksListsMeta(where: _ksListsMetaInput): [_ListMeta]
 
@@ -3595,6 +3717,24 @@ type Mutation {
 
   """ Delete multiple SchoolPbisInfo items by ID. """
   deleteSchoolPbisInfos(ids: [ID!]): [SchoolPbisInfo]
+
+  """ Create a single Birthday item. """
+  createBirthday(data: BirthdayCreateInput): Birthday
+
+  """ Create multiple Birthday items. """
+  createBirthdays(data: [BirthdaysCreateInput]): [Birthday]
+
+  """ Update a single Birthday item by ID. """
+  updateBirthday(id: ID!, data: BirthdayUpdateInput): Birthday
+
+  """ Update multiple Birthday items by ID. """
+  updateBirthdays(data: [BirthdaysUpdateInput]): [Birthday]
+
+  """ Delete a single Birthday item by ID. """
+  deleteBirthday(id: ID!): Birthday
+
+  """ Delete multiple Birthday items by ID. """
+  deleteBirthdays(ids: [ID!]): [Birthday]
   authenticateUserWithPassword(email: String!, password: String!): UserAuthenticationWithPasswordResult!
   createInitialUser(data: CreateInitialUserInput!): UserAuthenticationWithPasswordSuccess!
   sendUserPasswordResetLink(email: String!): SendUserPasswordResetLinkResult

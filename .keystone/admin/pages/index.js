@@ -57,6 +57,9 @@ export default function Home() {
           SchoolPbisInfo: _allSchoolPbisInfosMeta {
             count
           }
+          Birthday: _allBirthdaysMeta {
+            count
+          }
         }
       `}
     />

@@ -68,6 +68,7 @@ export const User = list({
     previousTaWinner: relationship({ ref: 'User.studentIsPreviousWinner', many: false }),
     studentIsCurrentWinner: relationship({ ref: 'User.currentTaWinner', many: false }),
     studentIsPreviousWinner: relationship({ ref: 'User.previousTaWinner', many: false }),
+    birthday: relationship({ ref: 'Birthday.student', many: false }),
     individualPbisLevel: integer({ defaultValue: 0 }),
 
 
