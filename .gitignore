@@ -40,3 +40,4 @@ yarn-error.log*
 .keystone/admin/.next/build-manifest.json
 .gitignore
 .keystone/admin/.next/server/pages-manifest.json
+production.env
