@@ -54,7 +54,7 @@ export async function sendPasswordResetEmail(
   // email the user a token
   const info = (await transport.sendMail({
     to,
-    from: 'dashboard@ncujhs.tech',
+    from: process.env.MAIL_USER,
     subject: 'Your password reset token!',
     html: makeANiceEmail(`Your Password Reset Token is here!
       <a href="${process.env.FRONTEND_URL}/reset?token=${resetToken}">Click Here to reset</a>
@@ -78,7 +78,7 @@ export async function sendAnEmail(
   // console.log('body', body);
   const info = (await transport.sendMail({
     to,
-    from: 'dashboard@ncujhs.tech',
+    from: process.env.MAIL_USER,
     replyTo: from,
     subject,
     html: makeANiceEmail(body),
