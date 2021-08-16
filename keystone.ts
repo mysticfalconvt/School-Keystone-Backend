@@ -81,13 +81,13 @@ export default withAuth(
     ui: {
       // Show the UI only for poeple who pass this test
       isAccessAllowed: ({ session }) => {
-        // console.log(session);
-        return !!session?.data
+        console.log(session?.data);
+        return !!session?.data?.isSuperAdmin
       },
     },
     session: withItemData(statelessSessions(sessionConfig), {
       // GraphQL Query
-      User: 'id name email canManageUsers canManageCalendar',
+      User: 'id name email canManageUsers canManageCalendar isSuperAdmin',
     }),
   })
 );
