@@ -7,6 +7,7 @@ import updateStudentSchedules from './updateStudentSchedules'
 import addStaff from './AddStaff'
 import addEvents from './addEvents';
 import sendEmail from './sendEmail';
+import addBirthdays from './addBirthdays';
 
 // make a fake gql tagged template Literal
 const graphql = String.raw;
@@ -20,6 +21,7 @@ export const extendGraphqlSchema = graphQLSchemaExtension({
       addStaff(staffData: String): User
       addEvents(eventData: String): User
       sendEmail(emailData: String):User
+      addBirthdays(birthdayData: String): Birthday
     }
   `,
   resolvers: {
@@ -30,6 +32,7 @@ export const extendGraphqlSchema = graphQLSchemaExtension({
       addStaff,
       addEvents,
       sendEmail,
+      addBirthdays,
     },
   },
 });
