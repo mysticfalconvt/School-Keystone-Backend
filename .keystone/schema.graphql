@@ -3142,6 +3142,117 @@ input BirthdaysCreateInput {
   data: BirthdayCreateInput
 }
 
+""" A keystone list """
+type BugReport {
+  id: ID!
+  name: String
+  description: String
+  submittedBy: User
+  date: String
+  read: Boolean
+}
+
+input BugReportWhereInput {
+  AND: [BugReportWhereInput]
+  OR: [BugReportWhereInput]
+  id: ID
+  id_not: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  name: String
+  name_not: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  name_i: String
+  name_not_i: String
+  name_contains_i: String
+  name_not_contains_i: String
+  name_starts_with_i: String
+  name_not_starts_with_i: String
+  name_ends_with_i: String
+  name_not_ends_with_i: String
+  name_in: [String]
+  name_not_in: [String]
+  description: String
+  description_not: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  description_i: String
+  description_not_i: String
+  description_contains_i: String
+  description_not_contains_i: String
+  description_starts_with_i: String
+  description_not_starts_with_i: String
+  description_ends_with_i: String
+  description_not_ends_with_i: String
+  description_in: [String]
+  description_not_in: [String]
+  submittedBy: UserWhereInput
+  submittedBy_is_null: Boolean
+  date: String
+  date_not: String
+  date_lt: String
+  date_lte: String
+  date_gt: String
+  date_gte: String
+  date_in: [String]
+  date_not_in: [String]
+  read: Boolean
+  read_not: Boolean
+}
+
+input BugReportWhereUniqueInput {
+  id: ID!
+}
+
+enum SortBugReportsBy {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  description_ASC
+  description_DESC
+  submittedBy_ASC
+  submittedBy_DESC
+  date_ASC
+  date_DESC
+  read_ASC
+  read_DESC
+}
+
+input BugReportUpdateInput {
+  name: String
+  description: String
+  submittedBy: UserRelateToOneInput
+  date: String
+  read: Boolean
+}
+
+input BugReportsUpdateInput {
+  id: ID!
+  data: BugReportUpdateInput
+}
+
+input BugReportCreateInput {
+  name: String
+  description: String
+  submittedBy: UserRelateToOneInput
+  date: String
+  read: Boolean
+}
+
+input BugReportsCreateInput {
+  data: BugReportCreateInput
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -3491,6 +3602,19 @@ type Query {
   """ Retrieve the meta-data for the Birthday list. """
   _BirthdaysMeta: _ListMeta
 
+  """ Search for all BugReport items which match the where clause. """
+  allBugReports(where: BugReportWhereInput, search: String, sortBy: [SortBugReportsBy!], orderBy: String, first: Int, skip: Int): [BugReport]
+
+  """ Search for the BugReport item with the matching ID. """
+  BugReport(where: BugReportWhereUniqueInput!): BugReport
+
+  """ Perform a meta-query on all BugReport items which match the where clause. 
+  """
+  _allBugReportsMeta(where: BugReportWhereInput, search: String, sortBy: [SortBugReportsBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+
+  """ Retrieve the meta-data for the BugReport list. """
+  _BugReportsMeta: _ListMeta
+
   """ Retrieve the meta-data for all lists. """
   _ksListsMeta(where: _ksListsMetaInput): [_ListMeta]
 
@@ -3735,6 +3859,24 @@ type Mutation {
 
   """ Delete multiple Birthday items by ID. """
   deleteBirthdays(ids: [ID!]): [Birthday]
+
+  """ Create a single BugReport item. """
+  createBugReport(data: BugReportCreateInput): BugReport
+
+  """ Create multiple BugReport items. """
+  createBugReports(data: [BugReportsCreateInput]): [BugReport]
+
+  """ Update a single BugReport item by ID. """
+  updateBugReport(id: ID!, data: BugReportUpdateInput): BugReport
+
+  """ Update multiple BugReport items by ID. """
+  updateBugReports(data: [BugReportsUpdateInput]): [BugReport]
+
+  """ Delete a single BugReport item by ID. """
+  deleteBugReport(id: ID!): BugReport
+
+  """ Delete multiple BugReport items by ID. """
+  deleteBugReports(ids: [ID!]): [BugReport]
   authenticateUserWithPassword(email: String!, password: String!): UserAuthenticationWithPasswordResult!
   createInitialUser(data: CreateInitialUserInput!): UserAuthenticationWithPasswordSuccess!
   sendUserPasswordResetLink(email: String!): SendUserPasswordResetLinkResult

@@ -60,6 +60,9 @@ export default function Home() {
           Birthday: _allBirthdaysMeta {
             count
           }
+          BugReport: _allBugReportsMeta {
+            count
+          }
         }
       `}
     />

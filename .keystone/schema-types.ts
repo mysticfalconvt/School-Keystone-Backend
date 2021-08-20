@@ -2843,6 +2843,106 @@ export type BirthdaysCreateInput = {
   readonly data?: BirthdayCreateInput | null;
 };
 
+export type BugReportWhereInput = {
+  readonly AND?: ReadonlyArray<BugReportWhereInput | null> | null;
+  readonly OR?: ReadonlyArray<BugReportWhereInput | null> | null;
+  readonly id?: Scalars['ID'] | null;
+  readonly id_not?: Scalars['ID'] | null;
+  readonly id_in?: ReadonlyArray<Scalars['ID'] | null> | null;
+  readonly id_not_in?: ReadonlyArray<Scalars['ID'] | null> | null;
+  readonly name?: Scalars['String'] | null;
+  readonly name_not?: Scalars['String'] | null;
+  readonly name_contains?: Scalars['String'] | null;
+  readonly name_not_contains?: Scalars['String'] | null;
+  readonly name_starts_with?: Scalars['String'] | null;
+  readonly name_not_starts_with?: Scalars['String'] | null;
+  readonly name_ends_with?: Scalars['String'] | null;
+  readonly name_not_ends_with?: Scalars['String'] | null;
+  readonly name_i?: Scalars['String'] | null;
+  readonly name_not_i?: Scalars['String'] | null;
+  readonly name_contains_i?: Scalars['String'] | null;
+  readonly name_not_contains_i?: Scalars['String'] | null;
+  readonly name_starts_with_i?: Scalars['String'] | null;
+  readonly name_not_starts_with_i?: Scalars['String'] | null;
+  readonly name_ends_with_i?: Scalars['String'] | null;
+  readonly name_not_ends_with_i?: Scalars['String'] | null;
+  readonly name_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly name_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly description?: Scalars['String'] | null;
+  readonly description_not?: Scalars['String'] | null;
+  readonly description_contains?: Scalars['String'] | null;
+  readonly description_not_contains?: Scalars['String'] | null;
+  readonly description_starts_with?: Scalars['String'] | null;
+  readonly description_not_starts_with?: Scalars['String'] | null;
+  readonly description_ends_with?: Scalars['String'] | null;
+  readonly description_not_ends_with?: Scalars['String'] | null;
+  readonly description_i?: Scalars['String'] | null;
+  readonly description_not_i?: Scalars['String'] | null;
+  readonly description_contains_i?: Scalars['String'] | null;
+  readonly description_not_contains_i?: Scalars['String'] | null;
+  readonly description_starts_with_i?: Scalars['String'] | null;
+  readonly description_not_starts_with_i?: Scalars['String'] | null;
+  readonly description_ends_with_i?: Scalars['String'] | null;
+  readonly description_not_ends_with_i?: Scalars['String'] | null;
+  readonly description_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly description_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly submittedBy?: UserWhereInput | null;
+  readonly submittedBy_is_null?: Scalars['Boolean'] | null;
+  readonly date?: Scalars['String'] | null;
+  readonly date_not?: Scalars['String'] | null;
+  readonly date_lt?: Scalars['String'] | null;
+  readonly date_lte?: Scalars['String'] | null;
+  readonly date_gt?: Scalars['String'] | null;
+  readonly date_gte?: Scalars['String'] | null;
+  readonly date_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly date_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly read?: Scalars['Boolean'] | null;
+  readonly read_not?: Scalars['Boolean'] | null;
+};
+
+export type BugReportWhereUniqueInput = {
+  readonly id: Scalars['ID'];
+};
+
+export type SortBugReportsBy =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'submittedBy_ASC'
+  | 'submittedBy_DESC'
+  | 'date_ASC'
+  | 'date_DESC'
+  | 'read_ASC'
+  | 'read_DESC';
+
+export type BugReportUpdateInput = {
+  readonly name?: Scalars['String'] | null;
+  readonly description?: Scalars['String'] | null;
+  readonly submittedBy?: UserRelateToOneInput | null;
+  readonly date?: Scalars['String'] | null;
+  readonly read?: Scalars['Boolean'] | null;
+};
+
+export type BugReportsUpdateInput = {
+  readonly id: Scalars['ID'];
+  readonly data?: BugReportUpdateInput | null;
+};
+
+export type BugReportCreateInput = {
+  readonly name?: Scalars['String'] | null;
+  readonly description?: Scalars['String'] | null;
+  readonly submittedBy?: UserRelateToOneInput | null;
+  readonly date?: Scalars['String'] | null;
+  readonly read?: Scalars['Boolean'] | null;
+};
+
+export type BugReportsCreateInput = {
+  readonly data?: BugReportCreateInput | null;
+};
+
 export type _ksListsMetaInput = {
   readonly key?: Scalars['String'] | null;
   readonly auxiliary?: Scalars['Boolean'] | null;
@@ -3688,6 +3788,42 @@ export type BirthdayListFn = (
   BirthdayListTypeInfo['fields']
 >;
 
+export type BugReportListTypeInfo = {
+  key: 'BugReport';
+  fields: 'id' | 'name' | 'description' | 'submittedBy' | 'date' | 'read';
+  backing: {
+    readonly id: string;
+    readonly name?: string | null;
+    readonly description?: string | null;
+    readonly submittedBy?: string | null;
+    readonly date?: Date | null;
+    readonly read?: boolean | null;
+  };
+  inputs: {
+    where: BugReportWhereInput;
+    create: BugReportCreateInput;
+    update: BugReportUpdateInput;
+  };
+  args: {
+    listQuery: {
+      readonly where?: BugReportWhereInput | null;
+      readonly sortBy?: ReadonlyArray<SortBugReportsBy> | null;
+      readonly first?: Scalars['Int'] | null;
+      readonly skip?: Scalars['Int'] | null;
+    };
+  };
+};
+
+export type BugReportListFn = (
+  listConfig: import('@keystone-next/keystone/schema').ListConfig<
+    BugReportListTypeInfo,
+    BugReportListTypeInfo['fields']
+  >
+) => import('@keystone-next/keystone/schema').ListConfig<
+  BugReportListTypeInfo,
+  BugReportListTypeInfo['fields']
+>;
+
 export type KeystoneListsTypeInfo = {
   readonly User: UserListTypeInfo;
   readonly Calendar: CalendarListTypeInfo;
@@ -3702,4 +3838,5 @@ export type KeystoneListsTypeInfo = {
   readonly PbisCollection: PbisCollectionListTypeInfo;
   readonly SchoolPbisInfo: SchoolPbisInfoListTypeInfo;
   readonly Birthday: BirthdayListTypeInfo;
+  readonly BugReport: BugReportListTypeInfo;
 };
