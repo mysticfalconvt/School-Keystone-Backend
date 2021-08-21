@@ -69,6 +69,10 @@ export const permissionFields = {
     defaultValue: false,
     label: 'User is a teacher',
   }),
+  isGuidance: checkbox({
+    defaultValue: false,
+    label: 'User is Guidance',
+  }),
   isSuperAdmin: checkbox({
     defaultValue: false,
     label: 'User is a super admin',

@@ -166,6 +166,8 @@ export type UserWhereInput = {
   readonly isStaff_not?: Scalars['Boolean'] | null;
   readonly isTeacher?: Scalars['Boolean'] | null;
   readonly isTeacher_not?: Scalars['Boolean'] | null;
+  readonly isGuidance?: Scalars['Boolean'] | null;
+  readonly isGuidance_not?: Scalars['Boolean'] | null;
   readonly isSuperAdmin?: Scalars['Boolean'] | null;
   readonly isSuperAdmin_not?: Scalars['Boolean'] | null;
   readonly canManagePbis?: Scalars['Boolean'] | null;
@@ -692,6 +694,8 @@ export type SortUsersBy =
   | 'isStaff_DESC'
   | 'isTeacher_ASC'
   | 'isTeacher_DESC'
+  | 'isGuidance_ASC'
+  | 'isGuidance_DESC'
   | 'isSuperAdmin_ASC'
   | 'isSuperAdmin_DESC'
   | 'canManagePbis_ASC'
@@ -832,6 +836,7 @@ export type UserUpdateInput = {
   readonly isParent?: Scalars['Boolean'] | null;
   readonly isStaff?: Scalars['Boolean'] | null;
   readonly isTeacher?: Scalars['Boolean'] | null;
+  readonly isGuidance?: Scalars['Boolean'] | null;
   readonly isSuperAdmin?: Scalars['Boolean'] | null;
   readonly canManagePbis?: Scalars['Boolean'] | null;
   readonly block1Teacher?: UserRelateToOneInput | null;
@@ -923,6 +928,7 @@ export type UserCreateInput = {
   readonly isParent?: Scalars['Boolean'] | null;
   readonly isStaff?: Scalars['Boolean'] | null;
   readonly isTeacher?: Scalars['Boolean'] | null;
+  readonly isGuidance?: Scalars['Boolean'] | null;
   readonly isSuperAdmin?: Scalars['Boolean'] | null;
   readonly canManagePbis?: Scalars['Boolean'] | null;
   readonly block1Teacher?: UserRelateToOneInput | null;
@@ -3017,6 +3023,7 @@ export type UserListTypeInfo = {
     | 'isParent'
     | 'isStaff'
     | 'isTeacher'
+    | 'isGuidance'
     | 'isSuperAdmin'
     | 'canManagePbis'
     | 'block1Teacher'
@@ -3102,6 +3109,7 @@ export type UserListTypeInfo = {
     readonly isParent?: boolean | null;
     readonly isStaff?: boolean | null;
     readonly isTeacher?: boolean | null;
+    readonly isGuidance?: boolean | null;
     readonly isSuperAdmin?: boolean | null;
     readonly canManagePbis?: boolean | null;
     readonly block1Teacher?: string | null;
