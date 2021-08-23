@@ -2949,6 +2949,314 @@ export type BugReportsCreateInput = {
   readonly data?: BugReportCreateInput | null;
 };
 
+export type BullyingWhereInput = {
+  readonly AND?: ReadonlyArray<BullyingWhereInput | null> | null;
+  readonly OR?: ReadonlyArray<BullyingWhereInput | null> | null;
+  readonly id?: Scalars['ID'] | null;
+  readonly id_not?: Scalars['ID'] | null;
+  readonly id_in?: ReadonlyArray<Scalars['ID'] | null> | null;
+  readonly id_not_in?: ReadonlyArray<Scalars['ID'] | null> | null;
+  readonly studentOffender?: UserWhereInput | null;
+  readonly studentOffender_is_null?: Scalars['Boolean'] | null;
+  readonly teacherAuthor?: UserWhereInput | null;
+  readonly teacherAuthor_is_null?: Scalars['Boolean'] | null;
+  readonly dateReported?: Scalars['String'] | null;
+  readonly dateReported_not?: Scalars['String'] | null;
+  readonly dateReported_lt?: Scalars['String'] | null;
+  readonly dateReported_lte?: Scalars['String'] | null;
+  readonly dateReported_gt?: Scalars['String'] | null;
+  readonly dateReported_gte?: Scalars['String'] | null;
+  readonly dateReported_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly dateReported_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly investigationDate?: Scalars['String'] | null;
+  readonly investigationDate_not?: Scalars['String'] | null;
+  readonly investigationDate_lt?: Scalars['String'] | null;
+  readonly investigationDate_lte?: Scalars['String'] | null;
+  readonly investigationDate_gt?: Scalars['String'] | null;
+  readonly investigationDate_gte?: Scalars['String'] | null;
+  readonly investigationDate_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly investigationDate_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly studentReporter?: Scalars['String'] | null;
+  readonly studentReporter_not?: Scalars['String'] | null;
+  readonly studentReporter_contains?: Scalars['String'] | null;
+  readonly studentReporter_not_contains?: Scalars['String'] | null;
+  readonly studentReporter_starts_with?: Scalars['String'] | null;
+  readonly studentReporter_not_starts_with?: Scalars['String'] | null;
+  readonly studentReporter_ends_with?: Scalars['String'] | null;
+  readonly studentReporter_not_ends_with?: Scalars['String'] | null;
+  readonly studentReporter_i?: Scalars['String'] | null;
+  readonly studentReporter_not_i?: Scalars['String'] | null;
+  readonly studentReporter_contains_i?: Scalars['String'] | null;
+  readonly studentReporter_not_contains_i?: Scalars['String'] | null;
+  readonly studentReporter_starts_with_i?: Scalars['String'] | null;
+  readonly studentReporter_not_starts_with_i?: Scalars['String'] | null;
+  readonly studentReporter_ends_with_i?: Scalars['String'] | null;
+  readonly studentReporter_not_ends_with_i?: Scalars['String'] | null;
+  readonly studentReporter_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly studentReporter_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly employeeWitness?: Scalars['String'] | null;
+  readonly employeeWitness_not?: Scalars['String'] | null;
+  readonly employeeWitness_contains?: Scalars['String'] | null;
+  readonly employeeWitness_not_contains?: Scalars['String'] | null;
+  readonly employeeWitness_starts_with?: Scalars['String'] | null;
+  readonly employeeWitness_not_starts_with?: Scalars['String'] | null;
+  readonly employeeWitness_ends_with?: Scalars['String'] | null;
+  readonly employeeWitness_not_ends_with?: Scalars['String'] | null;
+  readonly employeeWitness_i?: Scalars['String'] | null;
+  readonly employeeWitness_not_i?: Scalars['String'] | null;
+  readonly employeeWitness_contains_i?: Scalars['String'] | null;
+  readonly employeeWitness_not_contains_i?: Scalars['String'] | null;
+  readonly employeeWitness_starts_with_i?: Scalars['String'] | null;
+  readonly employeeWitness_not_starts_with_i?: Scalars['String'] | null;
+  readonly employeeWitness_ends_with_i?: Scalars['String'] | null;
+  readonly employeeWitness_not_ends_with_i?: Scalars['String'] | null;
+  readonly employeeWitness_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly employeeWitness_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly studentsInterviewed?: Scalars['String'] | null;
+  readonly studentsInterviewed_not?: Scalars['String'] | null;
+  readonly studentsInterviewed_contains?: Scalars['String'] | null;
+  readonly studentsInterviewed_not_contains?: Scalars['String'] | null;
+  readonly studentsInterviewed_starts_with?: Scalars['String'] | null;
+  readonly studentsInterviewed_not_starts_with?: Scalars['String'] | null;
+  readonly studentsInterviewed_ends_with?: Scalars['String'] | null;
+  readonly studentsInterviewed_not_ends_with?: Scalars['String'] | null;
+  readonly studentsInterviewed_i?: Scalars['String'] | null;
+  readonly studentsInterviewed_not_i?: Scalars['String'] | null;
+  readonly studentsInterviewed_contains_i?: Scalars['String'] | null;
+  readonly studentsInterviewed_not_contains_i?: Scalars['String'] | null;
+  readonly studentsInterviewed_starts_with_i?: Scalars['String'] | null;
+  readonly studentsInterviewed_not_starts_with_i?: Scalars['String'] | null;
+  readonly studentsInterviewed_ends_with_i?: Scalars['String'] | null;
+  readonly studentsInterviewed_not_ends_with_i?: Scalars['String'] | null;
+  readonly studentsInterviewed_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly studentsInterviewed_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly initialActions?: Scalars['String'] | null;
+  readonly initialActions_not?: Scalars['String'] | null;
+  readonly initialActions_contains?: Scalars['String'] | null;
+  readonly initialActions_not_contains?: Scalars['String'] | null;
+  readonly initialActions_starts_with?: Scalars['String'] | null;
+  readonly initialActions_not_starts_with?: Scalars['String'] | null;
+  readonly initialActions_ends_with?: Scalars['String'] | null;
+  readonly initialActions_not_ends_with?: Scalars['String'] | null;
+  readonly initialActions_i?: Scalars['String'] | null;
+  readonly initialActions_not_i?: Scalars['String'] | null;
+  readonly initialActions_contains_i?: Scalars['String'] | null;
+  readonly initialActions_not_contains_i?: Scalars['String'] | null;
+  readonly initialActions_starts_with_i?: Scalars['String'] | null;
+  readonly initialActions_not_starts_with_i?: Scalars['String'] | null;
+  readonly initialActions_ends_with_i?: Scalars['String'] | null;
+  readonly initialActions_not_ends_with_i?: Scalars['String'] | null;
+  readonly initialActions_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly initialActions_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly nextSteps?: Scalars['String'] | null;
+  readonly nextSteps_not?: Scalars['String'] | null;
+  readonly nextSteps_contains?: Scalars['String'] | null;
+  readonly nextSteps_not_contains?: Scalars['String'] | null;
+  readonly nextSteps_starts_with?: Scalars['String'] | null;
+  readonly nextSteps_not_starts_with?: Scalars['String'] | null;
+  readonly nextSteps_ends_with?: Scalars['String'] | null;
+  readonly nextSteps_not_ends_with?: Scalars['String'] | null;
+  readonly nextSteps_i?: Scalars['String'] | null;
+  readonly nextSteps_not_i?: Scalars['String'] | null;
+  readonly nextSteps_contains_i?: Scalars['String'] | null;
+  readonly nextSteps_not_contains_i?: Scalars['String'] | null;
+  readonly nextSteps_starts_with_i?: Scalars['String'] | null;
+  readonly nextSteps_not_starts_with_i?: Scalars['String'] | null;
+  readonly nextSteps_ends_with_i?: Scalars['String'] | null;
+  readonly nextSteps_not_ends_with_i?: Scalars['String'] | null;
+  readonly nextSteps_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly nextSteps_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly reporter?: Scalars['String'] | null;
+  readonly reporter_not?: Scalars['String'] | null;
+  readonly reporter_contains?: Scalars['String'] | null;
+  readonly reporter_not_contains?: Scalars['String'] | null;
+  readonly reporter_starts_with?: Scalars['String'] | null;
+  readonly reporter_not_starts_with?: Scalars['String'] | null;
+  readonly reporter_ends_with?: Scalars['String'] | null;
+  readonly reporter_not_ends_with?: Scalars['String'] | null;
+  readonly reporter_i?: Scalars['String'] | null;
+  readonly reporter_not_i?: Scalars['String'] | null;
+  readonly reporter_contains_i?: Scalars['String'] | null;
+  readonly reporter_not_contains_i?: Scalars['String'] | null;
+  readonly reporter_starts_with_i?: Scalars['String'] | null;
+  readonly reporter_not_starts_with_i?: Scalars['String'] | null;
+  readonly reporter_ends_with_i?: Scalars['String'] | null;
+  readonly reporter_not_ends_with_i?: Scalars['String'] | null;
+  readonly reporter_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly reporter_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly determination?: Scalars['String'] | null;
+  readonly determination_not?: Scalars['String'] | null;
+  readonly determination_contains?: Scalars['String'] | null;
+  readonly determination_not_contains?: Scalars['String'] | null;
+  readonly determination_starts_with?: Scalars['String'] | null;
+  readonly determination_not_starts_with?: Scalars['String'] | null;
+  readonly determination_ends_with?: Scalars['String'] | null;
+  readonly determination_not_ends_with?: Scalars['String'] | null;
+  readonly determination_i?: Scalars['String'] | null;
+  readonly determination_not_i?: Scalars['String'] | null;
+  readonly determination_contains_i?: Scalars['String'] | null;
+  readonly determination_not_contains_i?: Scalars['String'] | null;
+  readonly determination_starts_with_i?: Scalars['String'] | null;
+  readonly determination_not_starts_with_i?: Scalars['String'] | null;
+  readonly determination_ends_with_i?: Scalars['String'] | null;
+  readonly determination_not_ends_with_i?: Scalars['String'] | null;
+  readonly determination_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly determination_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly determinationDate?: Scalars['String'] | null;
+  readonly determinationDate_not?: Scalars['String'] | null;
+  readonly determinationDate_lt?: Scalars['String'] | null;
+  readonly determinationDate_lte?: Scalars['String'] | null;
+  readonly determinationDate_gt?: Scalars['String'] | null;
+  readonly determinationDate_gte?: Scalars['String'] | null;
+  readonly determinationDate_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly determinationDate_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly determinationExplanation?: Scalars['String'] | null;
+  readonly determinationExplanation_not?: Scalars['String'] | null;
+  readonly determinationExplanation_contains?: Scalars['String'] | null;
+  readonly determinationExplanation_not_contains?: Scalars['String'] | null;
+  readonly determinationExplanation_starts_with?: Scalars['String'] | null;
+  readonly determinationExplanation_not_starts_with?: Scalars['String'] | null;
+  readonly determinationExplanation_ends_with?: Scalars['String'] | null;
+  readonly determinationExplanation_not_ends_with?: Scalars['String'] | null;
+  readonly determinationExplanation_i?: Scalars['String'] | null;
+  readonly determinationExplanation_not_i?: Scalars['String'] | null;
+  readonly determinationExplanation_contains_i?: Scalars['String'] | null;
+  readonly determinationExplanation_not_contains_i?: Scalars['String'] | null;
+  readonly determinationExplanation_starts_with_i?: Scalars['String'] | null;
+  readonly determinationExplanation_not_starts_with_i?:
+    | Scalars['String']
+    | null;
+  readonly determinationExplanation_ends_with_i?: Scalars['String'] | null;
+  readonly determinationExplanation_not_ends_with_i?: Scalars['String'] | null;
+  readonly determinationExplanation_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly determinationExplanation_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly assignmentInvestigator?: Scalars['String'] | null;
+  readonly assignmentInvestigator_not?: Scalars['String'] | null;
+  readonly assignmentInvestigator_contains?: Scalars['String'] | null;
+  readonly assignmentInvestigator_not_contains?: Scalars['String'] | null;
+  readonly assignmentInvestigator_starts_with?: Scalars['String'] | null;
+  readonly assignmentInvestigator_not_starts_with?: Scalars['String'] | null;
+  readonly assignmentInvestigator_ends_with?: Scalars['String'] | null;
+  readonly assignmentInvestigator_not_ends_with?: Scalars['String'] | null;
+  readonly assignmentInvestigator_i?: Scalars['String'] | null;
+  readonly assignmentInvestigator_not_i?: Scalars['String'] | null;
+  readonly assignmentInvestigator_contains_i?: Scalars['String'] | null;
+  readonly assignmentInvestigator_not_contains_i?: Scalars['String'] | null;
+  readonly assignmentInvestigator_starts_with_i?: Scalars['String'] | null;
+  readonly assignmentInvestigator_not_starts_with_i?: Scalars['String'] | null;
+  readonly assignmentInvestigator_ends_with_i?: Scalars['String'] | null;
+  readonly assignmentInvestigator_not_ends_with_i?: Scalars['String'] | null;
+  readonly assignmentInvestigator_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly assignmentInvestigator_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+};
+
+export type BullyingWhereUniqueInput = {
+  readonly id: Scalars['ID'];
+};
+
+export type SortBullyingsBy =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'studentOffender_ASC'
+  | 'studentOffender_DESC'
+  | 'teacherAuthor_ASC'
+  | 'teacherAuthor_DESC'
+  | 'dateReported_ASC'
+  | 'dateReported_DESC'
+  | 'investigationDate_ASC'
+  | 'investigationDate_DESC'
+  | 'studentReporter_ASC'
+  | 'studentReporter_DESC'
+  | 'employeeWitness_ASC'
+  | 'employeeWitness_DESC'
+  | 'studentsInterviewed_ASC'
+  | 'studentsInterviewed_DESC'
+  | 'initialActions_ASC'
+  | 'initialActions_DESC'
+  | 'nextSteps_ASC'
+  | 'nextSteps_DESC'
+  | 'reporter_ASC'
+  | 'reporter_DESC'
+  | 'determination_ASC'
+  | 'determination_DESC'
+  | 'determinationDate_ASC'
+  | 'determinationDate_DESC'
+  | 'determinationExplanation_ASC'
+  | 'determinationExplanation_DESC'
+  | 'assignmentInvestigator_ASC'
+  | 'assignmentInvestigator_DESC';
+
+export type BullyingUpdateInput = {
+  readonly studentOffender?: UserRelateToOneInput | null;
+  readonly teacherAuthor?: UserRelateToOneInput | null;
+  readonly dateReported?: Scalars['String'] | null;
+  readonly investigationDate?: Scalars['String'] | null;
+  readonly studentReporter?: Scalars['String'] | null;
+  readonly employeeWitness?: Scalars['String'] | null;
+  readonly studentsInterviewed?: Scalars['String'] | null;
+  readonly initialActions?: Scalars['String'] | null;
+  readonly nextSteps?: Scalars['String'] | null;
+  readonly reporter?: Scalars['String'] | null;
+  readonly determination?: Scalars['String'] | null;
+  readonly determinationDate?: Scalars['String'] | null;
+  readonly determinationExplanation?: Scalars['String'] | null;
+  readonly assignmentInvestigator?: Scalars['String'] | null;
+};
+
+export type BullyingsUpdateInput = {
+  readonly id: Scalars['ID'];
+  readonly data?: BullyingUpdateInput | null;
+};
+
+export type BullyingCreateInput = {
+  readonly studentOffender?: UserRelateToOneInput | null;
+  readonly teacherAuthor?: UserRelateToOneInput | null;
+  readonly dateReported?: Scalars['String'] | null;
+  readonly investigationDate?: Scalars['String'] | null;
+  readonly studentReporter?: Scalars['String'] | null;
+  readonly employeeWitness?: Scalars['String'] | null;
+  readonly studentsInterviewed?: Scalars['String'] | null;
+  readonly initialActions?: Scalars['String'] | null;
+  readonly nextSteps?: Scalars['String'] | null;
+  readonly reporter?: Scalars['String'] | null;
+  readonly determination?: Scalars['String'] | null;
+  readonly determinationDate?: Scalars['String'] | null;
+  readonly determinationExplanation?: Scalars['String'] | null;
+  readonly assignmentInvestigator?: Scalars['String'] | null;
+};
+
+export type BullyingsCreateInput = {
+  readonly data?: BullyingCreateInput | null;
+};
+
 export type _ksListsMetaInput = {
   readonly key?: Scalars['String'] | null;
   readonly auxiliary?: Scalars['Boolean'] | null;
@@ -3832,6 +4140,66 @@ export type BugReportListFn = (
   BugReportListTypeInfo['fields']
 >;
 
+export type BullyingListTypeInfo = {
+  key: 'Bullying';
+  fields:
+    | 'id'
+    | 'studentOffender'
+    | 'teacherAuthor'
+    | 'dateReported'
+    | 'investigationDate'
+    | 'studentReporter'
+    | 'employeeWitness'
+    | 'studentsInterviewed'
+    | 'initialActions'
+    | 'nextSteps'
+    | 'reporter'
+    | 'determination'
+    | 'determinationDate'
+    | 'determinationExplanation'
+    | 'assignmentInvestigator';
+  backing: {
+    readonly id: string;
+    readonly studentOffender?: string | null;
+    readonly teacherAuthor?: string | null;
+    readonly dateReported?: Date | null;
+    readonly investigationDate?: Date | null;
+    readonly studentReporter?: string | null;
+    readonly employeeWitness?: string | null;
+    readonly studentsInterviewed?: string | null;
+    readonly initialActions?: string | null;
+    readonly nextSteps?: string | null;
+    readonly reporter?: string | null;
+    readonly determination?: string | null;
+    readonly determinationDate?: Date | null;
+    readonly determinationExplanation?: string | null;
+    readonly assignmentInvestigator?: string | null;
+  };
+  inputs: {
+    where: BullyingWhereInput;
+    create: BullyingCreateInput;
+    update: BullyingUpdateInput;
+  };
+  args: {
+    listQuery: {
+      readonly where?: BullyingWhereInput | null;
+      readonly sortBy?: ReadonlyArray<SortBullyingsBy> | null;
+      readonly first?: Scalars['Int'] | null;
+      readonly skip?: Scalars['Int'] | null;
+    };
+  };
+};
+
+export type BullyingListFn = (
+  listConfig: import('@keystone-next/keystone/schema').ListConfig<
+    BullyingListTypeInfo,
+    BullyingListTypeInfo['fields']
+  >
+) => import('@keystone-next/keystone/schema').ListConfig<
+  BullyingListTypeInfo,
+  BullyingListTypeInfo['fields']
+>;
+
 export type KeystoneListsTypeInfo = {
   readonly User: UserListTypeInfo;
   readonly Calendar: CalendarListTypeInfo;
@@ -3847,4 +4215,5 @@ export type KeystoneListsTypeInfo = {
   readonly SchoolPbisInfo: SchoolPbisInfoListTypeInfo;
   readonly Birthday: BirthdayListTypeInfo;
   readonly BugReport: BugReportListTypeInfo;
+  readonly Bullying: BullyingListTypeInfo;
 };

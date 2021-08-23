@@ -3260,6 +3260,304 @@ input BugReportsCreateInput {
   data: BugReportCreateInput
 }
 
+""" A keystone list """
+type Bullying {
+  id: ID!
+  studentOffender: User
+  teacherAuthor: User
+  dateReported: String
+  investigationDate: String
+  studentReporter: String
+  employeeWitness: String
+  studentsInterviewed: String
+  initialActions: String
+  nextSteps: String
+  reporter: String
+  determination: String
+  determinationDate: String
+  determinationExplanation: String
+  assignmentInvestigator: String
+}
+
+input BullyingWhereInput {
+  AND: [BullyingWhereInput]
+  OR: [BullyingWhereInput]
+  id: ID
+  id_not: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  studentOffender: UserWhereInput
+  studentOffender_is_null: Boolean
+  teacherAuthor: UserWhereInput
+  teacherAuthor_is_null: Boolean
+  dateReported: String
+  dateReported_not: String
+  dateReported_lt: String
+  dateReported_lte: String
+  dateReported_gt: String
+  dateReported_gte: String
+  dateReported_in: [String]
+  dateReported_not_in: [String]
+  investigationDate: String
+  investigationDate_not: String
+  investigationDate_lt: String
+  investigationDate_lte: String
+  investigationDate_gt: String
+  investigationDate_gte: String
+  investigationDate_in: [String]
+  investigationDate_not_in: [String]
+  studentReporter: String
+  studentReporter_not: String
+  studentReporter_contains: String
+  studentReporter_not_contains: String
+  studentReporter_starts_with: String
+  studentReporter_not_starts_with: String
+  studentReporter_ends_with: String
+  studentReporter_not_ends_with: String
+  studentReporter_i: String
+  studentReporter_not_i: String
+  studentReporter_contains_i: String
+  studentReporter_not_contains_i: String
+  studentReporter_starts_with_i: String
+  studentReporter_not_starts_with_i: String
+  studentReporter_ends_with_i: String
+  studentReporter_not_ends_with_i: String
+  studentReporter_in: [String]
+  studentReporter_not_in: [String]
+  employeeWitness: String
+  employeeWitness_not: String
+  employeeWitness_contains: String
+  employeeWitness_not_contains: String
+  employeeWitness_starts_with: String
+  employeeWitness_not_starts_with: String
+  employeeWitness_ends_with: String
+  employeeWitness_not_ends_with: String
+  employeeWitness_i: String
+  employeeWitness_not_i: String
+  employeeWitness_contains_i: String
+  employeeWitness_not_contains_i: String
+  employeeWitness_starts_with_i: String
+  employeeWitness_not_starts_with_i: String
+  employeeWitness_ends_with_i: String
+  employeeWitness_not_ends_with_i: String
+  employeeWitness_in: [String]
+  employeeWitness_not_in: [String]
+  studentsInterviewed: String
+  studentsInterviewed_not: String
+  studentsInterviewed_contains: String
+  studentsInterviewed_not_contains: String
+  studentsInterviewed_starts_with: String
+  studentsInterviewed_not_starts_with: String
+  studentsInterviewed_ends_with: String
+  studentsInterviewed_not_ends_with: String
+  studentsInterviewed_i: String
+  studentsInterviewed_not_i: String
+  studentsInterviewed_contains_i: String
+  studentsInterviewed_not_contains_i: String
+  studentsInterviewed_starts_with_i: String
+  studentsInterviewed_not_starts_with_i: String
+  studentsInterviewed_ends_with_i: String
+  studentsInterviewed_not_ends_with_i: String
+  studentsInterviewed_in: [String]
+  studentsInterviewed_not_in: [String]
+  initialActions: String
+  initialActions_not: String
+  initialActions_contains: String
+  initialActions_not_contains: String
+  initialActions_starts_with: String
+  initialActions_not_starts_with: String
+  initialActions_ends_with: String
+  initialActions_not_ends_with: String
+  initialActions_i: String
+  initialActions_not_i: String
+  initialActions_contains_i: String
+  initialActions_not_contains_i: String
+  initialActions_starts_with_i: String
+  initialActions_not_starts_with_i: String
+  initialActions_ends_with_i: String
+  initialActions_not_ends_with_i: String
+  initialActions_in: [String]
+  initialActions_not_in: [String]
+  nextSteps: String
+  nextSteps_not: String
+  nextSteps_contains: String
+  nextSteps_not_contains: String
+  nextSteps_starts_with: String
+  nextSteps_not_starts_with: String
+  nextSteps_ends_with: String
+  nextSteps_not_ends_with: String
+  nextSteps_i: String
+  nextSteps_not_i: String
+  nextSteps_contains_i: String
+  nextSteps_not_contains_i: String
+  nextSteps_starts_with_i: String
+  nextSteps_not_starts_with_i: String
+  nextSteps_ends_with_i: String
+  nextSteps_not_ends_with_i: String
+  nextSteps_in: [String]
+  nextSteps_not_in: [String]
+  reporter: String
+  reporter_not: String
+  reporter_contains: String
+  reporter_not_contains: String
+  reporter_starts_with: String
+  reporter_not_starts_with: String
+  reporter_ends_with: String
+  reporter_not_ends_with: String
+  reporter_i: String
+  reporter_not_i: String
+  reporter_contains_i: String
+  reporter_not_contains_i: String
+  reporter_starts_with_i: String
+  reporter_not_starts_with_i: String
+  reporter_ends_with_i: String
+  reporter_not_ends_with_i: String
+  reporter_in: [String]
+  reporter_not_in: [String]
+  determination: String
+  determination_not: String
+  determination_contains: String
+  determination_not_contains: String
+  determination_starts_with: String
+  determination_not_starts_with: String
+  determination_ends_with: String
+  determination_not_ends_with: String
+  determination_i: String
+  determination_not_i: String
+  determination_contains_i: String
+  determination_not_contains_i: String
+  determination_starts_with_i: String
+  determination_not_starts_with_i: String
+  determination_ends_with_i: String
+  determination_not_ends_with_i: String
+  determination_in: [String]
+  determination_not_in: [String]
+  determinationDate: String
+  determinationDate_not: String
+  determinationDate_lt: String
+  determinationDate_lte: String
+  determinationDate_gt: String
+  determinationDate_gte: String
+  determinationDate_in: [String]
+  determinationDate_not_in: [String]
+  determinationExplanation: String
+  determinationExplanation_not: String
+  determinationExplanation_contains: String
+  determinationExplanation_not_contains: String
+  determinationExplanation_starts_with: String
+  determinationExplanation_not_starts_with: String
+  determinationExplanation_ends_with: String
+  determinationExplanation_not_ends_with: String
+  determinationExplanation_i: String
+  determinationExplanation_not_i: String
+  determinationExplanation_contains_i: String
+  determinationExplanation_not_contains_i: String
+  determinationExplanation_starts_with_i: String
+  determinationExplanation_not_starts_with_i: String
+  determinationExplanation_ends_with_i: String
+  determinationExplanation_not_ends_with_i: String
+  determinationExplanation_in: [String]
+  determinationExplanation_not_in: [String]
+  assignmentInvestigator: String
+  assignmentInvestigator_not: String
+  assignmentInvestigator_contains: String
+  assignmentInvestigator_not_contains: String
+  assignmentInvestigator_starts_with: String
+  assignmentInvestigator_not_starts_with: String
+  assignmentInvestigator_ends_with: String
+  assignmentInvestigator_not_ends_with: String
+  assignmentInvestigator_i: String
+  assignmentInvestigator_not_i: String
+  assignmentInvestigator_contains_i: String
+  assignmentInvestigator_not_contains_i: String
+  assignmentInvestigator_starts_with_i: String
+  assignmentInvestigator_not_starts_with_i: String
+  assignmentInvestigator_ends_with_i: String
+  assignmentInvestigator_not_ends_with_i: String
+  assignmentInvestigator_in: [String]
+  assignmentInvestigator_not_in: [String]
+}
+
+input BullyingWhereUniqueInput {
+  id: ID!
+}
+
+enum SortBullyingsBy {
+  id_ASC
+  id_DESC
+  studentOffender_ASC
+  studentOffender_DESC
+  teacherAuthor_ASC
+  teacherAuthor_DESC
+  dateReported_ASC
+  dateReported_DESC
+  investigationDate_ASC
+  investigationDate_DESC
+  studentReporter_ASC
+  studentReporter_DESC
+  employeeWitness_ASC
+  employeeWitness_DESC
+  studentsInterviewed_ASC
+  studentsInterviewed_DESC
+  initialActions_ASC
+  initialActions_DESC
+  nextSteps_ASC
+  nextSteps_DESC
+  reporter_ASC
+  reporter_DESC
+  determination_ASC
+  determination_DESC
+  determinationDate_ASC
+  determinationDate_DESC
+  determinationExplanation_ASC
+  determinationExplanation_DESC
+  assignmentInvestigator_ASC
+  assignmentInvestigator_DESC
+}
+
+input BullyingUpdateInput {
+  studentOffender: UserRelateToOneInput
+  teacherAuthor: UserRelateToOneInput
+  dateReported: String
+  investigationDate: String
+  studentReporter: String
+  employeeWitness: String
+  studentsInterviewed: String
+  initialActions: String
+  nextSteps: String
+  reporter: String
+  determination: String
+  determinationDate: String
+  determinationExplanation: String
+  assignmentInvestigator: String
+}
+
+input BullyingsUpdateInput {
+  id: ID!
+  data: BullyingUpdateInput
+}
+
+input BullyingCreateInput {
+  studentOffender: UserRelateToOneInput
+  teacherAuthor: UserRelateToOneInput
+  dateReported: String
+  investigationDate: String
+  studentReporter: String
+  employeeWitness: String
+  studentsInterviewed: String
+  initialActions: String
+  nextSteps: String
+  reporter: String
+  determination: String
+  determinationDate: String
+  determinationExplanation: String
+  assignmentInvestigator: String
+}
+
+input BullyingsCreateInput {
+  data: BullyingCreateInput
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -3622,6 +3920,19 @@ type Query {
   """ Retrieve the meta-data for the BugReport list. """
   _BugReportsMeta: _ListMeta
 
+  """ Search for all Bullying items which match the where clause. """
+  allBullyings(where: BullyingWhereInput, search: String, sortBy: [SortBullyingsBy!], orderBy: String, first: Int, skip: Int): [Bullying]
+
+  """ Search for the Bullying item with the matching ID. """
+  Bullying(where: BullyingWhereUniqueInput!): Bullying
+
+  """ Perform a meta-query on all Bullying items which match the where clause. 
+  """
+  _allBullyingsMeta(where: BullyingWhereInput, search: String, sortBy: [SortBullyingsBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+
+  """ Retrieve the meta-data for the Bullying list. """
+  _BullyingsMeta: _ListMeta
+
   """ Retrieve the meta-data for all lists. """
   _ksListsMeta(where: _ksListsMetaInput): [_ListMeta]
 
@@ -3884,6 +4195,24 @@ type Mutation {
 
   """ Delete multiple BugReport items by ID. """
   deleteBugReports(ids: [ID!]): [BugReport]
+
+  """ Create a single Bullying item. """
+  createBullying(data: BullyingCreateInput): Bullying
+
+  """ Create multiple Bullying items. """
+  createBullyings(data: [BullyingsCreateInput]): [Bullying]
+
+  """ Update a single Bullying item by ID. """
+  updateBullying(id: ID!, data: BullyingUpdateInput): Bullying
+
+  """ Update multiple Bullying items by ID. """
+  updateBullyings(data: [BullyingsUpdateInput]): [Bullying]
+
+  """ Delete a single Bullying item by ID. """
+  deleteBullying(id: ID!): Bullying
+
+  """ Delete multiple Bullying items by ID. """
+  deleteBullyings(ids: [ID!]): [Bullying]
   authenticateUserWithPassword(email: String!, password: String!): UserAuthenticationWithPasswordResult!
   createInitialUser(data: CreateInitialUserInput!): UserAuthenticationWithPasswordSuccess!
   sendUserPasswordResetLink(email: String!): SendUserPasswordResetLinkResult

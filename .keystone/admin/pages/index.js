@@ -63,6 +63,9 @@ export default function Home() {
           BugReport: _allBugReportsMeta {
             count
           }
+          Bullying: _allBullyingsMeta {
+            count
+          }
         }
       `}
     />

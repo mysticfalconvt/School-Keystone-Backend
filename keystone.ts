@@ -14,6 +14,7 @@ import { PbisCollection } from './schemas/PbisCollection'
 import { SchoolPbisInfo } from './schemas/SchoolPbisInfo'
 import { Birthday } from './schemas/Birthday'
 import { BugReport } from './schemas/BugReport'
+import { Bullying } from './schemas/Bullying'
 
 import { extendGraphqlSchema } from './mutations';
 import 'dotenv/config';
@@ -78,6 +79,7 @@ export default withAuth(
       SchoolPbisInfo,
       Birthday,
       BugReport,
+      Bullying,
     }),
     extendGraphqlSchema,
     ui: {
