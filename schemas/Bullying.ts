@@ -26,6 +26,13 @@ export const Bullying = list({
                 return date.toISOString();
             }
         }),
+        dateOfEvent: timestamp({
+            isRequired: true,
+            defaultValue: () => {
+                const date = new Date();
+                return date.toISOString();
+            }
+        }),
         investigationDate: timestamp({
             isRequired: true,
             defaultValue: () => {
@@ -36,10 +43,12 @@ export const Bullying = list({
 
         studentReporter: text(),
         employeeWitness: text(),
+        studentWitness: text(),
         studentsInterviewed: text(),
         initialActions: text(),
         nextSteps: text(),
         reporter: text(),
+        description: text(),
         determination: select({
             options: [
                 { value: 'No', label: 'No' },
