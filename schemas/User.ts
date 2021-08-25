@@ -21,6 +21,7 @@ export const User = list({
   },
   fields: {
     name: text({ isRequired: true, isIndexed: true }),
+    preferredName: text(),
     email: text({ isRequired: true, isUnique: true }),
     password: password(),
     taStudents: relationship({ ref: 'User.taTeacher', many: true }),
