@@ -72,6 +72,7 @@ input BirthdayRelateToOneInput {
 type User {
   id: ID!
   name: String
+  preferredName: String
   email: String
   password_is_set: Boolean
   taStudents(where: UserWhereInput, search: String, sortBy: [SortUsersBy!], orderBy: String, first: Int, skip: Int): [User!]!
@@ -202,6 +203,24 @@ input UserWhereInput {
   name_not_ends_with_i: String
   name_in: [String]
   name_not_in: [String]
+  preferredName: String
+  preferredName_not: String
+  preferredName_contains: String
+  preferredName_not_contains: String
+  preferredName_starts_with: String
+  preferredName_not_starts_with: String
+  preferredName_ends_with: String
+  preferredName_not_ends_with: String
+  preferredName_i: String
+  preferredName_not_i: String
+  preferredName_contains_i: String
+  preferredName_not_contains_i: String
+  preferredName_starts_with_i: String
+  preferredName_not_starts_with_i: String
+  preferredName_ends_with_i: String
+  preferredName_not_ends_with_i: String
+  preferredName_in: [String]
+  preferredName_not_in: [String]
   email: String
   email_not: String
   email_contains: String
@@ -804,6 +823,8 @@ enum SortUsersBy {
   id_DESC
   name_ASC
   name_DESC
+  preferredName_ASC
+  preferredName_DESC
   email_ASC
   email_DESC
   taStudents_ASC
@@ -968,6 +989,7 @@ enum SortUsersBy {
 
 input UserUpdateInput {
   name: String
+  preferredName: String
   email: String
   password: String
   taStudents: UserRelateToManyInput
@@ -1060,6 +1082,7 @@ input UsersUpdateInput {
 
 input UserCreateInput {
   name: String
+  preferredName: String
   email: String
   password: String
   taStudents: UserRelateToManyInput
@@ -3266,13 +3289,16 @@ type Bullying {
   studentOffender: User
   teacherAuthor: User
   dateReported: String
+  dateOfEvent: String
   investigationDate: String
   studentReporter: String
   employeeWitness: String
+  studentWitness: String
   studentsInterviewed: String
   initialActions: String
   nextSteps: String
   reporter: String
+  description: String
   determination: String
   determinationDate: String
   determinationExplanation: String
@@ -3298,6 +3324,14 @@ input BullyingWhereInput {
   dateReported_gte: String
   dateReported_in: [String]
   dateReported_not_in: [String]
+  dateOfEvent: String
+  dateOfEvent_not: String
+  dateOfEvent_lt: String
+  dateOfEvent_lte: String
+  dateOfEvent_gt: String
+  dateOfEvent_gte: String
+  dateOfEvent_in: [String]
+  dateOfEvent_not_in: [String]
   investigationDate: String
   investigationDate_not: String
   investigationDate_lt: String
@@ -3342,6 +3376,24 @@ input BullyingWhereInput {
   employeeWitness_not_ends_with_i: String
   employeeWitness_in: [String]
   employeeWitness_not_in: [String]
+  studentWitness: String
+  studentWitness_not: String
+  studentWitness_contains: String
+  studentWitness_not_contains: String
+  studentWitness_starts_with: String
+  studentWitness_not_starts_with: String
+  studentWitness_ends_with: String
+  studentWitness_not_ends_with: String
+  studentWitness_i: String
+  studentWitness_not_i: String
+  studentWitness_contains_i: String
+  studentWitness_not_contains_i: String
+  studentWitness_starts_with_i: String
+  studentWitness_not_starts_with_i: String
+  studentWitness_ends_with_i: String
+  studentWitness_not_ends_with_i: String
+  studentWitness_in: [String]
+  studentWitness_not_in: [String]
   studentsInterviewed: String
   studentsInterviewed_not: String
   studentsInterviewed_contains: String
@@ -3414,6 +3466,24 @@ input BullyingWhereInput {
   reporter_not_ends_with_i: String
   reporter_in: [String]
   reporter_not_in: [String]
+  description: String
+  description_not: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  description_i: String
+  description_not_i: String
+  description_contains_i: String
+  description_not_contains_i: String
+  description_starts_with_i: String
+  description_not_starts_with_i: String
+  description_ends_with_i: String
+  description_not_ends_with_i: String
+  description_in: [String]
+  description_not_in: [String]
   determination: String
   determination_not: String
   determination_contains: String
@@ -3491,12 +3561,16 @@ enum SortBullyingsBy {
   teacherAuthor_DESC
   dateReported_ASC
   dateReported_DESC
+  dateOfEvent_ASC
+  dateOfEvent_DESC
   investigationDate_ASC
   investigationDate_DESC
   studentReporter_ASC
   studentReporter_DESC
   employeeWitness_ASC
   employeeWitness_DESC
+  studentWitness_ASC
+  studentWitness_DESC
   studentsInterviewed_ASC
   studentsInterviewed_DESC
   initialActions_ASC
@@ -3505,6 +3579,8 @@ enum SortBullyingsBy {
   nextSteps_DESC
   reporter_ASC
   reporter_DESC
+  description_ASC
+  description_DESC
   determination_ASC
   determination_DESC
   determinationDate_ASC
@@ -3519,13 +3595,16 @@ input BullyingUpdateInput {
   studentOffender: UserRelateToOneInput
   teacherAuthor: UserRelateToOneInput
   dateReported: String
+  dateOfEvent: String
   investigationDate: String
   studentReporter: String
   employeeWitness: String
+  studentWitness: String
   studentsInterviewed: String
   initialActions: String
   nextSteps: String
   reporter: String
+  description: String
   determination: String
   determinationDate: String
   determinationExplanation: String
@@ -3541,13 +3620,16 @@ input BullyingCreateInput {
   studentOffender: UserRelateToOneInput
   teacherAuthor: UserRelateToOneInput
   dateReported: String
+  dateOfEvent: String
   investigationDate: String
   studentReporter: String
   employeeWitness: String
+  studentWitness: String
   studentsInterviewed: String
   initialActions: String
   nextSteps: String
   reporter: String
+  description: String
   determination: String
   determinationDate: String
   determinationExplanation: String

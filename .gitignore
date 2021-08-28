@@ -16,6 +16,7 @@
 .keystone/admin/.next
 /.keystone/admin/.next
 .keystone/admin/.next/*
+.keystone
 # production
 /build
 

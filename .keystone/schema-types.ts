@@ -102,6 +102,26 @@ export type UserWhereInput = {
   readonly name_not_ends_with_i?: Scalars['String'] | null;
   readonly name_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly name_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly preferredName?: Scalars['String'] | null;
+  readonly preferredName_not?: Scalars['String'] | null;
+  readonly preferredName_contains?: Scalars['String'] | null;
+  readonly preferredName_not_contains?: Scalars['String'] | null;
+  readonly preferredName_starts_with?: Scalars['String'] | null;
+  readonly preferredName_not_starts_with?: Scalars['String'] | null;
+  readonly preferredName_ends_with?: Scalars['String'] | null;
+  readonly preferredName_not_ends_with?: Scalars['String'] | null;
+  readonly preferredName_i?: Scalars['String'] | null;
+  readonly preferredName_not_i?: Scalars['String'] | null;
+  readonly preferredName_contains_i?: Scalars['String'] | null;
+  readonly preferredName_not_contains_i?: Scalars['String'] | null;
+  readonly preferredName_starts_with_i?: Scalars['String'] | null;
+  readonly preferredName_not_starts_with_i?: Scalars['String'] | null;
+  readonly preferredName_ends_with_i?: Scalars['String'] | null;
+  readonly preferredName_not_ends_with_i?: Scalars['String'] | null;
+  readonly preferredName_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly preferredName_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
   readonly email?: Scalars['String'] | null;
   readonly email_not?: Scalars['String'] | null;
   readonly email_contains?: Scalars['String'] | null;
@@ -650,6 +670,8 @@ export type SortUsersBy =
   | 'id_DESC'
   | 'name_ASC'
   | 'name_DESC'
+  | 'preferredName_ASC'
+  | 'preferredName_DESC'
   | 'email_ASC'
   | 'email_DESC'
   | 'taStudents_ASC'
@@ -813,6 +835,7 @@ export type SortUsersBy =
 
 export type UserUpdateInput = {
   readonly name?: Scalars['String'] | null;
+  readonly preferredName?: Scalars['String'] | null;
   readonly email?: Scalars['String'] | null;
   readonly password?: Scalars['String'] | null;
   readonly taStudents?: UserRelateToManyInput | null;
@@ -905,6 +928,7 @@ export type UsersUpdateInput = {
 
 export type UserCreateInput = {
   readonly name?: Scalars['String'] | null;
+  readonly preferredName?: Scalars['String'] | null;
   readonly email?: Scalars['String'] | null;
   readonly password?: Scalars['String'] | null;
   readonly taStudents?: UserRelateToManyInput | null;
@@ -2968,6 +2992,14 @@ export type BullyingWhereInput = {
   readonly dateReported_gte?: Scalars['String'] | null;
   readonly dateReported_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly dateReported_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly dateOfEvent?: Scalars['String'] | null;
+  readonly dateOfEvent_not?: Scalars['String'] | null;
+  readonly dateOfEvent_lt?: Scalars['String'] | null;
+  readonly dateOfEvent_lte?: Scalars['String'] | null;
+  readonly dateOfEvent_gt?: Scalars['String'] | null;
+  readonly dateOfEvent_gte?: Scalars['String'] | null;
+  readonly dateOfEvent_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly dateOfEvent_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly investigationDate?: Scalars['String'] | null;
   readonly investigationDate_not?: Scalars['String'] | null;
   readonly investigationDate_lt?: Scalars['String'] | null;
@@ -3018,6 +3050,26 @@ export type BullyingWhereInput = {
   readonly employeeWitness_not_ends_with_i?: Scalars['String'] | null;
   readonly employeeWitness_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly employeeWitness_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly studentWitness?: Scalars['String'] | null;
+  readonly studentWitness_not?: Scalars['String'] | null;
+  readonly studentWitness_contains?: Scalars['String'] | null;
+  readonly studentWitness_not_contains?: Scalars['String'] | null;
+  readonly studentWitness_starts_with?: Scalars['String'] | null;
+  readonly studentWitness_not_starts_with?: Scalars['String'] | null;
+  readonly studentWitness_ends_with?: Scalars['String'] | null;
+  readonly studentWitness_not_ends_with?: Scalars['String'] | null;
+  readonly studentWitness_i?: Scalars['String'] | null;
+  readonly studentWitness_not_i?: Scalars['String'] | null;
+  readonly studentWitness_contains_i?: Scalars['String'] | null;
+  readonly studentWitness_not_contains_i?: Scalars['String'] | null;
+  readonly studentWitness_starts_with_i?: Scalars['String'] | null;
+  readonly studentWitness_not_starts_with_i?: Scalars['String'] | null;
+  readonly studentWitness_ends_with_i?: Scalars['String'] | null;
+  readonly studentWitness_not_ends_with_i?: Scalars['String'] | null;
+  readonly studentWitness_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly studentWitness_not_in?: ReadonlyArray<
     Scalars['String'] | null
   > | null;
   readonly studentsInterviewed?: Scalars['String'] | null;
@@ -3098,6 +3150,24 @@ export type BullyingWhereInput = {
   readonly reporter_not_ends_with_i?: Scalars['String'] | null;
   readonly reporter_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly reporter_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly description?: Scalars['String'] | null;
+  readonly description_not?: Scalars['String'] | null;
+  readonly description_contains?: Scalars['String'] | null;
+  readonly description_not_contains?: Scalars['String'] | null;
+  readonly description_starts_with?: Scalars['String'] | null;
+  readonly description_not_starts_with?: Scalars['String'] | null;
+  readonly description_ends_with?: Scalars['String'] | null;
+  readonly description_not_ends_with?: Scalars['String'] | null;
+  readonly description_i?: Scalars['String'] | null;
+  readonly description_not_i?: Scalars['String'] | null;
+  readonly description_contains_i?: Scalars['String'] | null;
+  readonly description_not_contains_i?: Scalars['String'] | null;
+  readonly description_starts_with_i?: Scalars['String'] | null;
+  readonly description_not_starts_with_i?: Scalars['String'] | null;
+  readonly description_ends_with_i?: Scalars['String'] | null;
+  readonly description_not_ends_with_i?: Scalars['String'] | null;
+  readonly description_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly description_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly determination?: Scalars['String'] | null;
   readonly determination_not?: Scalars['String'] | null;
   readonly determination_contains?: Scalars['String'] | null;
@@ -3191,12 +3261,16 @@ export type SortBullyingsBy =
   | 'teacherAuthor_DESC'
   | 'dateReported_ASC'
   | 'dateReported_DESC'
+  | 'dateOfEvent_ASC'
+  | 'dateOfEvent_DESC'
   | 'investigationDate_ASC'
   | 'investigationDate_DESC'
   | 'studentReporter_ASC'
   | 'studentReporter_DESC'
   | 'employeeWitness_ASC'
   | 'employeeWitness_DESC'
+  | 'studentWitness_ASC'
+  | 'studentWitness_DESC'
   | 'studentsInterviewed_ASC'
   | 'studentsInterviewed_DESC'
   | 'initialActions_ASC'
@@ -3205,6 +3279,8 @@ export type SortBullyingsBy =
   | 'nextSteps_DESC'
   | 'reporter_ASC'
   | 'reporter_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
   | 'determination_ASC'
   | 'determination_DESC'
   | 'determinationDate_ASC'
@@ -3218,13 +3294,16 @@ export type BullyingUpdateInput = {
   readonly studentOffender?: UserRelateToOneInput | null;
   readonly teacherAuthor?: UserRelateToOneInput | null;
   readonly dateReported?: Scalars['String'] | null;
+  readonly dateOfEvent?: Scalars['String'] | null;
   readonly investigationDate?: Scalars['String'] | null;
   readonly studentReporter?: Scalars['String'] | null;
   readonly employeeWitness?: Scalars['String'] | null;
+  readonly studentWitness?: Scalars['String'] | null;
   readonly studentsInterviewed?: Scalars['String'] | null;
   readonly initialActions?: Scalars['String'] | null;
   readonly nextSteps?: Scalars['String'] | null;
   readonly reporter?: Scalars['String'] | null;
+  readonly description?: Scalars['String'] | null;
   readonly determination?: Scalars['String'] | null;
   readonly determinationDate?: Scalars['String'] | null;
   readonly determinationExplanation?: Scalars['String'] | null;
@@ -3240,13 +3319,16 @@ export type BullyingCreateInput = {
   readonly studentOffender?: UserRelateToOneInput | null;
   readonly teacherAuthor?: UserRelateToOneInput | null;
   readonly dateReported?: Scalars['String'] | null;
+  readonly dateOfEvent?: Scalars['String'] | null;
   readonly investigationDate?: Scalars['String'] | null;
   readonly studentReporter?: Scalars['String'] | null;
   readonly employeeWitness?: Scalars['String'] | null;
+  readonly studentWitness?: Scalars['String'] | null;
   readonly studentsInterviewed?: Scalars['String'] | null;
   readonly initialActions?: Scalars['String'] | null;
   readonly nextSteps?: Scalars['String'] | null;
   readonly reporter?: Scalars['String'] | null;
+  readonly description?: Scalars['String'] | null;
   readonly determination?: Scalars['String'] | null;
   readonly determinationDate?: Scalars['String'] | null;
   readonly determinationExplanation?: Scalars['String'] | null;
@@ -3308,6 +3390,7 @@ export type UserListTypeInfo = {
   fields:
     | 'id'
     | 'name'
+    | 'preferredName'
     | 'email'
     | 'password'
     | 'taStudents'
@@ -3394,6 +3477,7 @@ export type UserListTypeInfo = {
   backing: {
     readonly id: string;
     readonly name?: string | null;
+    readonly preferredName?: string | null;
     readonly email?: string | null;
     readonly password?: string | null;
     readonly taStudents?: string | null;
@@ -4147,13 +4231,16 @@ export type BullyingListTypeInfo = {
     | 'studentOffender'
     | 'teacherAuthor'
     | 'dateReported'
+    | 'dateOfEvent'
     | 'investigationDate'
     | 'studentReporter'
     | 'employeeWitness'
+    | 'studentWitness'
     | 'studentsInterviewed'
     | 'initialActions'
     | 'nextSteps'
     | 'reporter'
+    | 'description'
     | 'determination'
     | 'determinationDate'
     | 'determinationExplanation'
@@ -4163,13 +4250,16 @@ export type BullyingListTypeInfo = {
     readonly studentOffender?: string | null;
     readonly teacherAuthor?: string | null;
     readonly dateReported?: Date | null;
+    readonly dateOfEvent?: Date | null;
     readonly investigationDate?: Date | null;
     readonly studentReporter?: string | null;
     readonly employeeWitness?: string | null;
+    readonly studentWitness?: string | null;
     readonly studentsInterviewed?: string | null;
     readonly initialActions?: string | null;
     readonly nextSteps?: string | null;
     readonly reporter?: string | null;
+    readonly description?: string | null;
     readonly determination?: string | null;
     readonly determinationDate?: Date | null;
     readonly determinationExplanation?: string | null;
