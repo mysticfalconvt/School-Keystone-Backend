@@ -609,6 +609,24 @@ export type UserWhereInput = {
   readonly block5AssignmentLastUpdated_not_in?: ReadonlyArray<
     Scalars['String'] | null
   > | null;
+  readonly sortingHat?: Scalars['String'] | null;
+  readonly sortingHat_not?: Scalars['String'] | null;
+  readonly sortingHat_contains?: Scalars['String'] | null;
+  readonly sortingHat_not_contains?: Scalars['String'] | null;
+  readonly sortingHat_starts_with?: Scalars['String'] | null;
+  readonly sortingHat_not_starts_with?: Scalars['String'] | null;
+  readonly sortingHat_ends_with?: Scalars['String'] | null;
+  readonly sortingHat_not_ends_with?: Scalars['String'] | null;
+  readonly sortingHat_i?: Scalars['String'] | null;
+  readonly sortingHat_not_i?: Scalars['String'] | null;
+  readonly sortingHat_contains_i?: Scalars['String'] | null;
+  readonly sortingHat_not_contains_i?: Scalars['String'] | null;
+  readonly sortingHat_starts_with_i?: Scalars['String'] | null;
+  readonly sortingHat_not_starts_with_i?: Scalars['String'] | null;
+  readonly sortingHat_ends_with_i?: Scalars['String'] | null;
+  readonly sortingHat_not_ends_with_i?: Scalars['String'] | null;
+  readonly sortingHat_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly sortingHat_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly passwordResetToken_is_set?: Scalars['Boolean'] | null;
   readonly passwordResetIssuedAt?: Scalars['String'] | null;
   readonly passwordResetIssuedAt_not?: Scalars['String'] | null;
@@ -824,6 +842,8 @@ export type SortUsersBy =
   | 'block5ClassName_DESC'
   | 'block5AssignmentLastUpdated_ASC'
   | 'block5AssignmentLastUpdated_DESC'
+  | 'sortingHat_ASC'
+  | 'sortingHat_DESC'
   | 'passwordResetIssuedAt_ASC'
   | 'passwordResetIssuedAt_DESC'
   | 'passwordResetRedeemedAt_ASC'
@@ -913,6 +933,7 @@ export type UserUpdateInput = {
   readonly block5Assignment?: Scalars['String'] | null;
   readonly block5ClassName?: Scalars['String'] | null;
   readonly block5AssignmentLastUpdated?: Scalars['String'] | null;
+  readonly sortingHat?: Scalars['String'] | null;
   readonly passwordResetToken?: Scalars['String'] | null;
   readonly passwordResetIssuedAt?: Scalars['String'] | null;
   readonly passwordResetRedeemedAt?: Scalars['String'] | null;
@@ -1006,6 +1027,7 @@ export type UserCreateInput = {
   readonly block5Assignment?: Scalars['String'] | null;
   readonly block5ClassName?: Scalars['String'] | null;
   readonly block5AssignmentLastUpdated?: Scalars['String'] | null;
+  readonly sortingHat?: Scalars['String'] | null;
   readonly passwordResetToken?: Scalars['String'] | null;
   readonly passwordResetIssuedAt?: Scalars['String'] | null;
   readonly passwordResetRedeemedAt?: Scalars['String'] | null;
@@ -3339,6 +3361,162 @@ export type BullyingsCreateInput = {
   readonly data?: BullyingCreateInput | null;
 };
 
+export type SortingHatQuestionWhereInput = {
+  readonly AND?: ReadonlyArray<SortingHatQuestionWhereInput | null> | null;
+  readonly OR?: ReadonlyArray<SortingHatQuestionWhereInput | null> | null;
+  readonly id?: Scalars['ID'] | null;
+  readonly id_not?: Scalars['ID'] | null;
+  readonly id_in?: ReadonlyArray<Scalars['ID'] | null> | null;
+  readonly id_not_in?: ReadonlyArray<Scalars['ID'] | null> | null;
+  readonly question?: Scalars['String'] | null;
+  readonly question_not?: Scalars['String'] | null;
+  readonly question_contains?: Scalars['String'] | null;
+  readonly question_not_contains?: Scalars['String'] | null;
+  readonly question_starts_with?: Scalars['String'] | null;
+  readonly question_not_starts_with?: Scalars['String'] | null;
+  readonly question_ends_with?: Scalars['String'] | null;
+  readonly question_not_ends_with?: Scalars['String'] | null;
+  readonly question_i?: Scalars['String'] | null;
+  readonly question_not_i?: Scalars['String'] | null;
+  readonly question_contains_i?: Scalars['String'] | null;
+  readonly question_not_contains_i?: Scalars['String'] | null;
+  readonly question_starts_with_i?: Scalars['String'] | null;
+  readonly question_not_starts_with_i?: Scalars['String'] | null;
+  readonly question_ends_with_i?: Scalars['String'] | null;
+  readonly question_not_ends_with_i?: Scalars['String'] | null;
+  readonly question_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly question_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly gryffindorChoice?: Scalars['String'] | null;
+  readonly gryffindorChoice_not?: Scalars['String'] | null;
+  readonly gryffindorChoice_contains?: Scalars['String'] | null;
+  readonly gryffindorChoice_not_contains?: Scalars['String'] | null;
+  readonly gryffindorChoice_starts_with?: Scalars['String'] | null;
+  readonly gryffindorChoice_not_starts_with?: Scalars['String'] | null;
+  readonly gryffindorChoice_ends_with?: Scalars['String'] | null;
+  readonly gryffindorChoice_not_ends_with?: Scalars['String'] | null;
+  readonly gryffindorChoice_i?: Scalars['String'] | null;
+  readonly gryffindorChoice_not_i?: Scalars['String'] | null;
+  readonly gryffindorChoice_contains_i?: Scalars['String'] | null;
+  readonly gryffindorChoice_not_contains_i?: Scalars['String'] | null;
+  readonly gryffindorChoice_starts_with_i?: Scalars['String'] | null;
+  readonly gryffindorChoice_not_starts_with_i?: Scalars['String'] | null;
+  readonly gryffindorChoice_ends_with_i?: Scalars['String'] | null;
+  readonly gryffindorChoice_not_ends_with_i?: Scalars['String'] | null;
+  readonly gryffindorChoice_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly gryffindorChoice_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly hufflepuffChoice?: Scalars['String'] | null;
+  readonly hufflepuffChoice_not?: Scalars['String'] | null;
+  readonly hufflepuffChoice_contains?: Scalars['String'] | null;
+  readonly hufflepuffChoice_not_contains?: Scalars['String'] | null;
+  readonly hufflepuffChoice_starts_with?: Scalars['String'] | null;
+  readonly hufflepuffChoice_not_starts_with?: Scalars['String'] | null;
+  readonly hufflepuffChoice_ends_with?: Scalars['String'] | null;
+  readonly hufflepuffChoice_not_ends_with?: Scalars['String'] | null;
+  readonly hufflepuffChoice_i?: Scalars['String'] | null;
+  readonly hufflepuffChoice_not_i?: Scalars['String'] | null;
+  readonly hufflepuffChoice_contains_i?: Scalars['String'] | null;
+  readonly hufflepuffChoice_not_contains_i?: Scalars['String'] | null;
+  readonly hufflepuffChoice_starts_with_i?: Scalars['String'] | null;
+  readonly hufflepuffChoice_not_starts_with_i?: Scalars['String'] | null;
+  readonly hufflepuffChoice_ends_with_i?: Scalars['String'] | null;
+  readonly hufflepuffChoice_not_ends_with_i?: Scalars['String'] | null;
+  readonly hufflepuffChoice_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly hufflepuffChoice_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly ravenclawChoice?: Scalars['String'] | null;
+  readonly ravenclawChoice_not?: Scalars['String'] | null;
+  readonly ravenclawChoice_contains?: Scalars['String'] | null;
+  readonly ravenclawChoice_not_contains?: Scalars['String'] | null;
+  readonly ravenclawChoice_starts_with?: Scalars['String'] | null;
+  readonly ravenclawChoice_not_starts_with?: Scalars['String'] | null;
+  readonly ravenclawChoice_ends_with?: Scalars['String'] | null;
+  readonly ravenclawChoice_not_ends_with?: Scalars['String'] | null;
+  readonly ravenclawChoice_i?: Scalars['String'] | null;
+  readonly ravenclawChoice_not_i?: Scalars['String'] | null;
+  readonly ravenclawChoice_contains_i?: Scalars['String'] | null;
+  readonly ravenclawChoice_not_contains_i?: Scalars['String'] | null;
+  readonly ravenclawChoice_starts_with_i?: Scalars['String'] | null;
+  readonly ravenclawChoice_not_starts_with_i?: Scalars['String'] | null;
+  readonly ravenclawChoice_ends_with_i?: Scalars['String'] | null;
+  readonly ravenclawChoice_not_ends_with_i?: Scalars['String'] | null;
+  readonly ravenclawChoice_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly ravenclawChoice_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly slytherinChoice?: Scalars['String'] | null;
+  readonly slytherinChoice_not?: Scalars['String'] | null;
+  readonly slytherinChoice_contains?: Scalars['String'] | null;
+  readonly slytherinChoice_not_contains?: Scalars['String'] | null;
+  readonly slytherinChoice_starts_with?: Scalars['String'] | null;
+  readonly slytherinChoice_not_starts_with?: Scalars['String'] | null;
+  readonly slytherinChoice_ends_with?: Scalars['String'] | null;
+  readonly slytherinChoice_not_ends_with?: Scalars['String'] | null;
+  readonly slytherinChoice_i?: Scalars['String'] | null;
+  readonly slytherinChoice_not_i?: Scalars['String'] | null;
+  readonly slytherinChoice_contains_i?: Scalars['String'] | null;
+  readonly slytherinChoice_not_contains_i?: Scalars['String'] | null;
+  readonly slytherinChoice_starts_with_i?: Scalars['String'] | null;
+  readonly slytherinChoice_not_starts_with_i?: Scalars['String'] | null;
+  readonly slytherinChoice_ends_with_i?: Scalars['String'] | null;
+  readonly slytherinChoice_not_ends_with_i?: Scalars['String'] | null;
+  readonly slytherinChoice_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly slytherinChoice_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly createdBy?: UserWhereInput | null;
+  readonly createdBy_is_null?: Scalars['Boolean'] | null;
+};
+
+export type SortingHatQuestionWhereUniqueInput = {
+  readonly id: Scalars['ID'];
+};
+
+export type SortSortingHatQuestionsBy =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'question_ASC'
+  | 'question_DESC'
+  | 'gryffindorChoice_ASC'
+  | 'gryffindorChoice_DESC'
+  | 'hufflepuffChoice_ASC'
+  | 'hufflepuffChoice_DESC'
+  | 'ravenclawChoice_ASC'
+  | 'ravenclawChoice_DESC'
+  | 'slytherinChoice_ASC'
+  | 'slytherinChoice_DESC'
+  | 'createdBy_ASC'
+  | 'createdBy_DESC';
+
+export type SortingHatQuestionUpdateInput = {
+  readonly question?: Scalars['String'] | null;
+  readonly gryffindorChoice?: Scalars['String'] | null;
+  readonly hufflepuffChoice?: Scalars['String'] | null;
+  readonly ravenclawChoice?: Scalars['String'] | null;
+  readonly slytherinChoice?: Scalars['String'] | null;
+  readonly createdBy?: UserRelateToOneInput | null;
+};
+
+export type SortingHatQuestionsUpdateInput = {
+  readonly id: Scalars['ID'];
+  readonly data?: SortingHatQuestionUpdateInput | null;
+};
+
+export type SortingHatQuestionCreateInput = {
+  readonly question?: Scalars['String'] | null;
+  readonly gryffindorChoice?: Scalars['String'] | null;
+  readonly hufflepuffChoice?: Scalars['String'] | null;
+  readonly ravenclawChoice?: Scalars['String'] | null;
+  readonly slytherinChoice?: Scalars['String'] | null;
+  readonly createdBy?: UserRelateToOneInput | null;
+};
+
+export type SortingHatQuestionsCreateInput = {
+  readonly data?: SortingHatQuestionCreateInput | null;
+};
+
 export type _ksListsMetaInput = {
   readonly key?: Scalars['String'] | null;
   readonly auxiliary?: Scalars['Boolean'] | null;
@@ -3468,6 +3646,7 @@ export type UserListTypeInfo = {
     | 'block5Assignment'
     | 'block5ClassName'
     | 'block5AssignmentLastUpdated'
+    | 'sortingHat'
     | 'passwordResetToken'
     | 'passwordResetIssuedAt'
     | 'passwordResetRedeemedAt'
@@ -3555,6 +3734,7 @@ export type UserListTypeInfo = {
     readonly block5Assignment?: string | null;
     readonly block5ClassName?: string | null;
     readonly block5AssignmentLastUpdated?: Date | null;
+    readonly sortingHat?: string | null;
     readonly passwordResetToken?: string | null;
     readonly passwordResetIssuedAt?: Date | null;
     readonly passwordResetRedeemedAt?: Date | null;
@@ -4290,6 +4470,50 @@ export type BullyingListFn = (
   BullyingListTypeInfo['fields']
 >;
 
+export type SortingHatQuestionListTypeInfo = {
+  key: 'SortingHatQuestion';
+  fields:
+    | 'id'
+    | 'question'
+    | 'gryffindorChoice'
+    | 'hufflepuffChoice'
+    | 'ravenclawChoice'
+    | 'slytherinChoice'
+    | 'createdBy';
+  backing: {
+    readonly id: string;
+    readonly question?: string | null;
+    readonly gryffindorChoice?: string | null;
+    readonly hufflepuffChoice?: string | null;
+    readonly ravenclawChoice?: string | null;
+    readonly slytherinChoice?: string | null;
+    readonly createdBy?: string | null;
+  };
+  inputs: {
+    where: SortingHatQuestionWhereInput;
+    create: SortingHatQuestionCreateInput;
+    update: SortingHatQuestionUpdateInput;
+  };
+  args: {
+    listQuery: {
+      readonly where?: SortingHatQuestionWhereInput | null;
+      readonly sortBy?: ReadonlyArray<SortSortingHatQuestionsBy> | null;
+      readonly first?: Scalars['Int'] | null;
+      readonly skip?: Scalars['Int'] | null;
+    };
+  };
+};
+
+export type SortingHatQuestionListFn = (
+  listConfig: import('@keystone-next/keystone/schema').ListConfig<
+    SortingHatQuestionListTypeInfo,
+    SortingHatQuestionListTypeInfo['fields']
+  >
+) => import('@keystone-next/keystone/schema').ListConfig<
+  SortingHatQuestionListTypeInfo,
+  SortingHatQuestionListTypeInfo['fields']
+>;
+
 export type KeystoneListsTypeInfo = {
   readonly User: UserListTypeInfo;
   readonly Calendar: CalendarListTypeInfo;
@@ -4306,4 +4530,5 @@ export type KeystoneListsTypeInfo = {
   readonly Birthday: BirthdayListTypeInfo;
   readonly BugReport: BugReportListTypeInfo;
   readonly Bullying: BullyingListTypeInfo;
+  readonly SortingHatQuestion: SortingHatQuestionListTypeInfo;
 };

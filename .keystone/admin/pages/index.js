@@ -66,6 +66,9 @@ export default function Home() {
           Bullying: _allBullyingsMeta {
             count
           }
+          SortingHatQuestion: _allSortingHatQuestionsMeta {
+            count
+          }
         }
       `}
     />

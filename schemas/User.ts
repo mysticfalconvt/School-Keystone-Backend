@@ -99,6 +99,9 @@ export const User = list({
     block5ClassName: text({ defaultValue: 'Class Name Goes Here' }),
     block5AssignmentLastUpdated: timestamp(),
 
+    // Sorting Hat
+    sortingHat: text({ defaultValue: '' }),
+
 
   },
 });

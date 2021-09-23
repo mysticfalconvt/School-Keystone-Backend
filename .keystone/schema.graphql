@@ -170,6 +170,7 @@ type User {
   block5Assignment: String
   block5ClassName: String
   block5AssignmentLastUpdated: String
+  sortingHat: String
   passwordResetToken_is_set: Boolean
   passwordResetIssuedAt: String
   passwordResetRedeemedAt: String
@@ -778,6 +779,24 @@ input UserWhereInput {
   block5AssignmentLastUpdated_gte: String
   block5AssignmentLastUpdated_in: [String]
   block5AssignmentLastUpdated_not_in: [String]
+  sortingHat: String
+  sortingHat_not: String
+  sortingHat_contains: String
+  sortingHat_not_contains: String
+  sortingHat_starts_with: String
+  sortingHat_not_starts_with: String
+  sortingHat_ends_with: String
+  sortingHat_not_ends_with: String
+  sortingHat_i: String
+  sortingHat_not_i: String
+  sortingHat_contains_i: String
+  sortingHat_not_contains_i: String
+  sortingHat_starts_with_i: String
+  sortingHat_not_starts_with_i: String
+  sortingHat_ends_with_i: String
+  sortingHat_not_ends_with_i: String
+  sortingHat_in: [String]
+  sortingHat_not_in: [String]
   passwordResetToken_is_set: Boolean
   passwordResetIssuedAt: String
   passwordResetIssuedAt_not: String
@@ -977,6 +996,8 @@ enum SortUsersBy {
   block5ClassName_DESC
   block5AssignmentLastUpdated_ASC
   block5AssignmentLastUpdated_DESC
+  sortingHat_ASC
+  sortingHat_DESC
   passwordResetIssuedAt_ASC
   passwordResetIssuedAt_DESC
   passwordResetRedeemedAt_ASC
@@ -1067,6 +1088,7 @@ input UserUpdateInput {
   block5Assignment: String
   block5ClassName: String
   block5AssignmentLastUpdated: String
+  sortingHat: String
   passwordResetToken: String
   passwordResetIssuedAt: String
   passwordResetRedeemedAt: String
@@ -1160,6 +1182,7 @@ input UserCreateInput {
   block5Assignment: String
   block5ClassName: String
   block5AssignmentLastUpdated: String
+  sortingHat: String
   passwordResetToken: String
   passwordResetIssuedAt: String
   passwordResetRedeemedAt: String
@@ -3640,6 +3663,166 @@ input BullyingsCreateInput {
   data: BullyingCreateInput
 }
 
+""" A keystone list """
+type SortingHatQuestion {
+  id: ID!
+  question: String
+  gryffindorChoice: String
+  hufflepuffChoice: String
+  ravenclawChoice: String
+  slytherinChoice: String
+  createdBy: User
+}
+
+input SortingHatQuestionWhereInput {
+  AND: [SortingHatQuestionWhereInput]
+  OR: [SortingHatQuestionWhereInput]
+  id: ID
+  id_not: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  question: String
+  question_not: String
+  question_contains: String
+  question_not_contains: String
+  question_starts_with: String
+  question_not_starts_with: String
+  question_ends_with: String
+  question_not_ends_with: String
+  question_i: String
+  question_not_i: String
+  question_contains_i: String
+  question_not_contains_i: String
+  question_starts_with_i: String
+  question_not_starts_with_i: String
+  question_ends_with_i: String
+  question_not_ends_with_i: String
+  question_in: [String]
+  question_not_in: [String]
+  gryffindorChoice: String
+  gryffindorChoice_not: String
+  gryffindorChoice_contains: String
+  gryffindorChoice_not_contains: String
+  gryffindorChoice_starts_with: String
+  gryffindorChoice_not_starts_with: String
+  gryffindorChoice_ends_with: String
+  gryffindorChoice_not_ends_with: String
+  gryffindorChoice_i: String
+  gryffindorChoice_not_i: String
+  gryffindorChoice_contains_i: String
+  gryffindorChoice_not_contains_i: String
+  gryffindorChoice_starts_with_i: String
+  gryffindorChoice_not_starts_with_i: String
+  gryffindorChoice_ends_with_i: String
+  gryffindorChoice_not_ends_with_i: String
+  gryffindorChoice_in: [String]
+  gryffindorChoice_not_in: [String]
+  hufflepuffChoice: String
+  hufflepuffChoice_not: String
+  hufflepuffChoice_contains: String
+  hufflepuffChoice_not_contains: String
+  hufflepuffChoice_starts_with: String
+  hufflepuffChoice_not_starts_with: String
+  hufflepuffChoice_ends_with: String
+  hufflepuffChoice_not_ends_with: String
+  hufflepuffChoice_i: String
+  hufflepuffChoice_not_i: String
+  hufflepuffChoice_contains_i: String
+  hufflepuffChoice_not_contains_i: String
+  hufflepuffChoice_starts_with_i: String
+  hufflepuffChoice_not_starts_with_i: String
+  hufflepuffChoice_ends_with_i: String
+  hufflepuffChoice_not_ends_with_i: String
+  hufflepuffChoice_in: [String]
+  hufflepuffChoice_not_in: [String]
+  ravenclawChoice: String
+  ravenclawChoice_not: String
+  ravenclawChoice_contains: String
+  ravenclawChoice_not_contains: String
+  ravenclawChoice_starts_with: String
+  ravenclawChoice_not_starts_with: String
+  ravenclawChoice_ends_with: String
+  ravenclawChoice_not_ends_with: String
+  ravenclawChoice_i: String
+  ravenclawChoice_not_i: String
+  ravenclawChoice_contains_i: String
+  ravenclawChoice_not_contains_i: String
+  ravenclawChoice_starts_with_i: String
+  ravenclawChoice_not_starts_with_i: String
+  ravenclawChoice_ends_with_i: String
+  ravenclawChoice_not_ends_with_i: String
+  ravenclawChoice_in: [String]
+  ravenclawChoice_not_in: [String]
+  slytherinChoice: String
+  slytherinChoice_not: String
+  slytherinChoice_contains: String
+  slytherinChoice_not_contains: String
+  slytherinChoice_starts_with: String
+  slytherinChoice_not_starts_with: String
+  slytherinChoice_ends_with: String
+  slytherinChoice_not_ends_with: String
+  slytherinChoice_i: String
+  slytherinChoice_not_i: String
+  slytherinChoice_contains_i: String
+  slytherinChoice_not_contains_i: String
+  slytherinChoice_starts_with_i: String
+  slytherinChoice_not_starts_with_i: String
+  slytherinChoice_ends_with_i: String
+  slytherinChoice_not_ends_with_i: String
+  slytherinChoice_in: [String]
+  slytherinChoice_not_in: [String]
+  createdBy: UserWhereInput
+  createdBy_is_null: Boolean
+}
+
+input SortingHatQuestionWhereUniqueInput {
+  id: ID!
+}
+
+enum SortSortingHatQuestionsBy {
+  id_ASC
+  id_DESC
+  question_ASC
+  question_DESC
+  gryffindorChoice_ASC
+  gryffindorChoice_DESC
+  hufflepuffChoice_ASC
+  hufflepuffChoice_DESC
+  ravenclawChoice_ASC
+  ravenclawChoice_DESC
+  slytherinChoice_ASC
+  slytherinChoice_DESC
+  createdBy_ASC
+  createdBy_DESC
+}
+
+input SortingHatQuestionUpdateInput {
+  question: String
+  gryffindorChoice: String
+  hufflepuffChoice: String
+  ravenclawChoice: String
+  slytherinChoice: String
+  createdBy: UserRelateToOneInput
+}
+
+input SortingHatQuestionsUpdateInput {
+  id: ID!
+  data: SortingHatQuestionUpdateInput
+}
+
+input SortingHatQuestionCreateInput {
+  question: String
+  gryffindorChoice: String
+  hufflepuffChoice: String
+  ravenclawChoice: String
+  slytherinChoice: String
+  createdBy: UserRelateToOneInput
+}
+
+input SortingHatQuestionsCreateInput {
+  data: SortingHatQuestionCreateInput
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -4015,6 +4198,20 @@ type Query {
   """ Retrieve the meta-data for the Bullying list. """
   _BullyingsMeta: _ListMeta
 
+  """ Search for all SortingHatQuestion items which match the where clause. 
+  """
+  allSortingHatQuestions(where: SortingHatQuestionWhereInput, search: String, sortBy: [SortSortingHatQuestionsBy!], orderBy: String, first: Int, skip: Int): [SortingHatQuestion]
+
+  """ Search for the SortingHatQuestion item with the matching ID. """
+  SortingHatQuestion(where: SortingHatQuestionWhereUniqueInput!): SortingHatQuestion
+
+  """ Perform a meta-query on all SortingHatQuestion items which match the where clause. 
+  """
+  _allSortingHatQuestionsMeta(where: SortingHatQuestionWhereInput, search: String, sortBy: [SortSortingHatQuestionsBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+
+  """ Retrieve the meta-data for the SortingHatQuestion list. """
+  _SortingHatQuestionsMeta: _ListMeta
+
   """ Retrieve the meta-data for all lists. """
   _ksListsMeta(where: _ksListsMetaInput): [_ListMeta]
 
@@ -4295,6 +4492,24 @@ type Mutation {
 
   """ Delete multiple Bullying items by ID. """
   deleteBullyings(ids: [ID!]): [Bullying]
+
+  """ Create a single SortingHatQuestion item. """
+  createSortingHatQuestion(data: SortingHatQuestionCreateInput): SortingHatQuestion
+
+  """ Create multiple SortingHatQuestion items. """
+  createSortingHatQuestions(data: [SortingHatQuestionsCreateInput]): [SortingHatQuestion]
+
+  """ Update a single SortingHatQuestion item by ID. """
+  updateSortingHatQuestion(id: ID!, data: SortingHatQuestionUpdateInput): SortingHatQuestion
+
+  """ Update multiple SortingHatQuestion items by ID. """
+  updateSortingHatQuestions(data: [SortingHatQuestionsUpdateInput]): [SortingHatQuestion]
+
+  """ Delete a single SortingHatQuestion item by ID. """
+  deleteSortingHatQuestion(id: ID!): SortingHatQuestion
+
+  """ Delete multiple SortingHatQuestion items by ID. """
+  deleteSortingHatQuestions(ids: [ID!]): [SortingHatQuestion]
   authenticateUserWithPassword(email: String!, password: String!): UserAuthenticationWithPasswordResult!
   createInitialUser(data: CreateInitialUserInput!): UserAuthenticationWithPasswordSuccess!
   sendUserPasswordResetLink(email: String!): SendUserPasswordResetLinkResult
