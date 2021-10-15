@@ -6,8 +6,8 @@ import { permissionFields } from './fields';
 export const User = list({
   access: {
     // create: () => true,
-    // read: isSignedIn,
-    // update: isSignedIn,
+    read: isSignedIn,
+    update: isSignedIn,
     delete: isSignedIn,
     // delete: rules.canManageUsers,
     // update: rules.canManageUsers,

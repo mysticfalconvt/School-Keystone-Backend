@@ -6,9 +6,9 @@ import { rules, isSignedIn } from '../access';
 export const Discipline = list({
     access: {
         create: isSignedIn,
-        read: () => true,
-        // update: rules.canManageCalendar,
-        // delete: rules.canManageCalendar,
+        read: isSignedIn,
+        update: isSignedIn,
+        delete: isSignedIn,
     },
     fields: {
 

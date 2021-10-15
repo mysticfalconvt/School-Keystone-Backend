@@ -7,8 +7,8 @@ export const PbisCollection = list({
     access: {
         create: isSignedIn,
         read: isSignedIn,
-        // update: rules.canManageCalendar,
-        // delete: rules.canManageCalendar,
+        update: isSignedIn,
+        delete: isSignedIn,
     },
     fields: {
         name: text(),

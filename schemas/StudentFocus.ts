@@ -6,8 +6,8 @@ export const StudentFocus = list({
     access: {
         create: isSignedIn,
         read: () => true,
-        // update: rules.canManageCalendar,
-        // delete: rules.canManageCalendar,
+        update: isSignedIn,
+        delete: isSignedIn,
     },
     fields: {
 

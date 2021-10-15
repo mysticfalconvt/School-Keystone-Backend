@@ -5,9 +5,9 @@ import { rules, isSignedIn } from '../access';
 export const CellPhoneViolation = list({
     access: {
         create: isSignedIn,
-        read: () => true,
-        // update: rules.canManageCalendar,
-        // delete: rules.canManageCalendar,
+        read: isSignedIn,
+        update: isSignedIn,
+        delete: isSignedIn,
     },
     fields: {
 

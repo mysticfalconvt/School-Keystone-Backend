@@ -5,10 +5,10 @@ import { CalendarDay } from '@keystonejs/fields'
 
 export const PbisTeam = list({
     access: {
-        create: () => true,
-        read: () => true,
-        // update: rules.canManageCalendar,
-        // delete: rules.canManageCalendar,
+        create: isSignedIn,
+        read: isSignedIn,
+        update: isSignedIn,
+        delete: isSignedIn,
     },
     fields: {
 

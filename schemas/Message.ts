@@ -6,9 +6,9 @@ import { CalendarDay } from '@keystonejs/fields'
 export const Message = list({
     access: {
         create: isSignedIn,
-        read: () => true,
-        // update: rules.canManageCalendar,
-        // delete: rules.canManageCalendar,
+        read: isSignedIn,
+        update: isSignedIn,
+        delete: isSignedIn,
     },
     fields: {
         subject: text(),
