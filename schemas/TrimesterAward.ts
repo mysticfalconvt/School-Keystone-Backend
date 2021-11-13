@@ -29,6 +29,8 @@ export const TrimesterAward = list({
 
         date: timestamp({
             isRequired: true,
+            defaultValue: () => new Date().toISOString(),
+
         }),
 
         student: relationship({
