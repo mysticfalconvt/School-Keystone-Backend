@@ -69,6 +69,9 @@ export default function Home() {
           SortingHatQuestion: _allSortingHatQuestionsMeta {
             count
           }
+          TrimesterAward: _allTrimesterAwardsMeta {
+            count
+          }
         }
       `}
     />

@@ -16,6 +16,7 @@ import { Birthday } from './schemas/Birthday'
 import { BugReport } from './schemas/BugReport'
 import { Bullying } from './schemas/Bullying'
 import { SortingHatQuestion } from './schemas/SortingHatQuestion';
+import { TrimesterAward } from './schemas/TrimesterAward';
 
 import { extendGraphqlSchema } from './mutations';
 import 'dotenv/config';
@@ -82,6 +83,7 @@ export default withAuth(
       BugReport,
       Bullying,
       SortingHatQuestion,
+      TrimesterAward,
     }),
     extendGraphqlSchema,
     ui: {

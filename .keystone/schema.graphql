@@ -3823,6 +3823,117 @@ input SortingHatQuestionsCreateInput {
   data: SortingHatQuestionCreateInput
 }
 
+""" A keystone list """
+type TrimesterAward {
+  id: ID!
+  howl: String
+  trimester: String
+  date: String
+  student: User
+  teacher: User
+}
+
+input TrimesterAwardWhereInput {
+  AND: [TrimesterAwardWhereInput]
+  OR: [TrimesterAwardWhereInput]
+  id: ID
+  id_not: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  howl: String
+  howl_not: String
+  howl_contains: String
+  howl_not_contains: String
+  howl_starts_with: String
+  howl_not_starts_with: String
+  howl_ends_with: String
+  howl_not_ends_with: String
+  howl_i: String
+  howl_not_i: String
+  howl_contains_i: String
+  howl_not_contains_i: String
+  howl_starts_with_i: String
+  howl_not_starts_with_i: String
+  howl_ends_with_i: String
+  howl_not_ends_with_i: String
+  howl_in: [String]
+  howl_not_in: [String]
+  trimester: String
+  trimester_not: String
+  trimester_contains: String
+  trimester_not_contains: String
+  trimester_starts_with: String
+  trimester_not_starts_with: String
+  trimester_ends_with: String
+  trimester_not_ends_with: String
+  trimester_i: String
+  trimester_not_i: String
+  trimester_contains_i: String
+  trimester_not_contains_i: String
+  trimester_starts_with_i: String
+  trimester_not_starts_with_i: String
+  trimester_ends_with_i: String
+  trimester_not_ends_with_i: String
+  trimester_in: [String]
+  trimester_not_in: [String]
+  date: String
+  date_not: String
+  date_lt: String
+  date_lte: String
+  date_gt: String
+  date_gte: String
+  date_in: [String]
+  date_not_in: [String]
+  student: UserWhereInput
+  student_is_null: Boolean
+  teacher: UserWhereInput
+  teacher_is_null: Boolean
+}
+
+input TrimesterAwardWhereUniqueInput {
+  id: ID!
+}
+
+enum SortTrimesterAwardsBy {
+  id_ASC
+  id_DESC
+  howl_ASC
+  howl_DESC
+  trimester_ASC
+  trimester_DESC
+  date_ASC
+  date_DESC
+  student_ASC
+  student_DESC
+  teacher_ASC
+  teacher_DESC
+}
+
+input TrimesterAwardUpdateInput {
+  howl: String
+  trimester: String
+  date: String
+  student: UserRelateToOneInput
+  teacher: UserRelateToOneInput
+}
+
+input TrimesterAwardsUpdateInput {
+  id: ID!
+  data: TrimesterAwardUpdateInput
+}
+
+input TrimesterAwardCreateInput {
+  howl: String
+  trimester: String
+  date: String
+  student: UserRelateToOneInput
+  teacher: UserRelateToOneInput
+}
+
+input TrimesterAwardsCreateInput {
+  data: TrimesterAwardCreateInput
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -4212,6 +4323,19 @@ type Query {
   """ Retrieve the meta-data for the SortingHatQuestion list. """
   _SortingHatQuestionsMeta: _ListMeta
 
+  """ Search for all TrimesterAward items which match the where clause. """
+  allTrimesterAwards(where: TrimesterAwardWhereInput, search: String, sortBy: [SortTrimesterAwardsBy!], orderBy: String, first: Int, skip: Int): [TrimesterAward]
+
+  """ Search for the TrimesterAward item with the matching ID. """
+  TrimesterAward(where: TrimesterAwardWhereUniqueInput!): TrimesterAward
+
+  """ Perform a meta-query on all TrimesterAward items which match the where clause. 
+  """
+  _allTrimesterAwardsMeta(where: TrimesterAwardWhereInput, search: String, sortBy: [SortTrimesterAwardsBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+
+  """ Retrieve the meta-data for the TrimesterAward list. """
+  _TrimesterAwardsMeta: _ListMeta
+
   """ Retrieve the meta-data for all lists. """
   _ksListsMeta(where: _ksListsMetaInput): [_ListMeta]
 
@@ -4510,6 +4634,24 @@ type Mutation {
 
   """ Delete multiple SortingHatQuestion items by ID. """
   deleteSortingHatQuestions(ids: [ID!]): [SortingHatQuestion]
+
+  """ Create a single TrimesterAward item. """
+  createTrimesterAward(data: TrimesterAwardCreateInput): TrimesterAward
+
+  """ Create multiple TrimesterAward items. """
+  createTrimesterAwards(data: [TrimesterAwardsCreateInput]): [TrimesterAward]
+
+  """ Update a single TrimesterAward item by ID. """
+  updateTrimesterAward(id: ID!, data: TrimesterAwardUpdateInput): TrimesterAward
+
+  """ Update multiple TrimesterAward items by ID. """
+  updateTrimesterAwards(data: [TrimesterAwardsUpdateInput]): [TrimesterAward]
+
+  """ Delete a single TrimesterAward item by ID. """
+  deleteTrimesterAward(id: ID!): TrimesterAward
+
+  """ Delete multiple TrimesterAward items by ID. """
+  deleteTrimesterAwards(ids: [ID!]): [TrimesterAward]
   authenticateUserWithPassword(email: String!, password: String!): UserAuthenticationWithPasswordResult!
   createInitialUser(data: CreateInitialUserInput!): UserAuthenticationWithPasswordSuccess!
   sendUserPasswordResetLink(email: String!): SendUserPasswordResetLinkResult

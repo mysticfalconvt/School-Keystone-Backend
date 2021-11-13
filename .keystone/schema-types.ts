@@ -3517,6 +3517,106 @@ export type SortingHatQuestionsCreateInput = {
   readonly data?: SortingHatQuestionCreateInput | null;
 };
 
+export type TrimesterAwardWhereInput = {
+  readonly AND?: ReadonlyArray<TrimesterAwardWhereInput | null> | null;
+  readonly OR?: ReadonlyArray<TrimesterAwardWhereInput | null> | null;
+  readonly id?: Scalars['ID'] | null;
+  readonly id_not?: Scalars['ID'] | null;
+  readonly id_in?: ReadonlyArray<Scalars['ID'] | null> | null;
+  readonly id_not_in?: ReadonlyArray<Scalars['ID'] | null> | null;
+  readonly howl?: Scalars['String'] | null;
+  readonly howl_not?: Scalars['String'] | null;
+  readonly howl_contains?: Scalars['String'] | null;
+  readonly howl_not_contains?: Scalars['String'] | null;
+  readonly howl_starts_with?: Scalars['String'] | null;
+  readonly howl_not_starts_with?: Scalars['String'] | null;
+  readonly howl_ends_with?: Scalars['String'] | null;
+  readonly howl_not_ends_with?: Scalars['String'] | null;
+  readonly howl_i?: Scalars['String'] | null;
+  readonly howl_not_i?: Scalars['String'] | null;
+  readonly howl_contains_i?: Scalars['String'] | null;
+  readonly howl_not_contains_i?: Scalars['String'] | null;
+  readonly howl_starts_with_i?: Scalars['String'] | null;
+  readonly howl_not_starts_with_i?: Scalars['String'] | null;
+  readonly howl_ends_with_i?: Scalars['String'] | null;
+  readonly howl_not_ends_with_i?: Scalars['String'] | null;
+  readonly howl_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly howl_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly trimester?: Scalars['String'] | null;
+  readonly trimester_not?: Scalars['String'] | null;
+  readonly trimester_contains?: Scalars['String'] | null;
+  readonly trimester_not_contains?: Scalars['String'] | null;
+  readonly trimester_starts_with?: Scalars['String'] | null;
+  readonly trimester_not_starts_with?: Scalars['String'] | null;
+  readonly trimester_ends_with?: Scalars['String'] | null;
+  readonly trimester_not_ends_with?: Scalars['String'] | null;
+  readonly trimester_i?: Scalars['String'] | null;
+  readonly trimester_not_i?: Scalars['String'] | null;
+  readonly trimester_contains_i?: Scalars['String'] | null;
+  readonly trimester_not_contains_i?: Scalars['String'] | null;
+  readonly trimester_starts_with_i?: Scalars['String'] | null;
+  readonly trimester_not_starts_with_i?: Scalars['String'] | null;
+  readonly trimester_ends_with_i?: Scalars['String'] | null;
+  readonly trimester_not_ends_with_i?: Scalars['String'] | null;
+  readonly trimester_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly trimester_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly date?: Scalars['String'] | null;
+  readonly date_not?: Scalars['String'] | null;
+  readonly date_lt?: Scalars['String'] | null;
+  readonly date_lte?: Scalars['String'] | null;
+  readonly date_gt?: Scalars['String'] | null;
+  readonly date_gte?: Scalars['String'] | null;
+  readonly date_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly date_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly student?: UserWhereInput | null;
+  readonly student_is_null?: Scalars['Boolean'] | null;
+  readonly teacher?: UserWhereInput | null;
+  readonly teacher_is_null?: Scalars['Boolean'] | null;
+};
+
+export type TrimesterAwardWhereUniqueInput = {
+  readonly id: Scalars['ID'];
+};
+
+export type SortTrimesterAwardsBy =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'howl_ASC'
+  | 'howl_DESC'
+  | 'trimester_ASC'
+  | 'trimester_DESC'
+  | 'date_ASC'
+  | 'date_DESC'
+  | 'student_ASC'
+  | 'student_DESC'
+  | 'teacher_ASC'
+  | 'teacher_DESC';
+
+export type TrimesterAwardUpdateInput = {
+  readonly howl?: Scalars['String'] | null;
+  readonly trimester?: Scalars['String'] | null;
+  readonly date?: Scalars['String'] | null;
+  readonly student?: UserRelateToOneInput | null;
+  readonly teacher?: UserRelateToOneInput | null;
+};
+
+export type TrimesterAwardsUpdateInput = {
+  readonly id: Scalars['ID'];
+  readonly data?: TrimesterAwardUpdateInput | null;
+};
+
+export type TrimesterAwardCreateInput = {
+  readonly howl?: Scalars['String'] | null;
+  readonly trimester?: Scalars['String'] | null;
+  readonly date?: Scalars['String'] | null;
+  readonly student?: UserRelateToOneInput | null;
+  readonly teacher?: UserRelateToOneInput | null;
+};
+
+export type TrimesterAwardsCreateInput = {
+  readonly data?: TrimesterAwardCreateInput | null;
+};
+
 export type _ksListsMetaInput = {
   readonly key?: Scalars['String'] | null;
   readonly auxiliary?: Scalars['Boolean'] | null;
@@ -4514,6 +4614,42 @@ export type SortingHatQuestionListFn = (
   SortingHatQuestionListTypeInfo['fields']
 >;
 
+export type TrimesterAwardListTypeInfo = {
+  key: 'TrimesterAward';
+  fields: 'id' | 'howl' | 'trimester' | 'date' | 'student' | 'teacher';
+  backing: {
+    readonly id: string;
+    readonly howl?: string | null;
+    readonly trimester?: string | null;
+    readonly date?: Date | null;
+    readonly student?: string | null;
+    readonly teacher?: string | null;
+  };
+  inputs: {
+    where: TrimesterAwardWhereInput;
+    create: TrimesterAwardCreateInput;
+    update: TrimesterAwardUpdateInput;
+  };
+  args: {
+    listQuery: {
+      readonly where?: TrimesterAwardWhereInput | null;
+      readonly sortBy?: ReadonlyArray<SortTrimesterAwardsBy> | null;
+      readonly first?: Scalars['Int'] | null;
+      readonly skip?: Scalars['Int'] | null;
+    };
+  };
+};
+
+export type TrimesterAwardListFn = (
+  listConfig: import('@keystone-next/keystone/schema').ListConfig<
+    TrimesterAwardListTypeInfo,
+    TrimesterAwardListTypeInfo['fields']
+  >
+) => import('@keystone-next/keystone/schema').ListConfig<
+  TrimesterAwardListTypeInfo,
+  TrimesterAwardListTypeInfo['fields']
+>;
+
 export type KeystoneListsTypeInfo = {
   readonly User: UserListTypeInfo;
   readonly Calendar: CalendarListTypeInfo;
@@ -4531,4 +4667,5 @@ export type KeystoneListsTypeInfo = {
   readonly BugReport: BugReportListTypeInfo;
   readonly Bullying: BullyingListTypeInfo;
   readonly SortingHatQuestion: SortingHatQuestionListTypeInfo;
+  readonly TrimesterAward: TrimesterAwardListTypeInfo;
 };
