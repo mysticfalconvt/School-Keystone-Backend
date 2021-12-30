@@ -89,7 +89,7 @@ export default withAuth(
     ui: {
       // Show the UI only for poeple who pass this test
       isAccessAllowed: ({ session }) => {
-        console.log(session?.data);
+        // console.log(session?.data);
         return !!session?.data?.isSuperAdmin
       },
     },
@@ -97,5 +97,6 @@ export default withAuth(
       // GraphQL Query
       User: 'id name email canManageUsers canManageCalendar isSuperAdmin',
     }),
+
   })
 );
