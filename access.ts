@@ -7,7 +7,7 @@ export function isSignedIn({ session, itemId, context }: ListAccessArgs) {
 
 
   // console.log("context", context.req)
-  const isAuth = context.req.rawHeaders.includes("test auth for keystone")
+  const isAuth = context?.req?.rawHeaders?.includes("test auth for keystone")
   // console.log("isAuth", isAuth)
   const hasSession = !!session;
 
