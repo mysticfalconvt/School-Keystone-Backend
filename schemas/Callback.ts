@@ -36,7 +36,9 @@ export const Callback = list({
         }),
         link: text(),
         messageFromTeacher: text(),
+        messageFromTeacherDate: text(),
         messageFromStudent: text(),
+        messageFromStudentDate: text(),
         daysLate: integer(),
 
     },
