@@ -1892,6 +1892,28 @@ export type CallbackWhereInput = {
   readonly messageFromTeacher_not_in?: ReadonlyArray<
     Scalars['String'] | null
   > | null;
+  readonly messageFromTeacherDate?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_not?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_contains?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_not_contains?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_starts_with?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_not_starts_with?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_ends_with?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_not_ends_with?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_i?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_not_i?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_contains_i?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_not_contains_i?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_starts_with_i?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_not_starts_with_i?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_ends_with_i?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_not_ends_with_i?: Scalars['String'] | null;
+  readonly messageFromTeacherDate_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly messageFromTeacherDate_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
   readonly messageFromStudent?: Scalars['String'] | null;
   readonly messageFromStudent_not?: Scalars['String'] | null;
   readonly messageFromStudent_contains?: Scalars['String'] | null;
@@ -1912,6 +1934,28 @@ export type CallbackWhereInput = {
     Scalars['String'] | null
   > | null;
   readonly messageFromStudent_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly messageFromStudentDate?: Scalars['String'] | null;
+  readonly messageFromStudentDate_not?: Scalars['String'] | null;
+  readonly messageFromStudentDate_contains?: Scalars['String'] | null;
+  readonly messageFromStudentDate_not_contains?: Scalars['String'] | null;
+  readonly messageFromStudentDate_starts_with?: Scalars['String'] | null;
+  readonly messageFromStudentDate_not_starts_with?: Scalars['String'] | null;
+  readonly messageFromStudentDate_ends_with?: Scalars['String'] | null;
+  readonly messageFromStudentDate_not_ends_with?: Scalars['String'] | null;
+  readonly messageFromStudentDate_i?: Scalars['String'] | null;
+  readonly messageFromStudentDate_not_i?: Scalars['String'] | null;
+  readonly messageFromStudentDate_contains_i?: Scalars['String'] | null;
+  readonly messageFromStudentDate_not_contains_i?: Scalars['String'] | null;
+  readonly messageFromStudentDate_starts_with_i?: Scalars['String'] | null;
+  readonly messageFromStudentDate_not_starts_with_i?: Scalars['String'] | null;
+  readonly messageFromStudentDate_ends_with_i?: Scalars['String'] | null;
+  readonly messageFromStudentDate_not_ends_with_i?: Scalars['String'] | null;
+  readonly messageFromStudentDate_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly messageFromStudentDate_not_in?: ReadonlyArray<
     Scalars['String'] | null
   > | null;
   readonly daysLate?: Scalars['Int'] | null;
@@ -1947,8 +1991,12 @@ export type SortCallbacksBy =
   | 'link_DESC'
   | 'messageFromTeacher_ASC'
   | 'messageFromTeacher_DESC'
+  | 'messageFromTeacherDate_ASC'
+  | 'messageFromTeacherDate_DESC'
   | 'messageFromStudent_ASC'
   | 'messageFromStudent_DESC'
+  | 'messageFromStudentDate_ASC'
+  | 'messageFromStudentDate_DESC'
   | 'daysLate_ASC'
   | 'daysLate_DESC';
 
@@ -1961,7 +2009,9 @@ export type CallbackUpdateInput = {
   readonly dateCompleted?: Scalars['String'] | null;
   readonly link?: Scalars['String'] | null;
   readonly messageFromTeacher?: Scalars['String'] | null;
+  readonly messageFromTeacherDate?: Scalars['String'] | null;
   readonly messageFromStudent?: Scalars['String'] | null;
+  readonly messageFromStudentDate?: Scalars['String'] | null;
   readonly daysLate?: Scalars['Int'] | null;
 };
 
@@ -1979,7 +2029,9 @@ export type CallbackCreateInput = {
   readonly dateCompleted?: Scalars['String'] | null;
   readonly link?: Scalars['String'] | null;
   readonly messageFromTeacher?: Scalars['String'] | null;
+  readonly messageFromTeacherDate?: Scalars['String'] | null;
   readonly messageFromStudent?: Scalars['String'] | null;
+  readonly messageFromStudentDate?: Scalars['String'] | null;
   readonly daysLate?: Scalars['Int'] | null;
 };
 
@@ -4150,7 +4202,9 @@ export type CallbackListTypeInfo = {
     | 'dateCompleted'
     | 'link'
     | 'messageFromTeacher'
+    | 'messageFromTeacherDate'
     | 'messageFromStudent'
+    | 'messageFromStudentDate'
     | 'daysLate';
   backing: {
     readonly id: string;
@@ -4162,7 +4216,9 @@ export type CallbackListTypeInfo = {
     readonly dateCompleted?: Date | null;
     readonly link?: string | null;
     readonly messageFromTeacher?: string | null;
+    readonly messageFromTeacherDate?: string | null;
     readonly messageFromStudent?: string | null;
+    readonly messageFromStudentDate?: string | null;
     readonly daysLate?: number | null;
   };
   inputs: {

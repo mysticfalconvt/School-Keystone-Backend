@@ -2032,7 +2032,9 @@ type Callback {
   dateCompleted: String
   link: String
   messageFromTeacher: String
+  messageFromTeacherDate: String
   messageFromStudent: String
+  messageFromStudentDate: String
   daysLate: Int
 }
 
@@ -2135,6 +2137,24 @@ input CallbackWhereInput {
   messageFromTeacher_not_ends_with_i: String
   messageFromTeacher_in: [String]
   messageFromTeacher_not_in: [String]
+  messageFromTeacherDate: String
+  messageFromTeacherDate_not: String
+  messageFromTeacherDate_contains: String
+  messageFromTeacherDate_not_contains: String
+  messageFromTeacherDate_starts_with: String
+  messageFromTeacherDate_not_starts_with: String
+  messageFromTeacherDate_ends_with: String
+  messageFromTeacherDate_not_ends_with: String
+  messageFromTeacherDate_i: String
+  messageFromTeacherDate_not_i: String
+  messageFromTeacherDate_contains_i: String
+  messageFromTeacherDate_not_contains_i: String
+  messageFromTeacherDate_starts_with_i: String
+  messageFromTeacherDate_not_starts_with_i: String
+  messageFromTeacherDate_ends_with_i: String
+  messageFromTeacherDate_not_ends_with_i: String
+  messageFromTeacherDate_in: [String]
+  messageFromTeacherDate_not_in: [String]
   messageFromStudent: String
   messageFromStudent_not: String
   messageFromStudent_contains: String
@@ -2153,6 +2173,24 @@ input CallbackWhereInput {
   messageFromStudent_not_ends_with_i: String
   messageFromStudent_in: [String]
   messageFromStudent_not_in: [String]
+  messageFromStudentDate: String
+  messageFromStudentDate_not: String
+  messageFromStudentDate_contains: String
+  messageFromStudentDate_not_contains: String
+  messageFromStudentDate_starts_with: String
+  messageFromStudentDate_not_starts_with: String
+  messageFromStudentDate_ends_with: String
+  messageFromStudentDate_not_ends_with: String
+  messageFromStudentDate_i: String
+  messageFromStudentDate_not_i: String
+  messageFromStudentDate_contains_i: String
+  messageFromStudentDate_not_contains_i: String
+  messageFromStudentDate_starts_with_i: String
+  messageFromStudentDate_not_starts_with_i: String
+  messageFromStudentDate_ends_with_i: String
+  messageFromStudentDate_not_ends_with_i: String
+  messageFromStudentDate_in: [String]
+  messageFromStudentDate_not_in: [String]
   daysLate: Int
   daysLate_not: Int
   daysLate_lt: Int
@@ -2186,8 +2224,12 @@ enum SortCallbacksBy {
   link_DESC
   messageFromTeacher_ASC
   messageFromTeacher_DESC
+  messageFromTeacherDate_ASC
+  messageFromTeacherDate_DESC
   messageFromStudent_ASC
   messageFromStudent_DESC
+  messageFromStudentDate_ASC
+  messageFromStudentDate_DESC
   daysLate_ASC
   daysLate_DESC
 }
@@ -2201,7 +2243,9 @@ input CallbackUpdateInput {
   dateCompleted: String
   link: String
   messageFromTeacher: String
+  messageFromTeacherDate: String
   messageFromStudent: String
+  messageFromStudentDate: String
   daysLate: Int
 }
 
@@ -2219,7 +2263,9 @@ input CallbackCreateInput {
   dateCompleted: String
   link: String
   messageFromTeacher: String
+  messageFromTeacherDate: String
   messageFromStudent: String
+  messageFromStudentDate: String
   daysLate: Int
 }
 
